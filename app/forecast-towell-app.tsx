@@ -2,14 +2,14 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
-  Archive, BrainCircuit, CalendarRange, CheckCircle2, ChevronRight, ClipboardCheck,
-  FileClock, History, Home, PanelLeft, Plus, Search,
+  BrainCircuit, CalendarRange, ChevronRight, ClipboardCheck,
+  FileClock, History, Home, PanelLeft, Search,
   ShieldCheck, ShoppingCart, Sparkles, TrendingUp, Truck, UserCog, Users,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,6 +23,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/sonner";
 import StatisticalEngineView from "./statistical-engine-view";
+import ExecutiveDashboard from "./executive-dashboard";
 
 type ModuleId = "inicio" | "captura" | "historico" | "motor" | "periodos" | "calidad" | "usuarios" | "auditoria";
 type CaptureType = "pedido" | "venta" | "entrega" | "fcst";
@@ -82,7 +83,6 @@ function StatusBadge({ children, tone = "blue" }: { children: React.ReactNode; t
 export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConfigured: boolean }) {
   const [active, setActive] = useState<ModuleId>("inicio");
   const [capture, setCapture] = useState<CaptureType | null>(null);
-  const [savedRows, setSavedRows] = useState(0);
   const [periodState, setPeriodState] = useState("Abierto");
   const title = useMemo(() => modules.find(([id]) => id === active)?.[1] ?? "Inicio", [active]);
 
@@ -130,7 +130,6 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
         persisted = result.ok;
       } catch { persisted = false; }
     }
-    setSavedRows((n) => n + 1);
     setCapture(null);
     toast.success(persisted ? "Registro guardado y auditado" : "Captura validada en modo demostración", {
       description: persisted ? "Supabase creó también la versión y el evento." : "Conecta Supabase para convertirla en registro oficial.",
@@ -141,12 +140,12 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
     <Sidebar collapsible="icon" className="border-r border-slate-200">
       <SidebarHeader className="border-b border-slate-200 p-4"><div className="flex items-center gap-3"><div className="grid size-9 shrink-0 place-items-center rounded-xl bg-blue-700 text-sm font-black text-white">FT</div><div className="min-w-0 group-data-[collapsible=icon]:hidden"><p className="truncate text-sm font-bold">FORECAST Towell</p><p className="truncate text-xs text-slate-500">Operación y control</p></div></div></SidebarHeader>
       <SidebarContent><SidebarGroup><SidebarGroupLabel>Módulos</SidebarGroupLabel><SidebarGroupContent><SidebarMenu>{modules.map(([id, label, Icon]) => <SidebarMenuItem key={id}><SidebarMenuButton isActive={active === id} tooltip={label} onClick={() => setActive(id)} className="cursor-pointer"><Icon/><span>{label}</span></SidebarMenuButton></SidebarMenuItem>)}</SidebarMenu></SidebarGroupContent></SidebarGroup></SidebarContent>
-      <SidebarFooter className="border-t border-slate-200 p-3"><div className="rounded-xl bg-slate-900 p-3 text-white group-data-[collapsible=icon]:hidden"><p className="text-xs font-semibold">Piloto activo</p><p className="mt-1 text-sm">FENDI BD · Walmart</p><p className="mt-2 text-[11px] text-slate-300">11 UPC · 8 con continuidad</p></div><div className="hidden size-8 place-items-center rounded-lg bg-slate-900 text-white group-data-[collapsible=icon]:grid">11</div></SidebarFooter>
+      <SidebarFooter className="border-t border-slate-200 p-3"><div className="rounded-xl bg-slate-900 p-3 text-white group-data-[collapsible=icon]:hidden"><p className="text-xs font-semibold">Piloto seleccionado</p><p className="mt-1 text-sm">FENDI BD</p><p className="mt-2 text-[11px] text-slate-300">Cadena · Walmart</p></div><div className="hidden size-8 place-items-center rounded-lg bg-slate-900 text-white group-data-[collapsible=icon]:grid">FB</div></SidebarFooter>
     </Sidebar>
     <SidebarInset className="min-w-0 bg-[#f7f9fc]">
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-slate-200 bg-white/95 px-4 backdrop-blur md:px-7"><div className="flex min-w-0 items-center gap-3"><SidebarTrigger aria-label="Abrir navegación"><PanelLeft/></SidebarTrigger><div className="h-6 w-px bg-slate-200"/><div><p className="truncate text-sm font-semibold text-slate-950">{title}</p><p className="hidden text-xs text-slate-500 sm:block">Septiembre 2026 · Periodo {periodState.toLowerCase()}</p></div></div><div className="flex items-center gap-2"><StatusBadge tone={supabaseConfigured ? "green" : "amber"}>{supabaseConfigured ? "Supabase conectado" : "Supabase pendiente"}</StatusBadge><div className="hidden items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 sm:flex"><div className="grid size-7 place-items-center rounded-full bg-blue-100 text-xs font-bold text-blue-700">G1</div><span className="text-sm font-medium">Gerencia 1</span></div></div></header>
+      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-slate-200 bg-white/95 px-4 backdrop-blur md:px-7"><div className="flex min-w-0 items-center gap-3"><SidebarTrigger aria-label="Abrir navegación"><PanelLeft/></SidebarTrigger><div className="h-6 w-px bg-slate-200"/><div><p className="truncate text-sm font-semibold text-slate-950">{active === "inicio" ? "FORECAST Towell" : title}</p><p className="hidden text-xs text-slate-500 sm:block">{active === "inicio" ? "Piloto FENDI BD" : `Septiembre 2026 · Periodo ${periodState.toLowerCase()}`}</p></div></div><div className="flex items-center gap-2"><div className="hidden items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 sm:flex"><div className="grid size-7 place-items-center rounded-full bg-blue-100 text-xs font-bold text-blue-700">G1</div><div><p className="text-sm font-medium leading-4">Gerencia 1</p><p className="text-[11px] text-slate-500">Gerente</p></div></div></div></header>
       <main className="mx-auto w-full max-w-[1480px] p-4 md:p-7">
-        {active === "inicio" && <HomeView onCapture={setCapture} onGo={setActive} savedRows={savedRows} supabaseConfigured={supabaseConfigured}/>} 
+        {active === "inicio" && <HomeView onGo={setActive} periodState={periodState}/>}
         {active === "captura" && <CaptureView onCapture={setCapture}/>} 
         {active === "historico" && <HistoryView/>}
         {active === "motor" && <StatisticalEngineView supabaseConfigured={supabaseConfigured}/>}
@@ -161,25 +160,7 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
   </SidebarProvider>;
 }
 
-function HomeView({ onCapture, onGo, savedRows, supabaseConfigured }: { onCapture: (t: CaptureType) => void; onGo: (id: ModuleId) => void; savedRows: number; supabaseConfigured: boolean }) {
-  const cards = [
-    ["Pedidos pendientes", "2", "1 requiere fecha", ShoppingCart, "bg-blue-50 text-blue-700"],
-    ["Ventas pendientes", "3", "Cierre parcial", TrendingUp, "bg-cyan-50 text-cyan-700"],
-    ["Entregas pendientes", "1", "Saldo: 184 pzas", Truck, "bg-violet-50 text-violet-700"],
-    ["Fcst Cliente", "Sin dato", "3 de 8 productos", Sparkles, "bg-amber-50 text-amber-700"],
-  ] as const;
-  return <div className="space-y-6">
-    {!supabaseConfigured && <div className="flex flex-col gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-sm font-semibold text-amber-950">Modo demostración: estructura terminada, conexión pendiente</p><p className="mt-0.5 text-sm text-amber-800">Las capturas se validan en pantalla, pero aún no son registros oficiales.</p></div><Button variant="outline" className="border-amber-300 bg-white text-amber-900" onClick={() => onGo("calidad")}>Ver bloqueo</Button></div>}
-    <section className="grid gap-4 xl:grid-cols-[1.35fr_.65fr]">
-      <div className="overflow-hidden rounded-[28px] bg-slate-950 text-white shadow-sm"><div className="relative grid min-h-[245px] gap-8 p-6 md:grid-cols-[1fr_280px] md:p-8"><div className="relative z-10"><div className="mb-8 flex items-center gap-2"><span className="size-2 rounded-full bg-emerald-400"/><span className="text-xs font-semibold uppercase tracking-[.16em] text-slate-300">Periodo activo</span></div><p className="text-4xl font-semibold tracking-[-.045em] md:text-5xl">Septiembre 2026</p><p className="mt-3 max-w-xl text-base leading-7 text-slate-300">Captura operativa abierta para el piloto FENDI BD. El cierre conserva la versión oficial y bloquea cambios ordinarios.</p><div className="mt-7 flex flex-wrap gap-3"><Button className="bg-white text-slate-950 hover:bg-blue-50" onClick={() => onCapture("venta")}><Plus/> Registrar venta</Button><Button variant="outline" className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:text-white" onClick={() => onGo("periodos")}>Revisar periodo <ChevronRight/></Button></div></div><div className="relative flex items-end"><div className="w-full rounded-2xl border border-white/10 bg-white/[.06] p-5"><div className="flex justify-between text-sm"><span className="text-slate-300">Completitud mensual</span><span className="font-semibold">70%</span></div><div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10"><div className="h-full w-[70%] rounded-full bg-blue-400"/></div><div className="mt-5 grid grid-cols-2 gap-3 text-sm"><div><p className="text-slate-400">Productos</p><p className="mt-1 text-xl font-semibold">11</p></div><div><p className="text-slate-400">Observaciones</p><p className="mt-1 text-xl font-semibold">4</p></div></div></div></div><div className="pointer-events-none absolute -right-24 -top-28 size-80 rounded-full border-[48px] border-blue-500/10"/></div></div>
-      <Card className="rounded-[28px] border-slate-200 shadow-sm"><CardHeader className="pb-3"><CardTitle className="text-base">Migración inicial</CardTitle></CardHeader><CardContent><div className="mb-5 flex items-end justify-between"><div><p className="text-4xl font-semibold tracking-tight">1,350</p><p className="mt-1 text-sm text-slate-500">hechos FENDI preparados</p></div><StatusBadge tone="amber">Por aprobar</StatusBadge></div><div className="space-y-3 text-sm">{["5 archivos con huella", "66 hojas inventariadas", "11 UPC FENDI identificados"].map((x) => <div key={x} className="flex items-center gap-2"><CheckCircle2 className="size-4 text-emerald-600"/><span>{x}</span></div>)}<div className="flex items-center gap-2"><Archive className="size-4 text-amber-600"/><span>10 decisiones en cuarentena</span></div></div><Button variant="outline" className="mt-6 w-full" onClick={() => onGo("calidad")}>Abrir informe de calidad</Button></CardContent></Card>
-    </section>
-    <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{cards.map(([label, value, detail, Icon, cls]) => <Card key={label} className="border-slate-200 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"><CardContent className="p-5"><div className="flex items-start justify-between"><div><p className="text-sm text-slate-500">{label}</p><p className="mt-2 text-2xl font-semibold tracking-tight">{value}</p></div><div className={`grid size-10 place-items-center rounded-xl ${cls}`}><Icon className="size-5"/></div></div><p className="mt-4 text-xs font-medium text-slate-500">{detail}</p></CardContent></Card>)}</section>
-    <section className="grid gap-4 xl:grid-cols-[1fr_380px]"><Card className="border-slate-200 shadow-sm"><CardHeader className="flex flex-row items-center justify-between"><div><CardTitle className="text-base">Actividad del piloto</CardTitle><p className="mt-1 text-sm text-slate-500">Últimos seis periodos publicados</p></div><StatusBadge tone="slate">Piezas</StatusBadge></CardHeader><CardContent><div className="flex h-52 items-end gap-3 border-b border-slate-200 px-2 pb-3">{[42,58,53,71,64,78].map((h,i) => <div key={i} className="flex h-full flex-1 items-end"><div className="relative w-full rounded-t-lg bg-blue-100" style={{height:`${h}%`}}><div className="absolute inset-x-0 bottom-0 rounded-t-lg bg-blue-600" style={{height:`${Math.max(28,h-19)}%`}}/></div></div>)}</div><div className="mt-3 grid grid-cols-6 text-center text-xs text-slate-500">{["Feb","Mar","Abr","May","Jun","Jul"].map((m)=><span key={m}>{m}</span>)}</div></CardContent></Card>
-      <Card className="border-slate-200 shadow-sm"><CardHeader><CardTitle className="text-base">Acciones rápidas</CardTitle></CardHeader><CardContent className="space-y-2">{(Object.entries(captureMeta) as [CaptureType, typeof captureMeta[CaptureType]][]).map(([key,meta]) => <button key={key} onClick={() => onCapture(key)} className="flex w-full items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 text-left transition hover:border-blue-300 hover:bg-blue-50"><div className={`grid size-9 place-items-center rounded-lg ${meta.color} text-white`}><meta.icon className="size-4"/></div><span className="flex-1 text-sm font-semibold">{meta.title}</span><ChevronRight className="size-4 text-slate-400"/></button>)}{savedRows>0 && <p className="pt-2 text-xs text-slate-500">{savedRows} captura{savedRows===1?"":"s"} validada{savedRows===1?"":"s"} en esta sesión.</p>}</CardContent></Card>
-    </section>
-  </div>;
-}
+function HomeView({ onGo, periodState }: { onGo: (id: ModuleId) => void; periodState: string }) { return <ExecutiveDashboard onGo={onGo} periodState={periodState}/>; }
 
 function CaptureView({ onCapture }: { onCapture: (t: CaptureType) => void }) {
   return <div><PageIntro eyebrow="Operación" title="Centro de captura" copy="Cada dato entra por un formulario guiado, conserva su versión anterior y genera un evento auditable."/><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{(Object.entries(captureMeta) as [CaptureType, typeof captureMeta[CaptureType]][]).map(([key,meta]) => <Card key={key} className="group cursor-pointer border-slate-200 shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg" onClick={() => onCapture(key)}><CardContent className="p-6"><div className={`grid size-12 place-items-center rounded-2xl ${meta.color} text-white`}><meta.icon/></div><h3 className="mt-8 text-lg font-semibold">{meta.title}</h3><p className="mt-2 min-h-12 text-sm leading-6 text-slate-500">{meta.copy}</p><div className="mt-6 flex items-center text-sm font-semibold text-blue-700">Abrir formulario <ChevronRight className="ml-1 size-4 transition group-hover:translate-x-1"/></div></CardContent></Card>)}</div><Card className="mt-6 border-blue-100 bg-blue-50/50 shadow-none"><CardContent className="flex gap-3 p-5"><ShieldCheck className="mt-0.5 size-5 text-blue-700"/><div><p className="font-semibold text-blue-950">Reglas activas</p><p className="mt-1 text-sm leading-6 text-blue-800">ITEM y UPC se conservan como texto. Vacío significa “Sin dato”; cero significa una cantidad observada de cero. Los periodos cerrados no aceptan cambios ordinarios.</p></div></CardContent></Card></div>;
