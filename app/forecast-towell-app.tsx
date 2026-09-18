@@ -2,8 +2,8 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
-  Archive, CalendarRange, CheckCircle2, ChevronRight, ClipboardCheck,
-  FileClock, History, Home, PackageCheck, PanelLeft, Plus, Search,
+  Archive, BrainCircuit, CalendarRange, CheckCircle2, ChevronRight, ClipboardCheck,
+  FileClock, History, Home, PanelLeft, Plus, Search,
   ShieldCheck, ShoppingCart, Sparkles, TrendingUp, Truck, UserCog, Users,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -22,8 +22,9 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/sonner";
+import StatisticalEngineView from "./statistical-engine-view";
 
-type ModuleId = "inicio" | "captura" | "historico" | "periodos" | "calidad" | "usuarios" | "auditoria";
+type ModuleId = "inicio" | "captura" | "historico" | "motor" | "periodos" | "calidad" | "usuarios" | "auditoria";
 type CaptureType = "pedido" | "venta" | "entrega" | "fcst";
 
 const products = [
@@ -37,7 +38,7 @@ const products = [
 
 const modules = [
   ["inicio", "Inicio", Home], ["captura", "Centro de captura", ClipboardCheck],
-  ["historico", "Histórico", History], ["periodos", "Periodos", CalendarRange],
+  ["historico", "Histórico", History], ["motor", "Motor Estadístico", BrainCircuit], ["periodos", "Periodos", CalendarRange],
   ["calidad", "Calidad de datos", ShieldCheck], ["usuarios", "Usuarios", Users],
   ["auditoria", "Auditoría", FileClock],
 ] as const;
@@ -105,6 +106,16 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
         },
       }, { signal: lifecycle.signal })).catch(() => undefined);
     }
+    void Promise.resolve(context.registerTool({
+      name: "open_statistical_engine", title: "Abrir Motor Estadístico",
+      description: "Abre la vista de clasificación, backtesting, modelo ganador y forecast a 12 meses.",
+      inputSchema: { type: "object", properties: {}, additionalProperties: false },
+      annotations: { readOnlyHint: true, untrustedContentHint: false },
+      execute: async (input: unknown) => {
+        if (typeof input !== "object" || input === null || Object.keys(input).length > 0) throw new Error("Este comando no admite parámetros.");
+        setActive("motor"); return { status: "opened", module: "motor_estadistico" };
+      },
+    }, { signal: lifecycle.signal })).catch(() => undefined);
     return () => lifecycle.abort();
   }, []);
 
@@ -137,7 +148,8 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
       <main className="mx-auto w-full max-w-[1480px] p-4 md:p-7">
         {active === "inicio" && <HomeView onCapture={setCapture} onGo={setActive} savedRows={savedRows} supabaseConfigured={supabaseConfigured}/>} 
         {active === "captura" && <CaptureView onCapture={setCapture}/>} 
-        {active === "historico" && <HistoryView/>} 
+        {active === "historico" && <HistoryView/>}
+        {active === "motor" && <StatisticalEngineView supabaseConfigured={supabaseConfigured}/>}
         {active === "periodos" && <PeriodsView state={periodState} setState={setPeriodState}/>} 
         {active === "calidad" && <QualityView/>} 
         {active === "usuarios" && <UsersView/>} 

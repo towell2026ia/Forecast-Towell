@@ -15,7 +15,7 @@ const requiredTables = [
 const requiredModules = ["Inicio","Centro de captura","Histórico","Periodos","Calidad de datos","Usuarios","Auditoría"];
 const failures = [];
 for (const table of requiredTables) if (!sql.includes(`public.${table}`)) failures.push(`missing table ${table}`);
-for (const module of requiredModules) if (!ui.includes(module)) failures.push(`missing module ${module}`);
+for (const moduleName of requiredModules) if (!ui.includes(moduleName)) failures.push(`missing module ${moduleName}`);
 for (const form of ["Registrar pedido","Registrar venta","Registrar entrega","Registrar Fcst Cliente"]) if (!ui.includes(form)) failures.push(`missing form ${form}`);
 if (!sql.includes("delivery_exceeds_pending_balance")) failures.push("delivery balance rule missing");
 if (!sql.includes("period_not_editable")) failures.push("period state rule missing");
