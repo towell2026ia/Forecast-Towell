@@ -22,7 +22,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/sonner";
-import StatisticalEngineView from "./statistical-engine-view";
+import ForecastEnginesView from "./forecast-engines-view";
 import ExecutiveDashboard from "./executive-dashboard";
 
 type ModuleId = "inicio" | "captura" | "historico" | "motor" | "periodos" | "calidad" | "usuarios" | "auditoria";
@@ -39,7 +39,7 @@ const products = [
 
 const modules = [
   ["inicio", "Inicio", Home], ["captura", "Centro de captura", ClipboardCheck],
-  ["historico", "Histórico", History], ["motor", "Motor Estadístico", BrainCircuit], ["periodos", "Periodos", CalendarRange],
+  ["historico", "Histórico", History], ["motor", "Motores de Forecast", BrainCircuit], ["periodos", "Periodos", CalendarRange],
   ["calidad", "Calidad de datos", ShieldCheck], ["usuarios", "Usuarios", Users],
   ["auditoria", "Auditoría", FileClock],
 ] as const;
@@ -148,7 +148,7 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
         {active === "inicio" && <HomeView onGo={setActive} periodState={periodState}/>}
         {active === "captura" && <CaptureView onCapture={setCapture}/>} 
         {active === "historico" && <HistoryView/>}
-        {active === "motor" && <StatisticalEngineView supabaseConfigured={supabaseConfigured}/>}
+        {active === "motor" && <ForecastEnginesView supabaseConfigured={supabaseConfigured}/>}
         {active === "periodos" && <PeriodsView state={periodState} setState={setPeriodState}/>} 
         {active === "calidad" && <QualityView/>} 
         {active === "usuarios" && <UsersView/>} 

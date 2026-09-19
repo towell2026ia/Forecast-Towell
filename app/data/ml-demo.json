@@ -1,0 +1,1726 @@
+{
+  "target": "Venta",
+  "status": "completed_with_alerts",
+  "engine_version": "prd04-1.0.0",
+  "cutoff": "2026-07",
+  "generated_at": "2026-09-19T15:15:52+00:00",
+  "dataset": {
+    "series": 11,
+    "observations": 269,
+    "source": "platform_normalized_records",
+    "excel_required": false
+  },
+  "champion": {
+    "version": "ML-FENDI-20260919-01",
+    "status": "Champion",
+    "model": "Random Forest Global",
+    "available": true,
+    "score": 41.93,
+    "wape": 35.78,
+    "bias": 17.96,
+    "mae": 3410.56,
+    "rmse": 4254.5,
+    "stability": 26.69,
+    "by_horizon": [
+      {
+        "horizon": 1,
+        "observations": 22,
+        "wape": 23.19,
+        "bias": 8.87,
+        "mae": 2210.08,
+        "rmse": 3001.43,
+        "stability": 21.31
+      },
+      {
+        "horizon": 2,
+        "observations": 22,
+        "wape": 29.14,
+        "bias": 9.72,
+        "mae": 2777.24,
+        "rmse": 3467.57,
+        "stability": 21.78
+      },
+      {
+        "horizon": 3,
+        "observations": 22,
+        "wape": 31.01,
+        "bias": 13.35,
+        "mae": 2955.39,
+        "rmse": 3864.76,
+        "stability": 26.13
+      },
+      {
+        "horizon": 4,
+        "observations": 22,
+        "wape": 41.34,
+        "bias": 22.24,
+        "mae": 3940.25,
+        "rmse": 4944.83,
+        "stability": 31.35
+      },
+      {
+        "horizon": 5,
+        "observations": 22,
+        "wape": 39.95,
+        "bias": 20.78,
+        "mae": 3807.41,
+        "rmse": 4821.49,
+        "stability": 31.04
+      },
+      {
+        "horizon": 6,
+        "observations": 22,
+        "wape": 38.07,
+        "bias": 19.15,
+        "mae": 3628.39,
+        "rmse": 4491.36,
+        "stability": 27.77
+      },
+      {
+        "horizon": 7,
+        "observations": 22,
+        "wape": 41.68,
+        "bias": 23.95,
+        "mae": 3972.37,
+        "rmse": 4828.96,
+        "stability": 28.81
+      },
+      {
+        "horizon": 8,
+        "observations": 22,
+        "wape": 40.55,
+        "bias": 20.74,
+        "mae": 3864.36,
+        "rmse": 4512.57,
+        "stability": 24.45
+      },
+      {
+        "horizon": 9,
+        "observations": 22,
+        "wape": 41.44,
+        "bias": 26.36,
+        "mae": 3950.02,
+        "rmse": 4579.83,
+        "stability": 24.32
+      },
+      {
+        "horizon": 10,
+        "observations": 22,
+        "wape": 33.46,
+        "bias": 13.53,
+        "mae": 3188.94,
+        "rmse": 3929.05,
+        "stability": 24.08
+      },
+      {
+        "horizon": 11,
+        "observations": 22,
+        "wape": 35.13,
+        "bias": 20.32,
+        "mae": 3348.33,
+        "rmse": 4112.81,
+        "stability": 25.06
+      },
+      {
+        "horizon": 12,
+        "observations": 22,
+        "wape": 34.46,
+        "bias": 16.52,
+        "mae": 3283.97,
+        "rmse": 4044.81,
+        "stability": 24.78
+      }
+    ],
+    "feature_names": [
+      "año objetivo",
+      "mes objetivo",
+      "trimestre",
+      "seno mes",
+      "coseno mes",
+      "posición temporal",
+      "horizonte",
+      "antigüedad serie",
+      "venta t-1",
+      "venta t-2",
+      "venta t-3",
+      "venta t-6",
+      "venta t-12",
+      "promedio móvil 3",
+      "desviación 3",
+      "mínimo 3",
+      "máximo 3",
+      "promedio móvil 6",
+      "desviación 6",
+      "mínimo 6",
+      "máximo 6",
+      "promedio móvil 12",
+      "desviación 12",
+      "mínimo 12",
+      "máximo 12",
+      "crecimiento mes contra mes",
+      "crecimiento anual",
+      "pendiente reciente",
+      "aceleración",
+      "meses desde última venta",
+      "meses con demanda cero",
+      "porcentaje con movimiento",
+      "intervalo promedio",
+      "producto:7501897813122",
+      "producto:7501897813139",
+      "producto:7501897813146",
+      "producto:7501897813153",
+      "producto:7501897813160",
+      "producto:7501897813177",
+      "producto:7501897813184",
+      "producto:7501897813191",
+      "producto:7501897816260",
+      "producto:7501897816277",
+      "producto:7501897816314"
+    ]
+  },
+  "challenger": {
+    "version": "ML-FENDI-20260919-02",
+    "status": "Challenger",
+    "model": "Gradient Boosting Global",
+    "available": true,
+    "score": 47.17,
+    "wape": 39.56,
+    "bias": 24.05,
+    "mae": 3770.17,
+    "rmse": 4690.93,
+    "stability": 29.29,
+    "by_horizon": [
+      {
+        "horizon": 1,
+        "observations": 22,
+        "wape": 30.45,
+        "bias": 21.25,
+        "mae": 2902.08,
+        "rmse": 3878.97,
+        "stability": 27.0
+      },
+      {
+        "horizon": 2,
+        "observations": 22,
+        "wape": 32.2,
+        "bias": 18.8,
+        "mae": 3069.07,
+        "rmse": 3957.44,
+        "stability": 26.21
+      },
+      {
+        "horizon": 3,
+        "observations": 22,
+        "wape": 35.32,
+        "bias": 20.42,
+        "mae": 3366.27,
+        "rmse": 4310.14,
+        "stability": 28.24
+      },
+      {
+        "horizon": 4,
+        "observations": 22,
+        "wape": 45.25,
+        "bias": 29.05,
+        "mae": 4312.4,
+        "rmse": 5179.27,
+        "stability": 30.1
+      },
+      {
+        "horizon": 5,
+        "observations": 22,
+        "wape": 45.26,
+        "bias": 29.0,
+        "mae": 4313.62,
+        "rmse": 5240.86,
+        "stability": 31.23
+      },
+      {
+        "horizon": 6,
+        "observations": 22,
+        "wape": 43.77,
+        "bias": 27.21,
+        "mae": 4171.76,
+        "rmse": 5097.88,
+        "stability": 30.74
+      },
+      {
+        "horizon": 7,
+        "observations": 22,
+        "wape": 43.24,
+        "bias": 26.73,
+        "mae": 4120.95,
+        "rmse": 5003.23,
+        "stability": 29.77
+      },
+      {
+        "horizon": 8,
+        "observations": 22,
+        "wape": 41.77,
+        "bias": 24.65,
+        "mae": 3980.99,
+        "rmse": 4827.62,
+        "stability": 28.65
+      },
+      {
+        "horizon": 9,
+        "observations": 22,
+        "wape": 40.67,
+        "bias": 24.64,
+        "mae": 3876.37,
+        "rmse": 4764.77,
+        "stability": 29.07
+      },
+      {
+        "horizon": 10,
+        "observations": 22,
+        "wape": 38.6,
+        "bias": 21.93,
+        "mae": 3678.88,
+        "rmse": 4570.6,
+        "stability": 28.46
+      },
+      {
+        "horizon": 11,
+        "observations": 22,
+        "wape": 38.89,
+        "bias": 21.44,
+        "mae": 3706.46,
+        "rmse": 4606.23,
+        "stability": 28.69
+      },
+      {
+        "horizon": 12,
+        "observations": 22,
+        "wape": 39.27,
+        "bias": 23.54,
+        "mae": 3743.22,
+        "rmse": 4619.99,
+        "stability": 28.41
+      }
+    ],
+    "feature_names": [
+      "año objetivo",
+      "mes objetivo",
+      "trimestre",
+      "seno mes",
+      "coseno mes",
+      "posición temporal",
+      "horizonte",
+      "antigüedad serie",
+      "venta t-1",
+      "venta t-2",
+      "venta t-3",
+      "venta t-6",
+      "venta t-12",
+      "promedio móvil 3",
+      "desviación 3",
+      "mínimo 3",
+      "máximo 3",
+      "promedio móvil 6",
+      "desviación 6",
+      "mínimo 6",
+      "máximo 6",
+      "promedio móvil 12",
+      "desviación 12",
+      "mínimo 12",
+      "máximo 12",
+      "crecimiento mes contra mes",
+      "crecimiento anual",
+      "pendiente reciente",
+      "aceleración",
+      "meses desde última venta",
+      "meses con demanda cero",
+      "porcentaje con movimiento",
+      "intervalo promedio",
+      "producto:7501897813122",
+      "producto:7501897813139",
+      "producto:7501897813146",
+      "producto:7501897813153",
+      "producto:7501897813160",
+      "producto:7501897813177",
+      "producto:7501897813184",
+      "producto:7501897813191",
+      "producto:7501897816260",
+      "producto:7501897816277",
+      "producto:7501897816314"
+    ]
+  },
+  "candidates": [
+    {
+      "model": "Regresión Lineal Global",
+      "available": true,
+      "score": 67.18,
+      "wape": 51.81,
+      "bias": -20.16,
+      "mae": 4938.09,
+      "rmse": 12232.8,
+      "stability": 117.43,
+      "by_horizon": [
+        {
+          "horizon": 1,
+          "observations": 22,
+          "wape": 17.03,
+          "bias": -14.28,
+          "mae": 1622.93,
+          "rmse": 2363.74,
+          "stability": 18.03
+        },
+        {
+          "horizon": 2,
+          "observations": 22,
+          "wape": 19.75,
+          "bias": -10.14,
+          "mae": 1881.9,
+          "rmse": 2962.72,
+          "stability": 24.01
+        },
+        {
+          "horizon": 3,
+          "observations": 22,
+          "wape": 21.75,
+          "bias": 0.92,
+          "mae": 2073.24,
+          "rmse": 3028.56,
+          "stability": 23.16
+        },
+        {
+          "horizon": 4,
+          "observations": 22,
+          "wape": 27.75,
+          "bias": 15.35,
+          "mae": 2645.07,
+          "rmse": 3225.84,
+          "stability": 19.37
+        },
+        {
+          "horizon": 5,
+          "observations": 22,
+          "wape": 35.97,
+          "bias": -9.9,
+          "mae": 3428.49,
+          "rmse": 4304.42,
+          "stability": 27.31
+        },
+        {
+          "horizon": 6,
+          "observations": 22,
+          "wape": 42.02,
+          "bias": -7.9,
+          "mae": 4005.18,
+          "rmse": 5118.61,
+          "stability": 33.44
+        },
+        {
+          "horizon": 7,
+          "observations": 22,
+          "wape": 32.67,
+          "bias": -0.71,
+          "mae": 3113.44,
+          "rmse": 3721.28,
+          "stability": 21.39
+        },
+        {
+          "horizon": 8,
+          "observations": 22,
+          "wape": 28.85,
+          "bias": 3.63,
+          "mae": 2749.44,
+          "rmse": 3411.78,
+          "stability": 21.19
+        },
+        {
+          "horizon": 9,
+          "observations": 22,
+          "wape": 280.33,
+          "bias": -262.32,
+          "mae": 26717.97,
+          "rmse": 40273.69,
+          "stability": 316.18
+        },
+        {
+          "horizon": 10,
+          "observations": 22,
+          "wape": 53.74,
+          "bias": 29.96,
+          "mae": 5121.53,
+          "rmse": 6524.26,
+          "stability": 42.41
+        },
+        {
+          "horizon": 11,
+          "observations": 22,
+          "wape": 33.01,
+          "bias": 4.71,
+          "mae": 3145.79,
+          "rmse": 3868.19,
+          "stability": 23.62
+        },
+        {
+          "horizon": 12,
+          "observations": 22,
+          "wape": 28.87,
+          "bias": 8.72,
+          "mae": 2752.06,
+          "rmse": 3469.65,
+          "stability": 22.17
+        }
+      ],
+      "feature_names": [
+        "año objetivo",
+        "mes objetivo",
+        "trimestre",
+        "seno mes",
+        "coseno mes",
+        "posición temporal",
+        "horizonte",
+        "antigüedad serie",
+        "venta t-1",
+        "venta t-2",
+        "venta t-3",
+        "venta t-6",
+        "venta t-12",
+        "promedio móvil 3",
+        "desviación 3",
+        "mínimo 3",
+        "máximo 3",
+        "promedio móvil 6",
+        "desviación 6",
+        "mínimo 6",
+        "máximo 6",
+        "promedio móvil 12",
+        "desviación 12",
+        "mínimo 12",
+        "máximo 12",
+        "crecimiento mes contra mes",
+        "crecimiento anual",
+        "pendiente reciente",
+        "aceleración",
+        "meses desde última venta",
+        "meses con demanda cero",
+        "porcentaje con movimiento",
+        "intervalo promedio",
+        "producto:7501897813122",
+        "producto:7501897813139",
+        "producto:7501897813146",
+        "producto:7501897813153",
+        "producto:7501897813160",
+        "producto:7501897813177",
+        "producto:7501897813184",
+        "producto:7501897813191",
+        "producto:7501897816260",
+        "producto:7501897816277",
+        "producto:7501897816314"
+      ]
+    },
+    {
+      "model": "Random Forest Global",
+      "available": true,
+      "score": 41.93,
+      "wape": 35.78,
+      "bias": 17.96,
+      "mae": 3410.56,
+      "rmse": 4254.5,
+      "stability": 26.69,
+      "by_horizon": [
+        {
+          "horizon": 1,
+          "observations": 22,
+          "wape": 23.19,
+          "bias": 8.87,
+          "mae": 2210.08,
+          "rmse": 3001.43,
+          "stability": 21.31
+        },
+        {
+          "horizon": 2,
+          "observations": 22,
+          "wape": 29.14,
+          "bias": 9.72,
+          "mae": 2777.24,
+          "rmse": 3467.57,
+          "stability": 21.78
+        },
+        {
+          "horizon": 3,
+          "observations": 22,
+          "wape": 31.01,
+          "bias": 13.35,
+          "mae": 2955.39,
+          "rmse": 3864.76,
+          "stability": 26.13
+        },
+        {
+          "horizon": 4,
+          "observations": 22,
+          "wape": 41.34,
+          "bias": 22.24,
+          "mae": 3940.25,
+          "rmse": 4944.83,
+          "stability": 31.35
+        },
+        {
+          "horizon": 5,
+          "observations": 22,
+          "wape": 39.95,
+          "bias": 20.78,
+          "mae": 3807.41,
+          "rmse": 4821.49,
+          "stability": 31.04
+        },
+        {
+          "horizon": 6,
+          "observations": 22,
+          "wape": 38.07,
+          "bias": 19.15,
+          "mae": 3628.39,
+          "rmse": 4491.36,
+          "stability": 27.77
+        },
+        {
+          "horizon": 7,
+          "observations": 22,
+          "wape": 41.68,
+          "bias": 23.95,
+          "mae": 3972.37,
+          "rmse": 4828.96,
+          "stability": 28.81
+        },
+        {
+          "horizon": 8,
+          "observations": 22,
+          "wape": 40.55,
+          "bias": 20.74,
+          "mae": 3864.36,
+          "rmse": 4512.57,
+          "stability": 24.45
+        },
+        {
+          "horizon": 9,
+          "observations": 22,
+          "wape": 41.44,
+          "bias": 26.36,
+          "mae": 3950.02,
+          "rmse": 4579.83,
+          "stability": 24.32
+        },
+        {
+          "horizon": 10,
+          "observations": 22,
+          "wape": 33.46,
+          "bias": 13.53,
+          "mae": 3188.94,
+          "rmse": 3929.05,
+          "stability": 24.08
+        },
+        {
+          "horizon": 11,
+          "observations": 22,
+          "wape": 35.13,
+          "bias": 20.32,
+          "mae": 3348.33,
+          "rmse": 4112.81,
+          "stability": 25.06
+        },
+        {
+          "horizon": 12,
+          "observations": 22,
+          "wape": 34.46,
+          "bias": 16.52,
+          "mae": 3283.97,
+          "rmse": 4044.81,
+          "stability": 24.78
+        }
+      ],
+      "feature_names": [
+        "año objetivo",
+        "mes objetivo",
+        "trimestre",
+        "seno mes",
+        "coseno mes",
+        "posición temporal",
+        "horizonte",
+        "antigüedad serie",
+        "venta t-1",
+        "venta t-2",
+        "venta t-3",
+        "venta t-6",
+        "venta t-12",
+        "promedio móvil 3",
+        "desviación 3",
+        "mínimo 3",
+        "máximo 3",
+        "promedio móvil 6",
+        "desviación 6",
+        "mínimo 6",
+        "máximo 6",
+        "promedio móvil 12",
+        "desviación 12",
+        "mínimo 12",
+        "máximo 12",
+        "crecimiento mes contra mes",
+        "crecimiento anual",
+        "pendiente reciente",
+        "aceleración",
+        "meses desde última venta",
+        "meses con demanda cero",
+        "porcentaje con movimiento",
+        "intervalo promedio",
+        "producto:7501897813122",
+        "producto:7501897813139",
+        "producto:7501897813146",
+        "producto:7501897813153",
+        "producto:7501897813160",
+        "producto:7501897813177",
+        "producto:7501897813184",
+        "producto:7501897813191",
+        "producto:7501897816260",
+        "producto:7501897816277",
+        "producto:7501897816314"
+      ]
+    },
+    {
+      "model": "Gradient Boosting Global",
+      "available": true,
+      "score": 47.17,
+      "wape": 39.56,
+      "bias": 24.05,
+      "mae": 3770.17,
+      "rmse": 4690.93,
+      "stability": 29.29,
+      "by_horizon": [
+        {
+          "horizon": 1,
+          "observations": 22,
+          "wape": 30.45,
+          "bias": 21.25,
+          "mae": 2902.08,
+          "rmse": 3878.97,
+          "stability": 27.0
+        },
+        {
+          "horizon": 2,
+          "observations": 22,
+          "wape": 32.2,
+          "bias": 18.8,
+          "mae": 3069.07,
+          "rmse": 3957.44,
+          "stability": 26.21
+        },
+        {
+          "horizon": 3,
+          "observations": 22,
+          "wape": 35.32,
+          "bias": 20.42,
+          "mae": 3366.27,
+          "rmse": 4310.14,
+          "stability": 28.24
+        },
+        {
+          "horizon": 4,
+          "observations": 22,
+          "wape": 45.25,
+          "bias": 29.05,
+          "mae": 4312.4,
+          "rmse": 5179.27,
+          "stability": 30.1
+        },
+        {
+          "horizon": 5,
+          "observations": 22,
+          "wape": 45.26,
+          "bias": 29.0,
+          "mae": 4313.62,
+          "rmse": 5240.86,
+          "stability": 31.23
+        },
+        {
+          "horizon": 6,
+          "observations": 22,
+          "wape": 43.77,
+          "bias": 27.21,
+          "mae": 4171.76,
+          "rmse": 5097.88,
+          "stability": 30.74
+        },
+        {
+          "horizon": 7,
+          "observations": 22,
+          "wape": 43.24,
+          "bias": 26.73,
+          "mae": 4120.95,
+          "rmse": 5003.23,
+          "stability": 29.77
+        },
+        {
+          "horizon": 8,
+          "observations": 22,
+          "wape": 41.77,
+          "bias": 24.65,
+          "mae": 3980.99,
+          "rmse": 4827.62,
+          "stability": 28.65
+        },
+        {
+          "horizon": 9,
+          "observations": 22,
+          "wape": 40.67,
+          "bias": 24.64,
+          "mae": 3876.37,
+          "rmse": 4764.77,
+          "stability": 29.07
+        },
+        {
+          "horizon": 10,
+          "observations": 22,
+          "wape": 38.6,
+          "bias": 21.93,
+          "mae": 3678.88,
+          "rmse": 4570.6,
+          "stability": 28.46
+        },
+        {
+          "horizon": 11,
+          "observations": 22,
+          "wape": 38.89,
+          "bias": 21.44,
+          "mae": 3706.46,
+          "rmse": 4606.23,
+          "stability": 28.69
+        },
+        {
+          "horizon": 12,
+          "observations": 22,
+          "wape": 39.27,
+          "bias": 23.54,
+          "mae": 3743.22,
+          "rmse": 4619.99,
+          "stability": 28.41
+        }
+      ],
+      "feature_names": [
+        "año objetivo",
+        "mes objetivo",
+        "trimestre",
+        "seno mes",
+        "coseno mes",
+        "posición temporal",
+        "horizonte",
+        "antigüedad serie",
+        "venta t-1",
+        "venta t-2",
+        "venta t-3",
+        "venta t-6",
+        "venta t-12",
+        "promedio móvil 3",
+        "desviación 3",
+        "mínimo 3",
+        "máximo 3",
+        "promedio móvil 6",
+        "desviación 6",
+        "mínimo 6",
+        "máximo 6",
+        "promedio móvil 12",
+        "desviación 12",
+        "mínimo 12",
+        "máximo 12",
+        "crecimiento mes contra mes",
+        "crecimiento anual",
+        "pendiente reciente",
+        "aceleración",
+        "meses desde última venta",
+        "meses con demanda cero",
+        "porcentaje con movimiento",
+        "intervalo promedio",
+        "producto:7501897813122",
+        "producto:7501897813139",
+        "producto:7501897813146",
+        "producto:7501897813153",
+        "producto:7501897813160",
+        "producto:7501897813177",
+        "producto:7501897813184",
+        "producto:7501897813191",
+        "producto:7501897816260",
+        "producto:7501897816277",
+        "producto:7501897816314"
+      ]
+    },
+    {
+      "model": "XGBoost Global",
+      "available": false,
+      "reason": "Dependencia opcional no habilitada en el runtime portátil."
+    },
+    {
+      "model": "LightGBM Global",
+      "available": false,
+      "reason": "Dependencia opcional no habilitada en el runtime portátil."
+    }
+  ],
+  "forecast": [
+    {
+      "series_id": "total-fendi-bd",
+      "label": "Total FENDI BD",
+      "evidence": "global",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 98192.64
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 108443.02
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 103010.88
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 100859.45
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 114859.84
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 101838.24
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 99770.11
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 112853.46
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 108042.84
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 108135.12
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 106565.64
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 99120.05
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813122",
+      "label": "Chocolate",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 12055.25
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11951.38
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 12944.44
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 11279.51
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 13122.56
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10460.0
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 10296.39
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11080.3
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 11324.91
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10959.59
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 12410.13
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 10876.23
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813139",
+      "label": "Morado",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 12055.25
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11951.38
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 13681.5
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 11347.73
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 12040.04
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10668.7
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 10133.55
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11254.76
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 11065.49
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10098.13
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 11023.99
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9678.58
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813146",
+      "label": "Azul",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 9670.38
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11239.41
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 9199.16
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 11473.54
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 11880.7
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10386.25
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 10296.39
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11438.24
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 11002.53
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10913.27
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 10457.68
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9513.94
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813153",
+      "label": "Aqua",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 9670.38
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11239.41
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 9199.16
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 10273.22
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 11785.06
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10365.6
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 10583.92
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11152.83
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 11002.53
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 9450.3
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 9808.63
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9239.31
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813160",
+      "label": "Gris",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 2677.16
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 3998.65
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 4587.38
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 4324.87
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 4449.97
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 4370.2
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 3135.27
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 3769.5
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 2442.41
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 4869.36
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 2999.28
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 4551.01
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813177",
+      "label": "Beige",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 7877.69
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 8598.94
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 8341.76
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 8507.58
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 10151.35
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 9801.24
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 9569.63
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 10891.87
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 10385.19
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10751.42
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 9135.44
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 8868.22
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813184",
+      "label": "Rosa",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 6193.59
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 6721.52
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 6820.98
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 7665.33
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 8608.46
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 6966.66
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 7670.28
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 8521.61
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 8631.62
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 8457.76
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 9047.0
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9344.61
+        }
+      ]
+    },
+    {
+      "series_id": "7501897813191",
+      "label": "Rojo",
+      "evidence": "standard",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 10240.37
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11239.41
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 9819.53
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 10795.18
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 11880.7
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10365.6
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 10296.39
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11152.83
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 11002.53
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10041.15
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 10383.25
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9239.31
+        }
+      ]
+    },
+    {
+      "series_id": "7501897816260",
+      "label": "Toalla Mb Fendi Negro",
+      "evidence": "low",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 9792.46
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11524.46
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 9887.53
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 8990.69
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 11594.94
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10275.12
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 9770.14
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11640.03
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 10895.44
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10965.47
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 10484.55
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9545.18
+        }
+      ]
+    },
+    {
+      "series_id": "7501897816277",
+      "label": "Toalla Mb Fendi Navidad",
+      "evidence": "low",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 7323.11
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 8027.08
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 7741.55
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 7211.11
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 7751.12
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 7903.75
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 8248.01
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 10016.0
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 9394.75
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10663.2
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 10331.14
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 8718.48
+        }
+      ]
+    },
+    {
+      "series_id": "7501897816314",
+      "label": "Toalla Mb Fendi Oxford",
+      "evidence": "low",
+      "forecast": [
+        {
+          "period": "2026-08",
+          "horizon": 1,
+          "value": 10637.0
+        },
+        {
+          "period": "2026-09",
+          "horizon": 2,
+          "value": 11951.38
+        },
+        {
+          "period": "2026-10",
+          "horizon": 3,
+          "value": 10787.89
+        },
+        {
+          "period": "2026-11",
+          "horizon": 4,
+          "value": 8990.69
+        },
+        {
+          "period": "2026-12",
+          "horizon": 5,
+          "value": 11594.94
+        },
+        {
+          "period": "2027-01",
+          "horizon": 6,
+          "value": 10275.12
+        },
+        {
+          "period": "2027-02",
+          "horizon": 7,
+          "value": 9770.14
+        },
+        {
+          "period": "2027-03",
+          "horizon": 8,
+          "value": 11935.49
+        },
+        {
+          "period": "2027-04",
+          "horizon": 9,
+          "value": 10895.44
+        },
+        {
+          "period": "2027-05",
+          "horizon": 10,
+          "value": 10965.47
+        },
+        {
+          "period": "2027-06",
+          "horizon": 11,
+          "value": 10484.55
+        },
+        {
+          "period": "2027-07",
+          "horizon": 12,
+          "value": 9545.18
+        }
+      ]
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "máximo 3",
+      "importance": 39.6
+    },
+    {
+      "feature": "venta t-1",
+      "importance": 16.3
+    },
+    {
+      "feature": "promedio móvil 3",
+      "importance": 12.6
+    },
+    {
+      "feature": "venta t-3",
+      "importance": 9.7
+    },
+    {
+      "feature": "mínimo 3",
+      "importance": 8.8
+    },
+    {
+      "feature": "desviación 12",
+      "importance": 7.8
+    },
+    {
+      "feature": "máximo 6",
+      "importance": 2.9
+    },
+    {
+      "feature": "meses desde última venta",
+      "importance": 2.3
+    }
+  ],
+  "drift": {
+    "score": 1.99,
+    "status": "stable"
+  },
+  "alerts": [
+    {
+      "type": "low_evidence",
+      "severity": "info",
+      "message": "Tres productos dependen principalmente de patrones globales por contar con menos de 12 meses."
+    }
+  ],
+  "training": {
+    "strategy": "directa por horizonte",
+    "known_features": [
+      "calendario",
+      "histórico hasta el corte",
+      "producto",
+      "color",
+      "categoría"
+    ],
+    "unknown_features_excluded": [
+      "venta futura",
+      "pedido futuro no registrado",
+      "entrega futura"
+    ],
+    "duration_seconds": 19.791
+  }
+}
