@@ -1,0 +1,44 @@
+{
+  "period": "2026-09",
+  "actor": "pilot-validation",
+  "closed_at": "2026-10-01T06:00:00+00:00",
+  "configuration": {
+    "minimum_improvement": 0.25,
+    "challenger_periods_required": 3,
+    "champion_reference_wape": 23.96,
+    "challenger_reference_wape": 22.56
+  },
+  "records": [
+    {"series_id":"fendi-chocolate","period":"2026-09","sale":100,"order":110,"delivery":105,"client_forecast":125,"color":"Chocolate"},
+    {"series_id":"fendi-morado","period":"2026-09","sale":80,"order":90,"delivery":85,"client_forecast":100,"color":"Morado"},
+    {"series_id":"fendi-azul","period":"2026-09","sale":0,"order":0,"delivery":0,"client_forecast":0,"color":"Azul"}
+  ],
+  "forecasts": [
+    {"series_id":"fendi-chocolate","target_period":"2026-09","engine":"client","version":"CLIENT-2026-08","issued_at":"2026-08-05T00:00:00+00:00","horizon":1,"value":125},
+    {"series_id":"fendi-morado","target_period":"2026-09","engine":"client","version":"CLIENT-2026-08","issued_at":"2026-08-05T00:00:00+00:00","horizon":1,"value":100},
+    {"series_id":"fendi-azul","target_period":"2026-09","engine":"client","version":"CLIENT-2026-08","issued_at":"2026-08-05T00:00:00+00:00","horizon":1,"value":0},
+    {"series_id":"fendi-chocolate","target_period":"2026-09","engine":"statistical","version":"STAT-2026-08","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":110},
+    {"series_id":"fendi-morado","target_period":"2026-09","engine":"statistical","version":"STAT-2026-08","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":88},
+    {"series_id":"fendi-azul","target_period":"2026-09","engine":"statistical","version":"STAT-2026-08","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":0},
+    {"series_id":"fendi-chocolate","target_period":"2026-09","engine":"ml","version":"ML-REVALIDATED-22.56","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":95},
+    {"series_id":"fendi-morado","target_period":"2026-09","engine":"ml","version":"ML-REVALIDATED-22.56","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":78},
+    {"series_id":"fendi-azul","target_period":"2026-09","engine":"ml","version":"ML-REVALIDATED-22.56","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":0},
+    {"series_id":"fendi-chocolate","target_period":"2026-09","engine":"challenger","version":"ML-REVALIDATED-22.56","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":95},
+    {"series_id":"fendi-morado","target_period":"2026-09","engine":"challenger","version":"ML-REVALIDATED-22.56","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":78},
+    {"series_id":"fendi-azul","target_period":"2026-09","engine":"challenger","version":"ML-REVALIDATED-22.56","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":0},
+    {"series_id":"fendi-chocolate","target_period":"2026-09","engine":"towell","version":"FT-FENDI-202608-V01","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":110,"p10":75,"p50":100,"p90":125,"p95":135},
+    {"series_id":"fendi-morado","target_period":"2026-09","engine":"towell","version":"FT-FENDI-202608-V01","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":88,"p10":55,"p50":80,"p90":105,"p95":115},
+    {"series_id":"fendi-azul","target_period":"2026-09","engine":"towell","version":"FT-FENDI-202608-V01","issued_at":"2026-08-01T00:00:00+00:00","horizon":1,"value":0,"p10":0,"p50":0,"p90":10,"p95":15}
+  ],
+  "history": [
+    {"period":"2026-07","engine":"statistical","wape":24.1,"bias":3.2},
+    {"period":"2026-07","engine":"challenger","wape":22.7,"bias":1.9},
+    {"period":"2026-08","engine":"statistical","wape":23.8,"bias":2.8},
+    {"period":"2026-08","engine":"challenger","wape":21.9,"bias":1.4}
+  ],
+  "prior_sales": {
+    "fendi-chocolate": [92,96,94,98,95,97],
+    "fendi-morado": [75,78,77,79,76,78],
+    "fendi-azul": [0,0,0,0,0,0]
+  }
+}

@@ -1,0 +1,969 @@
+{
+  "status": "closed",
+  "period_state": "closed",
+  "closure_id": "CLOSE-FENDI-2026-09-R01",
+  "revision": 1,
+  "validation": {
+    "valid": true,
+    "blockers": [],
+    "warnings": []
+  },
+  "totals": {
+    "sale": 180.0,
+    "order": 200.0,
+    "delivery": 190.0
+  },
+  "metrics": [
+    {
+      "engine": "client",
+      "wape": 25.0,
+      "bias": 25.0,
+      "bias_direction": "overforecast",
+      "observations": 3,
+      "actual_total": 180.0,
+      "forecast_total": 225.0,
+      "absolute_error": 45.0,
+      "versions": [
+        "CLIENT-2026-08"
+      ]
+    },
+    {
+      "engine": "statistical",
+      "wape": 10.0,
+      "bias": 10.0,
+      "bias_direction": "overforecast",
+      "observations": 3,
+      "actual_total": 180.0,
+      "forecast_total": 198.0,
+      "absolute_error": 18.0,
+      "versions": [
+        "STAT-2026-08"
+      ]
+    },
+    {
+      "engine": "ml",
+      "wape": 3.8889,
+      "bias": -3.8889,
+      "bias_direction": "underforecast",
+      "observations": 3,
+      "actual_total": 180.0,
+      "forecast_total": 173.0,
+      "absolute_error": 7.0,
+      "versions": [
+        "ML-REVALIDATED-22.56"
+      ]
+    },
+    {
+      "engine": "towell",
+      "wape": 10.0,
+      "bias": 10.0,
+      "bias_direction": "overforecast",
+      "observations": 3,
+      "actual_total": 180.0,
+      "forecast_total": 198.0,
+      "absolute_error": 18.0,
+      "versions": [
+        "FT-FENDI-202608-V01"
+      ]
+    },
+    {
+      "engine": "challenger",
+      "wape": 3.8889,
+      "bias": -3.8889,
+      "bias_direction": "underforecast",
+      "observations": 3,
+      "actual_total": 180.0,
+      "forecast_total": 173.0,
+      "absolute_error": 7.0,
+      "versions": [
+        "ML-REVALIDATED-22.56"
+      ]
+    }
+  ],
+  "service": {
+    "fill_rate": 95.0,
+    "sale_to_order": 90.0,
+    "order_zero_rule": "100_when_order_and_delivery_are_zero; undefined_when_order_is_zero_and_delivery_is_positive"
+  },
+  "horizon_accuracy": [
+    {
+      "engine": "client",
+      "horizon": 1,
+      "wape": 25.0,
+      "bias": 25.0,
+      "observations": 3
+    },
+    {
+      "engine": "statistical",
+      "horizon": 1,
+      "wape": 10.0,
+      "bias": 10.0,
+      "observations": 3
+    },
+    {
+      "engine": "ml",
+      "horizon": 1,
+      "wape": 3.8889,
+      "bias": -3.8889,
+      "observations": 3
+    },
+    {
+      "engine": "towell",
+      "horizon": 1,
+      "wape": 10.0,
+      "bias": 10.0,
+      "observations": 3
+    },
+    {
+      "engine": "challenger",
+      "horizon": 1,
+      "wape": 3.8889,
+      "bias": -3.8889,
+      "observations": 3
+    }
+  ],
+  "interval_coverage": [
+    {
+      "horizon": 1,
+      "observations": 3,
+      "coverage_p90": 100.0,
+      "coverage_p95": 100.0,
+      "below_p10": 0,
+      "at_or_below_p50": 3,
+      "outside_p95": 0,
+      "evaluations": [
+        {
+          "series_id": "fendi-chocolate",
+          "actual": 100.0,
+          "within_p90": true,
+          "within_p95": true,
+          "below_p10": false,
+          "at_or_below_p50": true,
+          "outside_p95": false
+        },
+        {
+          "series_id": "fendi-morado",
+          "actual": 80.0,
+          "within_p90": true,
+          "within_p95": true,
+          "below_p10": false,
+          "at_or_below_p50": true,
+          "outside_p95": false
+        },
+        {
+          "series_id": "fendi-azul",
+          "actual": 0.0,
+          "within_p90": true,
+          "within_p95": true,
+          "below_p10": false,
+          "at_or_below_p50": true,
+          "outside_p95": false
+        }
+      ]
+    }
+  ],
+  "rolling_accuracy": [
+    {
+      "engine": "client",
+      "month": {
+        "wape": 25.0,
+        "bias": 25.0,
+        "periods": 1
+      },
+      "last_3": {
+        "wape": 25.0,
+        "bias": 25.0,
+        "periods": 1
+      },
+      "last_6": {
+        "wape": 25.0,
+        "bias": 25.0,
+        "periods": 1
+      },
+      "last_12": {
+        "wape": 25.0,
+        "bias": 25.0,
+        "periods": 1
+      },
+      "all": {
+        "wape": 25.0,
+        "bias": 25.0,
+        "periods": 1
+      }
+    },
+    {
+      "engine": "statistical",
+      "month": {
+        "wape": 10.0,
+        "bias": 10.0,
+        "periods": 1
+      },
+      "last_3": {
+        "wape": 19.3,
+        "bias": 5.3333,
+        "periods": 3
+      },
+      "last_6": {
+        "wape": 19.3,
+        "bias": 5.3333,
+        "periods": 3
+      },
+      "last_12": {
+        "wape": 19.3,
+        "bias": 5.3333,
+        "periods": 3
+      },
+      "all": {
+        "wape": 19.3,
+        "bias": 5.3333,
+        "periods": 3
+      }
+    },
+    {
+      "engine": "ml",
+      "month": {
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "periods": 1
+      },
+      "last_3": {
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "periods": 1
+      },
+      "last_6": {
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "periods": 1
+      },
+      "last_12": {
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "periods": 1
+      },
+      "all": {
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "periods": 1
+      }
+    },
+    {
+      "engine": "towell",
+      "month": {
+        "wape": 10.0,
+        "bias": 10.0,
+        "periods": 1
+      },
+      "last_3": {
+        "wape": 10.0,
+        "bias": 10.0,
+        "periods": 1
+      },
+      "last_6": {
+        "wape": 10.0,
+        "bias": 10.0,
+        "periods": 1
+      },
+      "last_12": {
+        "wape": 10.0,
+        "bias": 10.0,
+        "periods": 1
+      },
+      "all": {
+        "wape": 10.0,
+        "bias": 10.0,
+        "periods": 1
+      }
+    },
+    {
+      "engine": "challenger",
+      "month": {
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "periods": 1
+      },
+      "last_3": {
+        "wape": 16.163,
+        "bias": -0.1963,
+        "periods": 3
+      },
+      "last_6": {
+        "wape": 16.163,
+        "bias": -0.1963,
+        "periods": 3
+      },
+      "last_12": {
+        "wape": 16.163,
+        "bias": -0.1963,
+        "periods": 3
+      },
+      "all": {
+        "wape": 16.163,
+        "bias": -0.1963,
+        "periods": 3
+      }
+    }
+  ],
+  "persistent_bias": [],
+  "challenger_validation": {
+    "state": "in_validation",
+    "automatic_promotion": false,
+    "champion": "statistical",
+    "challenger": "ml_revalidated",
+    "champion_reference_wape": 23.96,
+    "challenger_reference_wape": 22.56,
+    "current_champion_wape": 10.0,
+    "current_challenger_wape": 3.8889,
+    "improvement_points": 6.1111,
+    "consecutive_wins": 3,
+    "required_consecutive_wins": 3,
+    "stable": false,
+    "critical_horizon_degradation": {},
+    "evidence_sufficient": false
+  },
+  "drift": [],
+  "benchmark": {
+    "client_wape": 25.0,
+    "towell_wape": 10.0,
+    "towell_value_added_points": 15.0
+  },
+  "confidence": "high",
+  "learning_events": [
+    {
+      "type": "actuals_appended",
+      "status": "ready",
+      "series": 3
+    },
+    {
+      "type": "next_cycle_prepared",
+      "status": "ready",
+      "period": "2026-09"
+    }
+  ],
+  "snapshot": {
+    "closure_id": "CLOSE-FENDI-2026-09-R01",
+    "period": "2026-09",
+    "revision": 1,
+    "closed_at": "2026-10-01T06:00:00+00:00",
+    "actor": "pilot-validation",
+    "source_contract": "normalized_platform_records",
+    "realized": [
+      {
+        "series_id": "fendi-azul",
+        "period": "2026-09",
+        "sale": 0,
+        "order": 0,
+        "delivery": 0,
+        "client_forecast": 0,
+        "client_forecast_not_received": false,
+        "active": true,
+        "category": "FENDI BD",
+        "color": "Azul"
+      },
+      {
+        "series_id": "fendi-chocolate",
+        "period": "2026-09",
+        "sale": 100,
+        "order": 110,
+        "delivery": 105,
+        "client_forecast": 125,
+        "client_forecast_not_received": false,
+        "active": true,
+        "category": "FENDI BD",
+        "color": "Chocolate"
+      },
+      {
+        "series_id": "fendi-morado",
+        "period": "2026-09",
+        "sale": 80,
+        "order": 90,
+        "delivery": 85,
+        "client_forecast": 100,
+        "client_forecast_not_received": false,
+        "active": true,
+        "category": "FENDI BD",
+        "color": "Morado"
+      }
+    ],
+    "frozen_forecasts": [
+      {
+        "series_id": "fendi-azul",
+        "target_period": "2026-09",
+        "engine": "challenger",
+        "version": "ML-REVALIDATED-22.56",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 0,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-chocolate",
+        "target_period": "2026-09",
+        "engine": "challenger",
+        "version": "ML-REVALIDATED-22.56",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 95,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-morado",
+        "target_period": "2026-09",
+        "engine": "challenger",
+        "version": "ML-REVALIDATED-22.56",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 78,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-azul",
+        "target_period": "2026-09",
+        "engine": "client",
+        "version": "CLIENT-2026-08",
+        "issued_at": "2026-08-05T00:00:00+00:00",
+        "horizon": 1,
+        "value": 0,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-chocolate",
+        "target_period": "2026-09",
+        "engine": "client",
+        "version": "CLIENT-2026-08",
+        "issued_at": "2026-08-05T00:00:00+00:00",
+        "horizon": 1,
+        "value": 125,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-morado",
+        "target_period": "2026-09",
+        "engine": "client",
+        "version": "CLIENT-2026-08",
+        "issued_at": "2026-08-05T00:00:00+00:00",
+        "horizon": 1,
+        "value": 100,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-azul",
+        "target_period": "2026-09",
+        "engine": "ml",
+        "version": "ML-REVALIDATED-22.56",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 0,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-chocolate",
+        "target_period": "2026-09",
+        "engine": "ml",
+        "version": "ML-REVALIDATED-22.56",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 95,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-morado",
+        "target_period": "2026-09",
+        "engine": "ml",
+        "version": "ML-REVALIDATED-22.56",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 78,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-azul",
+        "target_period": "2026-09",
+        "engine": "statistical",
+        "version": "STAT-2026-08",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 0,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-chocolate",
+        "target_period": "2026-09",
+        "engine": "statistical",
+        "version": "STAT-2026-08",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 110,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-morado",
+        "target_period": "2026-09",
+        "engine": "statistical",
+        "version": "STAT-2026-08",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 88,
+        "p10": null,
+        "p50": null,
+        "p90": null,
+        "p95": null,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-azul",
+        "target_period": "2026-09",
+        "engine": "towell",
+        "version": "FT-FENDI-202608-V01",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 0,
+        "p10": 0,
+        "p50": 0,
+        "p90": 10,
+        "p95": 15,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-chocolate",
+        "target_period": "2026-09",
+        "engine": "towell",
+        "version": "FT-FENDI-202608-V01",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 110,
+        "p10": 75,
+        "p50": 100,
+        "p90": 125,
+        "p95": 135,
+        "frozen": true
+      },
+      {
+        "series_id": "fendi-morado",
+        "target_period": "2026-09",
+        "engine": "towell",
+        "version": "FT-FENDI-202608-V01",
+        "issued_at": "2026-08-01T00:00:00+00:00",
+        "horizon": 1,
+        "value": 88,
+        "p10": 55,
+        "p50": 80,
+        "p90": 105,
+        "p95": 115,
+        "frozen": true
+      }
+    ],
+    "metrics": [
+      {
+        "engine": "client",
+        "wape": 25.0,
+        "bias": 25.0,
+        "bias_direction": "overforecast",
+        "observations": 3,
+        "actual_total": 180.0,
+        "forecast_total": 225.0,
+        "absolute_error": 45.0,
+        "versions": [
+          "CLIENT-2026-08"
+        ]
+      },
+      {
+        "engine": "statistical",
+        "wape": 10.0,
+        "bias": 10.0,
+        "bias_direction": "overforecast",
+        "observations": 3,
+        "actual_total": 180.0,
+        "forecast_total": 198.0,
+        "absolute_error": 18.0,
+        "versions": [
+          "STAT-2026-08"
+        ]
+      },
+      {
+        "engine": "ml",
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "bias_direction": "underforecast",
+        "observations": 3,
+        "actual_total": 180.0,
+        "forecast_total": 173.0,
+        "absolute_error": 7.0,
+        "versions": [
+          "ML-REVALIDATED-22.56"
+        ]
+      },
+      {
+        "engine": "towell",
+        "wape": 10.0,
+        "bias": 10.0,
+        "bias_direction": "overforecast",
+        "observations": 3,
+        "actual_total": 180.0,
+        "forecast_total": 198.0,
+        "absolute_error": 18.0,
+        "versions": [
+          "FT-FENDI-202608-V01"
+        ]
+      },
+      {
+        "engine": "challenger",
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "bias_direction": "underforecast",
+        "observations": 3,
+        "actual_total": 180.0,
+        "forecast_total": 173.0,
+        "absolute_error": 7.0,
+        "versions": [
+          "ML-REVALIDATED-22.56"
+        ]
+      }
+    ],
+    "service": {
+      "fill_rate": 95.0,
+      "sale_to_order": 90.0,
+      "order_zero_rule": "100_when_order_and_delivery_are_zero; undefined_when_order_is_zero_and_delivery_is_positive"
+    },
+    "horizon_accuracy": [
+      {
+        "engine": "client",
+        "horizon": 1,
+        "wape": 25.0,
+        "bias": 25.0,
+        "observations": 3
+      },
+      {
+        "engine": "statistical",
+        "horizon": 1,
+        "wape": 10.0,
+        "bias": 10.0,
+        "observations": 3
+      },
+      {
+        "engine": "ml",
+        "horizon": 1,
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "observations": 3
+      },
+      {
+        "engine": "towell",
+        "horizon": 1,
+        "wape": 10.0,
+        "bias": 10.0,
+        "observations": 3
+      },
+      {
+        "engine": "challenger",
+        "horizon": 1,
+        "wape": 3.8889,
+        "bias": -3.8889,
+        "observations": 3
+      }
+    ],
+    "interval_coverage": [
+      {
+        "horizon": 1,
+        "observations": 3,
+        "coverage_p90": 100.0,
+        "coverage_p95": 100.0,
+        "below_p10": 0,
+        "at_or_below_p50": 3,
+        "outside_p95": 0,
+        "evaluations": [
+          {
+            "series_id": "fendi-chocolate",
+            "actual": 100.0,
+            "within_p90": true,
+            "within_p95": true,
+            "below_p10": false,
+            "at_or_below_p50": true,
+            "outside_p95": false
+          },
+          {
+            "series_id": "fendi-morado",
+            "actual": 80.0,
+            "within_p90": true,
+            "within_p95": true,
+            "below_p10": false,
+            "at_or_below_p50": true,
+            "outside_p95": false
+          },
+          {
+            "series_id": "fendi-azul",
+            "actual": 0.0,
+            "within_p90": true,
+            "within_p95": true,
+            "below_p10": false,
+            "at_or_below_p50": true,
+            "outside_p95": false
+          }
+        ]
+      }
+    ],
+    "rolling_accuracy": [
+      {
+        "engine": "client",
+        "month": {
+          "wape": 25.0,
+          "bias": 25.0,
+          "periods": 1
+        },
+        "last_3": {
+          "wape": 25.0,
+          "bias": 25.0,
+          "periods": 1
+        },
+        "last_6": {
+          "wape": 25.0,
+          "bias": 25.0,
+          "periods": 1
+        },
+        "last_12": {
+          "wape": 25.0,
+          "bias": 25.0,
+          "periods": 1
+        },
+        "all": {
+          "wape": 25.0,
+          "bias": 25.0,
+          "periods": 1
+        }
+      },
+      {
+        "engine": "statistical",
+        "month": {
+          "wape": 10.0,
+          "bias": 10.0,
+          "periods": 1
+        },
+        "last_3": {
+          "wape": 19.3,
+          "bias": 5.3333,
+          "periods": 3
+        },
+        "last_6": {
+          "wape": 19.3,
+          "bias": 5.3333,
+          "periods": 3
+        },
+        "last_12": {
+          "wape": 19.3,
+          "bias": 5.3333,
+          "periods": 3
+        },
+        "all": {
+          "wape": 19.3,
+          "bias": 5.3333,
+          "periods": 3
+        }
+      },
+      {
+        "engine": "ml",
+        "month": {
+          "wape": 3.8889,
+          "bias": -3.8889,
+          "periods": 1
+        },
+        "last_3": {
+          "wape": 3.8889,
+          "bias": -3.8889,
+          "periods": 1
+        },
+        "last_6": {
+          "wape": 3.8889,
+          "bias": -3.8889,
+          "periods": 1
+        },
+        "last_12": {
+          "wape": 3.8889,
+          "bias": -3.8889,
+          "periods": 1
+        },
+        "all": {
+          "wape": 3.8889,
+          "bias": -3.8889,
+          "periods": 1
+        }
+      },
+      {
+        "engine": "towell",
+        "month": {
+          "wape": 10.0,
+          "bias": 10.0,
+          "periods": 1
+        },
+        "last_3": {
+          "wape": 10.0,
+          "bias": 10.0,
+          "periods": 1
+        },
+        "last_6": {
+          "wape": 10.0,
+          "bias": 10.0,
+          "periods": 1
+        },
+        "last_12": {
+          "wape": 10.0,
+          "bias": 10.0,
+          "periods": 1
+        },
+        "all": {
+          "wape": 10.0,
+          "bias": 10.0,
+          "periods": 1
+        }
+      },
+      {
+        "engine": "challenger",
+        "month": {
+          "wape": 3.8889,
+          "bias": -3.8889,
+          "periods": 1
+        },
+        "last_3": {
+          "wape": 16.163,
+          "bias": -0.1963,
+          "periods": 3
+        },
+        "last_6": {
+          "wape": 16.163,
+          "bias": -0.1963,
+          "periods": 3
+        },
+        "last_12": {
+          "wape": 16.163,
+          "bias": -0.1963,
+          "periods": 3
+        },
+        "all": {
+          "wape": 16.163,
+          "bias": -0.1963,
+          "periods": 3
+        }
+      }
+    ],
+    "persistent_bias": [],
+    "challenger_validation": {
+      "state": "in_validation",
+      "automatic_promotion": false,
+      "champion": "statistical",
+      "challenger": "ml_revalidated",
+      "champion_reference_wape": 23.96,
+      "challenger_reference_wape": 22.56,
+      "current_champion_wape": 10.0,
+      "current_challenger_wape": 3.8889,
+      "improvement_points": 6.1111,
+      "consecutive_wins": 3,
+      "required_consecutive_wins": 3,
+      "stable": false,
+      "critical_horizon_degradation": {},
+      "evidence_sufficient": false
+    },
+    "drift": [],
+    "benchmark": {
+      "client_wape": 25.0,
+      "towell_wape": 10.0,
+      "towell_value_added_points": 15.0
+    },
+    "confidence": "high",
+    "learning_events": [
+      {
+        "type": "actuals_appended",
+        "status": "ready",
+        "series": 3
+      },
+      {
+        "type": "next_cycle_prepared",
+        "status": "ready",
+        "period": "2026-09"
+      }
+    ],
+    "model_state": {
+      "champion": "statistical",
+      "champion_changed": false,
+      "challenger": "ml_revalidated",
+      "challenger_state": "in_validation"
+    },
+    "engine_version": "prd06-1.0.0",
+    "previous_snapshot_hash": null
+  },
+  "snapshot_hash": "850e29c2bd6363d5ad1eb9b7d4304dfd4fd6d85d8161df5e69d6919578ad2ad3",
+  "snapshot_immutable": true,
+  "champion_changed": false,
+  "forecast_towell_changed": false,
+  "next_cycle_prepared": true,
+  "towell_trend": {
+    "engine": "towell",
+    "month": {
+      "wape": 10.0,
+      "bias": 10.0,
+      "periods": 1
+    },
+    "last_3": {
+      "wape": 10.0,
+      "bias": 10.0,
+      "periods": 1
+    },
+    "last_6": {
+      "wape": 10.0,
+      "bias": 10.0,
+      "periods": 1
+    },
+    "last_12": {
+      "wape": 10.0,
+      "bias": 10.0,
+      "periods": 1
+    },
+    "all": {
+      "wape": 10.0,
+      "bias": 10.0,
+      "periods": 1
+    }
+  }
+}
