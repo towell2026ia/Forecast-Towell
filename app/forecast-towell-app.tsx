@@ -24,6 +24,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Toaster } from "@/components/ui/sonner";
 import ForecastEnginesView from "./forecast-engines-view";
 import ExecutiveDashboard from "./executive-dashboard";
+import ForecastAssistant from "./forecast-assistant";
+import ForecastAssistantErrorBoundary from "./forecast-assistant-error-boundary";
+import type { AssistantMode } from "./assistant/assistant-service";
 
 type ModuleId = "inicio" | "captura" | "historico" | "motor" | "periodos" | "calidad" | "usuarios" | "auditoria";
 type CaptureType = "pedido" | "venta" | "entrega" | "fcst";
@@ -80,7 +83,10 @@ function StatusBadge({ children, tone = "blue" }: { children: React.ReactNode; t
   return <Badge variant="outline" className={colors[tone]}>{children}</Badge>;
 }
 
-export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConfigured: boolean }) {
+export default function ForecastTowellApp({ supabaseConfigured, assistantConfig }: {
+  supabaseConfigured: boolean;
+  assistantConfig: { authorized: boolean; uiEnabled: boolean; apiEnabled: boolean; voiceEnabled: boolean; mode: AssistantMode };
+}) {
   const [active, setActive] = useState<ModuleId>("inicio");
   const [capture, setCapture] = useState<CaptureType | null>(null);
   const [periodState, setPeriodState] = useState("Abierto");
@@ -156,6 +162,22 @@ export default function ForecastTowellApp({ supabaseConfigured }: { supabaseConf
       </main>
     </SidebarInset>
     <CaptureDialog type={capture} onClose={() => setCapture(null)} onSubmit={submitCapture}/>
+    <ForecastAssistantErrorBoundary>
+      <ForecastAssistant
+        {...assistantConfig}
+        context={{
+          user: "Gerencia 1",
+          role: "manager",
+          screen: active,
+          activeFilters: { periodState },
+          chain: "Walmart",
+          category: "FENDI BD",
+          product: null,
+          color: null,
+          period: "2026-09",
+        }}
+      />
+    </ForecastAssistantErrorBoundary>
     <Toaster richColors position="bottom-right"/>
   </SidebarProvider>;
 }

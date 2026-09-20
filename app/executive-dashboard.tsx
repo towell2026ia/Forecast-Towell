@@ -1,14 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AlertTriangle, BellRing, Bot, CalendarDays, Check, ChevronRight, CircleAlert, Filter, SlidersHorizontal, Sparkles, TrendingDown, TrendingUp } from "lucide-react";
+import { AlertTriangle, BellRing, CalendarDays, Check, ChevronRight, CircleAlert, Filter, SlidersHorizontal, Sparkles, TrendingDown, TrendingUp } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ReferenceArea, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { toast } from "sonner";
 import mlPayload from "./data/ml-demo.json";
 
 type ModuleId = "inicio" | "captura" | "historico" | "motor" | "periodos" | "calidad" | "usuarios" | "auditoria";
@@ -107,7 +106,6 @@ export default function ExecutiveDashboard({ onGo, periodState }: { onGo:(id:Mod
 
     <section className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center"><div className="flex items-center gap-3 border-b border-slate-100 pb-3 md:border-b-0 md:border-r md:pb-0 md:pr-5"><div className="grid size-10 place-items-center rounded-xl bg-blue-50 text-blue-700"><CalendarDays className="size-5"/></div><div><p className="text-sm font-semibold">Periodo Sep-26</p><p className="text-xs text-slate-500">70% completo · {periodState}</p></div></div><div className="flex-1 text-sm text-slate-600"><strong className="text-slate-950">Pendientes del periodo</strong><span className="ml-3">Pedido 2 · Venta 3 · Entrega 1 · Fcst Cliente 3</span></div><Button variant="outline" onClick={()=>onGo("periodos")}>Revisar periodo <ChevronRight/></Button></section>
 
-    <button aria-label="Abrir Asistente IA" onClick={()=>toast("Asistente IA preparado",{description:"La interacción gerencial por voz se habilitará en una fase posterior."})} className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-slate-950 px-4 py-3 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-blue-700"><Bot className="size-5"/><span className="hidden sm:inline">Asistente IA</span></button>
   </div>;
 }
 
