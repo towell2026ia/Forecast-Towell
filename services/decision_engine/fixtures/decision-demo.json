@@ -1,0 +1,148 @@
+{
+  "decision": {
+    "decision_version": "DEC-FENDI-2026-11-V01",
+    "target_period": "2026-11",
+    "revision": 1,
+    "actor_id": "gerencia-comercial",
+    "actor_role": "manager",
+    "governance_alerts": [],
+    "previous_decision_hash": null,
+    "correction_reason": null,
+    "source_contract": "normalized_platform_records",
+    "forecast_towell_changed": false,
+    "champion_challenger_affected": false,
+    "generative_ai_used": false,
+    "engine_version": "prd07-1.0.0",
+    "blockers": [],
+    "warnings": [],
+    "status": "frozen",
+    "entries": [
+      {
+        "series_id": "fendi-chocolate",
+        "category": "FENDI BD",
+        "color": "Chocolate",
+        "horizon": 1,
+        "vintage_id": "vintage-chocolate-h1",
+        "forecast_towell_version": "FT-FENDI-2026-10-V01",
+        "forecast_towell": 10000.0,
+        "adjustment": 1500.0,
+        "adjustment_percent": 15.0,
+        "forecast_adjusted": 11500.0,
+        "forecast_approved": 11500.0,
+        "method": "final_value",
+        "reason": "promotion",
+        "explanation": "Cliente confirmó promoción nacional durante noviembre.",
+        "evidence_reference": "Acuerdo comercial NOV-2026",
+        "within_p90": true,
+        "outside_p95": false,
+        "below_p10": false,
+        "significant_adjustment": false,
+        "bands": {
+          "p10": 8000,
+          "p50": 10000,
+          "p90": 12000,
+          "p95": 13000
+        }
+      },
+      {
+        "series_id": "fendi-morado",
+        "category": "FENDI BD",
+        "color": "Morado",
+        "horizon": 1,
+        "vintage_id": "vintage-morado-h1",
+        "forecast_towell_version": "FT-FENDI-2026-10-V01",
+        "forecast_towell": 8000.0,
+        "adjustment": 0.0,
+        "adjustment_percent": 0.0,
+        "forecast_adjusted": 8000.0,
+        "forecast_approved": 8000.0,
+        "method": "none",
+        "reason": "no_adjustment",
+        "explanation": "Revisado sin ajuste.",
+        "evidence_reference": null,
+        "within_p90": true,
+        "outside_p95": false,
+        "below_p10": false,
+        "significant_adjustment": false,
+        "bands": {
+          "p10": 6500,
+          "p50": 8000,
+          "p90": 9500,
+          "p95": 10500
+        }
+      }
+    ],
+    "approved_by": "direccion-comercial",
+    "frozen": true,
+    "decision_hash": "aa2e35275dcfa3b12aafa39549808ab7599ab57720784069a172254232e97601"
+  },
+  "evaluation": {
+    "status": "evaluated",
+    "decision_version": "DEC-FENDI-2026-11-V01",
+    "towell_wape": 6.7358,
+    "approved_wape": 1.0363,
+    "towell_bias": -6.7358,
+    "approved_bias": 1.0363,
+    "fva_points": 5.6995,
+    "classification": "positive",
+    "intervention": true,
+    "details": [
+      {
+        "series_id": "fendi-chocolate",
+        "horizon": 1,
+        "reason": "promotion",
+        "actor_id": "gerencia-comercial",
+        "forecast_towell": 10000.0,
+        "forecast_approved": 11500.0,
+        "actual": 11300.0,
+        "towell_absolute_error": 1300.0,
+        "approved_absolute_error": 200.0,
+        "fva_absolute": 1100.0,
+        "classification": "positive"
+      },
+      {
+        "series_id": "fendi-morado",
+        "horizon": 1,
+        "reason": "no_adjustment",
+        "actor_id": "gerencia-comercial",
+        "forecast_towell": 8000.0,
+        "forecast_approved": 8000.0,
+        "actual": 8000.0,
+        "towell_absolute_error": 0.0,
+        "approved_absolute_error": 0.0,
+        "fva_absolute": 0.0,
+        "classification": "neutral"
+      }
+    ],
+    "by_reason": [
+      {
+        "reason": "no_adjustment",
+        "observations": 1,
+        "average_fva_absolute": 0.0,
+        "positive_rate": 0.0
+      },
+      {
+        "reason": "promotion",
+        "observations": 1,
+        "average_fva_absolute": 1100.0,
+        "positive_rate": 100.0
+      }
+    ],
+    "by_horizon": [
+      {
+        "horizon": 1,
+        "observations": 2,
+        "average_fva_absolute": 550.0
+      }
+    ],
+    "learning_event": {
+      "type": "human_decision_evaluated",
+      "model_training_allowed": false,
+      "evidence_accumulated": true
+    },
+    "champion_challenger_affected": false,
+    "forecast_towell_changed": false,
+    "originals_protected": true,
+    "reprocessable": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "actor_id": "gerencia-comercial",
+  "actor_role": "manager",
+  "points": [
+    {"series_id":"fendi-chocolate","target_period":"2026-11","horizon":1,"towell_value":10000,"vintage_id":"vintage-chocolate-h1","forecast_towell_version":"FT-FENDI-2026-10-V01","issued_at":"2026-10-01T00:00:00+00:00","p10":8000,"p50":10000,"p90":12000,"p95":13000,"color":"Chocolate"},
+    {"series_id":"fendi-morado","target_period":"2026-11","horizon":1,"towell_value":8000,"vintage_id":"vintage-morado-h1","forecast_towell_version":"FT-FENDI-2026-10-V01","issued_at":"2026-10-01T00:00:00+00:00","p10":6500,"p50":8000,"p90":9500,"p95":10500,"color":"Morado"}
+  ],
+  "proposals": [
+    {"series_id":"fendi-chocolate","horizon":1,"method":"final_value","value":11500,"reason":"promotion","explanation":"Cliente confirmó promoción nacional durante noviembre.","evidence_reference":"Acuerdo comercial NOV-2026"}
+  ],
+  "configuration": {
+    "significant_adjustment_percent": 20,
+    "fva_neutral_tolerance_points": 0.25,
+    "require_separate_approver": true
+  },
+  "approve": {"actor_id":"direccion-comercial","actor_role":"manager","freeze":true},
+  "actuals": {"fendi-chocolate":11300,"fendi-morado":8000}
+}

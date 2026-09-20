@@ -232,6 +232,10 @@ def persist_learning(db: Supabase, closure: dict, result: dict) -> None:
     now = datetime.now(timezone.utc).isoformat()
     db.patch("period_closures", closure_id, {"status": "completed", "completed_at": now, "error_detail": None})
     audit(db, closure_id, "learning.completed", closure.get("requested_by"), challenger_state=challenger.get("state"), automatic_promotion=False)
+    db.request("POST", "domain_events", {
+        "event_type": "decision.fva_evaluation_requested", "aggregate_type": "period_closure", "aggregate_id": closure_id,
+        "payload": {"period_closure_id": closure_id, "asynchronous": True, "forecast_towell_immutable": True}, "actor_id": closure.get("requested_by"),
+    }, "return=minimal")
 
 
 def main() -> None:
