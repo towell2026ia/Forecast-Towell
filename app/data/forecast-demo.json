@@ -1,9 +1,9 @@
 {
   "run": {
-    "version": "FENDI-BD-2026-09-18-01",
+    "version": "FENDI-BD-2026-09-21-01",
     "engine_version": "prd03-1.0.0",
     "status": "completed_with_alerts",
-    "generated_at": "2026-09-18T22:09:57+00:00",
+    "generated_at": "2026-09-21T17:40:48+00:00",
     "frozen": true,
     "source": "normalized_platform_records",
     "cutoff": "2026-07"
@@ -16,12 +16,481 @@
       "message": "2023 no se incorporó: falta una equivalencia FENDI reproducible aprobada."
     },
     {
-      "code": "D09",
-      "severity": "review",
-      "message": "Las diferencias 2025 permanecen trazables; el motor no sobrescribe observaciones."
+      "code": "SCOPE",
+      "severity": "info",
+      "message": "Universo auditado: Walmart y familia FENDI únicamente; Venta y Pedido permanecen separados."
     }
   ],
   "series": [
+    {
+      "series_id": "total-fendi-bd",
+      "label": "Total FENDI BD",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.109,
+        "trend_strength": 0.067,
+        "seasonal_correlation": 0.437
+      },
+      "winner": "Media móvil 3",
+      "wape": 29.24,
+      "bias": 15.06,
+      "stability": 24.32,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 75306.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 46272.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 75582.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 28524.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 76428.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 64026.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 53040.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 88740.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 91326.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 62922.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 67830.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 96930.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 61662.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 62778.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 68502.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 83694.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 136272.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 86730.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 105876.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 89736.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 130122.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 66282.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 135180.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 110528.0
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 103996.67
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 116568.22
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 110364.3
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 110309.73
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 112414.08
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 111029.37
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 111251.06
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 111564.84
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 111281.76
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 111365.88
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 111404.16
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Media móvil 3",
+          "wape": 29.24,
+          "bias": 15.06,
+          "stability": 24.32,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 30.6,
+              "bias": 12.02,
+              "stability": 25.17
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 31.56,
+              "bias": 16.6,
+              "stability": 26.37
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 25.05,
+              "bias": 15.0,
+              "stability": 20.43
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 25.69,
+              "bias": 20.28,
+              "stability": 22.55
+            }
+          ],
+          "score": 36.65,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 29.69,
+          "bias": 20.26,
+          "stability": 25.15,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 30.28,
+              "bias": 16.59,
+              "stability": 25.69
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 31.5,
+              "bias": 22.69,
+              "stability": 27.36
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 25.73,
+              "bias": 19.23,
+              "stability": 21.13
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 29.61,
+              "bias": 26.52,
+              "stability": 24.14
+            }
+          ],
+          "score": 38.53,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 35.26,
+          "bias": 11.42,
+          "stability": 26.89,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 38.87,
+              "bias": 7.29,
+              "stability": 29.74
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 36.08,
+              "bias": 12.6,
+              "stability": 27.26
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 30.27,
+              "bias": 11.71,
+              "stability": 22.62
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 30.34,
+              "bias": 20.44,
+              "stability": 24.41
+            }
+          ],
+          "score": 42.15,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 47.47,
+          "bias": 46.88,
+          "stability": 28.75,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 44.57,
+              "bias": 43.31,
+              "stability": 30.58
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 48.99,
+              "bias": 48.56,
+              "stability": 29.89
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 45.68,
+              "bias": 45.68,
+              "stability": 24.77
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 55.28,
+              "bias": 55.28,
+              "stability": 26.7
+            }
+          ],
+          "score": 63.5,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 76.68,
+          "bias": 76.68,
+          "stability": 31.15,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 73.59,
+              "bias": 73.59,
+              "stability": 35.54
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 77.04,
+              "bias": 77.04,
+              "stability": 31.78
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 77.82,
+              "bias": 77.82,
+              "stability": 24.78
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 83.28,
+              "bias": 83.28,
+              "stability": 26.81
+            }
+          ],
+          "score": 100.52,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 77.84,
+          "bias": 77.84,
+          "stability": 31.38,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 74.91,
+              "bias": 74.91,
+              "stability": 35.88
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 78.19,
+              "bias": 78.19,
+              "stability": 32.02
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 78.93,
+              "bias": 78.93,
+              "stability": 24.87
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 84.11,
+              "bias": 84.11,
+              "stability": 26.83
+            }
+          ],
+          "score": 102.01,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Media móvil 3 minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
     {
       "series_id": "total-fendi-bd",
       "label": "Total FENDI BD",
@@ -490,6 +959,4693 @@
       ],
       "alerts": [],
       "explanation": "Naive minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813122",
+      "label": "Chocolate",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.19,
+        "trend_strength": 0.072,
+        "seasonal_correlation": 0.467
+      },
+      "winner": "Media móvil 3",
+      "wape": 35.26,
+      "bias": 17.06,
+      "stability": 33.66,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 5748.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 11316.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 3480.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 7884.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 6276.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 13524.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 7896.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 14604.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 8820.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 8844.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 14280.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 9564.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 10392.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 10632.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 15384.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 28266.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 14304.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 18108.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 13452.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 19002.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 9534.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 18036.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 15524.0
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 14364.67
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 15974.89
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 15287.85
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 15209.14
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 15490.63
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 15329.2
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 15342.99
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 15387.61
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 15353.27
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 15361.29
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 15367.39
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Media móvil 3",
+          "wape": 35.26,
+          "bias": 17.06,
+          "stability": 33.66,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 35.57,
+              "bias": 11.02,
+              "stability": 32.16
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 36.55,
+              "bias": 16.03,
+              "stability": 34.92
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 31.89,
+              "bias": 20.6,
+              "stability": 33.07
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 36.52,
+              "bias": 32.69,
+              "stability": 35.76
+            }
+          ],
+          "score": 44.57,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 33.77,
+          "bias": 22.9,
+          "stability": 34.15,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 33.12,
+              "bias": 16.03,
+              "stability": 32.37
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 33.88,
+              "bias": 23.07,
+              "stability": 35.37
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 31.33,
+              "bias": 25.98,
+              "stability": 33.58
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 39.75,
+              "bias": 38.47,
+              "stability": 37.2
+            }
+          ],
+          "score": 44.62,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 43.92,
+          "bias": 13.01,
+          "stability": 34.77,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 47.6,
+              "bias": 6.47,
+              "stability": 33.06
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 42.83,
+              "bias": 11.9,
+              "stability": 36.07
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 40.44,
+              "bias": 14.9,
+              "stability": 35.28
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 41.64,
+              "bias": 33.37,
+              "stability": 35.47
+            }
+          ],
+          "score": 52.39,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 52.63,
+          "bias": 51.62,
+          "stability": 36.84,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 48.02,
+              "bias": 46.13,
+              "stability": 37.46
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 53.1,
+              "bias": 52.17,
+              "stability": 37.05
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 53.66,
+              "bias": 53.54,
+              "stability": 34.68
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 63.87,
+              "bias": 63.87,
+              "stability": 38.04
+            }
+          ],
+          "score": 71.06,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 78.51,
+          "bias": 78.51,
+          "stability": 41.48,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 74.63,
+              "bias": 74.63,
+              "stability": 44.58
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 78.47,
+              "bias": 78.47,
+              "stability": 42.32
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 80.92,
+              "bias": 80.92,
+              "stability": 36.26
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 86.49,
+              "bias": 86.49,
+              "stability": 38.55
+            }
+          ],
+          "score": 104.36,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 79.58,
+          "bias": 79.58,
+          "stability": 41.72,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 75.9,
+              "bias": 75.9,
+              "stability": 44.92
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 79.55,
+              "bias": 79.55,
+              "stability": 42.6
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 81.87,
+              "bias": 81.87,
+              "stability": 36.37
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 87.17,
+              "bias": 87.17,
+              "stability": 38.57
+            }
+          ],
+          "score": 105.73,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Media móvil 3 minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813139",
+      "label": "Morado",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.204,
+        "trend_strength": 0.071,
+        "seasonal_correlation": 0.386
+      },
+      "winner": "SES",
+      "wape": 37.08,
+      "bias": 22.43,
+      "stability": 35.58,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 5976.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 10860.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 4488.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 6420.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 4812.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 6756.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 12060.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 18924.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 8280.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 9648.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 12492.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 7416.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 8340.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 8520.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 12570.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 24204.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 11088.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 13866.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 14184.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 19272.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 8736.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 19590.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 15515.52
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 15515.52
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "SES",
+          "wape": 37.08,
+          "bias": 22.43,
+          "stability": 35.58,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 36.47,
+              "bias": 17.19,
+              "stability": 34.84
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 37.52,
+              "bias": 23.75,
+              "stability": 37.31
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 36.02,
+              "bias": 23.79,
+              "stability": 33.57
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 39.56,
+              "bias": 32.63,
+              "stability": 36.4
+            }
+          ],
+          "score": 48.02,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 40.16,
+          "bias": 16.84,
+          "stability": 34.76,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 39.95,
+              "bias": 12.34,
+              "stability": 33.73
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 41.68,
+              "bias": 17.39,
+              "stability": 36.46
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 38.78,
+              "bias": 19.24,
+              "stability": 33.67
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 38.9,
+              "bias": 25.15,
+              "stability": 35.0
+            }
+          ],
+          "score": 49.58,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 46.52,
+          "bias": 12.78,
+          "stability": 37.94,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 46.98,
+              "bias": 7.6,
+              "stability": 38.73
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 47.24,
+              "bias": 13.07,
+              "stability": 38.0
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 45.67,
+              "bias": 14.37,
+              "stability": 37.11
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 44.53,
+              "bias": 25.38,
+              "stability": 36.79
+            }
+          ],
+          "score": 55.41,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 50.82,
+          "bias": 49.92,
+          "stability": 40.12,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 47.24,
+              "bias": 45.44,
+              "stability": 40.79
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 51.61,
+              "bias": 50.9,
+              "stability": 40.45
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 50.55,
+              "bias": 50.45,
+              "stability": 38.39
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 60.21,
+              "bias": 60.21,
+              "stability": 40.08
+            }
+          ],
+          "score": 69.32,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 77.88,
+          "bias": 77.88,
+          "stability": 43.39,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 74.44,
+              "bias": 74.44,
+              "stability": 46.5
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 78.0,
+              "bias": 78.0,
+              "stability": 43.98
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 79.7,
+              "bias": 79.7,
+              "stability": 38.67
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 85.11,
+              "bias": 85.11,
+              "stability": 40.26
+            }
+          ],
+          "score": 103.86,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 78.99,
+          "bias": 78.99,
+          "stability": 43.6,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 75.72,
+              "bias": 75.72,
+              "stability": 46.83
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 79.1,
+              "bias": 79.1,
+              "stability": 44.22
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 80.72,
+              "bias": 80.72,
+              "stability": 38.73
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 85.86,
+              "bias": 85.86,
+              "stability": 40.27
+            }
+          ],
+          "score": 105.28,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "SES minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813146",
+      "label": "Azul",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.134,
+        "trend_strength": 0.046,
+        "seasonal_correlation": -0.517
+      },
+      "winner": "Media móvil 3",
+      "wape": 32.76,
+      "bias": 3.47,
+      "stability": 24.46,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 6156.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 10194.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 4080.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 17430.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 20586.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 13272.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 19962.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 15162.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 11112.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 13158.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 18672.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 12558.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 13302.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 16848.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 12324.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 17604.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 12150.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 11436.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 7002.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 9108.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 4560.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 10098.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 7922.0
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 7526.67
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 8515.56
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 7988.07
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 8010.1
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 8171.24
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 8056.47
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 8079.27
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 8102.33
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 8079.36
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 8086.99
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 8089.56
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Media móvil 3",
+          "wape": 32.76,
+          "bias": 3.47,
+          "stability": 24.46,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 32.87,
+              "bias": 5.65,
+              "stability": 24.77
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 35.92,
+              "bias": 7.76,
+              "stability": 27.1
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 28.6,
+              "bias": -4.69,
+              "stability": 20.94
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 30.64,
+              "bias": -1.36,
+              "stability": 22.05
+            }
+          ],
+          "score": 37.3,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 33.54,
+          "bias": 8.72,
+          "stability": 27.31,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 33.36,
+              "bias": 8.94,
+              "stability": 27.82
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 37.5,
+              "bias": 12.97,
+              "stability": 30.65
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 28.95,
+              "bias": 1.34,
+              "stability": 22.73
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 30.79,
+              "bias": 8.76,
+              "stability": 24.1
+            }
+          ],
+          "score": 39.82,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 37.54,
+          "bias": 1.23,
+          "stability": 26.85,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 39.4,
+              "bias": 3.53,
+              "stability": 25.29
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 38.1,
+              "bias": 5.58,
+              "stability": 29.02
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 34.37,
+              "bias": -7.31,
+              "stability": 26.12
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 35.68,
+              "bias": -3.52,
+              "stability": 26.75
+            }
+          ],
+          "score": 41.88,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 51.96,
+          "bias": 44.59,
+          "stability": 36.77,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 49.56,
+              "bias": 40.35,
+              "stability": 40.53
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 54.53,
+              "bias": 46.25,
+              "stability": 39.01
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 48.7,
+              "bias": 42.77,
+              "stability": 30.6
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 57.77,
+              "bias": 56.27,
+              "stability": 29.41
+            }
+          ],
+          "score": 68.62,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 76.5,
+          "bias": 75.8,
+          "stability": 40.4,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 73.69,
+              "bias": 72.53,
+              "stability": 47.06
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 76.87,
+              "bias": 76.16,
+              "stability": 43.12
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 76.79,
+              "bias": 76.56,
+              "stability": 31.52
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 83.69,
+              "bias": 83.69,
+              "stability": 27.35
+            }
+          ],
+          "score": 101.51,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 77.57,
+          "bias": 77.01,
+          "stability": 40.41,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 74.85,
+              "bias": 73.91,
+              "stability": 47.17
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 77.92,
+              "bias": 77.35,
+              "stability": 43.12
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 77.87,
+              "bias": 77.73,
+              "stability": 31.41
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 84.5,
+              "bias": 84.5,
+              "stability": 27.23
+            }
+          ],
+          "score": 102.88,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Media móvil 3 minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813153",
+      "label": "Aqua",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.17,
+        "trend_strength": 0.064,
+        "seasonal_correlation": 0.176
+      },
+      "winner": "SES",
+      "wape": 37.13,
+      "bias": 19.62,
+      "stability": 34.96,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 5562.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 8220.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 3444.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 7404.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 4404.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 3684.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 10224.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 11796.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 7140.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 7836.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 10560.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 6156.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 7728.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 7044.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 11928.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 20466.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 10296.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 12954.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 8232.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 10572.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 5466.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 10950.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 9644.0
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 9644.0
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "SES",
+          "wape": 37.13,
+          "bias": 19.62,
+          "stability": 34.96,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 36.27,
+              "bias": 13.68,
+              "stability": 34.49
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 39.1,
+              "bias": 19.85,
+              "stability": 37.05
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 34.53,
+              "bias": 21.94,
+              "stability": 31.85
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 38.74,
+              "bias": 33.47,
+              "stability": 35.89
+            }
+          ],
+          "score": 47.28,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 39.59,
+          "bias": 14.09,
+          "stability": 35.14,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 39.22,
+              "bias": 8.99,
+              "stability": 34.91
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 42.59,
+              "bias": 12.94,
+              "stability": 37.49
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 36.8,
+              "bias": 17.24,
+              "stability": 31.91
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 37.03,
+              "bias": 27.82,
+              "stability": 34.73
+            }
+          ],
+          "score": 48.38,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 46.32,
+          "bias": 10.48,
+          "stability": 36.15,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 47.22,
+              "bias": 5.43,
+              "stability": 33.74
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 47.58,
+              "bias": 9.29,
+              "stability": 38.57
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 45.27,
+              "bias": 11.62,
+              "stability": 36.91
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 41.68,
+              "bias": 27.71,
+              "stability": 35.37
+            }
+          ],
+          "score": 54.36,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 46.85,
+          "bias": 44.53,
+          "stability": 39.49,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 43.26,
+              "bias": 39.48,
+              "stability": 40.58
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 47.96,
+              "bias": 45.61,
+              "stability": 40.38
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 46.5,
+              "bias": 45.54,
+              "stability": 36.25
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 55.5,
+              "bias": 55.47,
+              "stability": 39.22
+            }
+          ],
+          "score": 63.91,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 75.54,
+          "bias": 75.54,
+          "stability": 42.75,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 71.75,
+              "bias": 71.75,
+              "stability": 46.03
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 75.62,
+              "bias": 75.62,
+              "stability": 43.37
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 77.73,
+              "bias": 77.73,
+              "stability": 37.85
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 83.33,
+              "bias": 83.33,
+              "stability": 39.29
+            }
+          ],
+          "score": 100.84,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 76.76,
+          "bias": 76.76,
+          "stability": 42.84,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 73.16,
+              "bias": 73.16,
+              "stability": 46.17
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 76.84,
+              "bias": 76.84,
+              "stability": 43.46
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 78.84,
+              "bias": 78.84,
+              "stability": 37.89
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 84.16,
+              "bias": 84.16,
+              "stability": 39.3
+            }
+          ],
+          "score": 102.38,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "SES minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813160",
+      "label": "Gris",
+      "target": "Pedido",
+      "status": "completed_with_alerts",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.722,
+        "cv2": 0.335,
+        "trend_strength": 0.006,
+        "seasonal_correlation": -0.417
+      },
+      "winner": "SES",
+      "wape": 70.29,
+      "bias": -15.44,
+      "stability": 57.72,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9408.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 5154.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 7776.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 2892.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 6600.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 4320.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 2940.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 4740.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 2328.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 3240.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 5412.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 7260.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 4752.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 1656.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 1176.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 1968.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 3120.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 102.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 0.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 213.8
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 213.8
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "SES",
+          "wape": 70.29,
+          "bias": -15.44,
+          "stability": 57.72,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 61.38,
+              "bias": 0.82,
+              "stability": 62.84
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 69.95,
+              "bias": 1.93,
+              "stability": 64.3
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 79.83,
+              "bias": -50.96,
+              "stability": 44.43
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 82.42,
+              "bias": -54.03,
+              "stability": 46.08
+            }
+          ],
+          "score": 82.81,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 70.32,
+          "bias": -15.26,
+          "stability": 61.56,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 61.17,
+              "bias": 0.0,
+              "stability": 68.12
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 70.92,
+              "bias": 0.0,
+              "stability": 67.46
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 79.63,
+              "bias": -46.69,
+              "stability": 48.99
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 80.86,
+              "bias": -51.82,
+              "stability": 46.08
+            }
+          ],
+          "score": 83.37,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 74.53,
+          "bias": -12.86,
+          "stability": 65.43,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 65.24,
+              "bias": 0.0,
+              "stability": 69.43
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 73.84,
+              "bias": 0.0,
+              "stability": 71.86
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 84.78,
+              "bias": -38.65,
+              "stability": 54.06
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 87.62,
+              "bias": -44.89,
+              "stability": 54.3
+            }
+          ],
+          "score": 87.56,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 83.34,
+          "bias": -11.9,
+          "stability": 61.95,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 81.56,
+              "bias": -1.11,
+              "stability": 68.81
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 85.05,
+              "bias": 5.57,
+              "stability": 66.98
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 86.44,
+              "bias": -47.03,
+              "stability": 50.22
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 78.57,
+              "bias": -34.34,
+              "stability": 46.61
+            }
+          ],
+          "score": 95.61,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 82.2,
+          "bias": 52.18,
+          "stability": 68.41,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 85.0,
+              "bias": 53.57,
+              "stability": 74.62
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 84.73,
+              "bias": 58.42,
+              "stability": 71.5
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 77.69,
+              "bias": 40.87,
+              "stability": 57.6
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 74.1,
+              "bias": 49.68,
+              "stability": 59.04
+            }
+          ],
+          "score": 105.51,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 82.71,
+          "bias": 54.57,
+          "stability": 69.08,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 85.36,
+              "bias": 55.89,
+              "stability": 75.33
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 85.17,
+              "bias": 60.5,
+              "stability": 71.95
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 78.32,
+              "bias": 43.83,
+              "stability": 58.44
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 75.04,
+              "bias": 52.19,
+              "stability": 59.91
+            }
+          ],
+          "score": 106.71,
+          "applicable": true
+        }
+      ],
+      "alerts": [
+        {
+          "type": "Deterioro de precisión",
+          "severity": "alta",
+          "message": "WAPE de validación 70.3%; revisar antes de usar."
+        },
+        {
+          "type": "Pérdida de movimiento",
+          "severity": "media",
+          "message": "Tres periodos cerrados consecutivos en cero."
+        }
+      ],
+      "explanation": "SES minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813177",
+      "label": "Beige",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.159,
+        "trend_strength": 0.063,
+        "seasonal_correlation": 0.28
+      },
+      "winner": "SES",
+      "wape": 37.62,
+      "bias": 20.73,
+      "stability": 32.87,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 5898.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 10140.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 4224.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 5832.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 4692.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 2796.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 3912.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 2340.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 3252.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 5496.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 6708.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 4128.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 5448.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 6144.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 6456.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 7704.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 8298.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 10542.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 7524.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 11616.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 5532.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 10524.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 8864.36
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 8864.36
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "SES",
+          "wape": 37.62,
+          "bias": 20.73,
+          "stability": 32.87,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 35.58,
+              "bias": 17.04,
+              "stability": 33.97
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 40.48,
+              "bias": 24.13,
+              "stability": 38.2
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 35.29,
+              "bias": 19.33,
+              "stability": 23.17
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 39.82,
+              "bias": 24.96,
+              "stability": 31.08
+            }
+          ],
+          "score": 47.73,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 38.78,
+          "bias": 16.84,
+          "stability": 32.79,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 36.44,
+              "bias": 12.17,
+              "stability": 33.73
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 41.28,
+              "bias": 17.87,
+              "stability": 37.91
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 35.6,
+              "bias": 17.6,
+              "stability": 22.6
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 44.49,
+              "bias": 27.14,
+              "stability": 32.94
+            }
+          ],
+          "score": 47.91,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 39.97,
+          "bias": 14.52,
+          "stability": 34.31,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 41.7,
+              "bias": 7.08,
+              "stability": 37.25
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 41.2,
+              "bias": 13.46,
+              "stability": 38.71
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 32.89,
+              "bias": 18.99,
+              "stability": 22.34
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 43.45,
+              "bias": 33.01,
+              "stability": 33.44
+            }
+          ],
+          "score": 48.75,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 41.95,
+          "bias": 36.33,
+          "stability": 37.48,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 42.55,
+              "bias": 35.63,
+              "stability": 40.53
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 46.08,
+              "bias": 40.91,
+              "stability": 42.86
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 34.99,
+              "bias": 30.09,
+              "stability": 27.46
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 40.4,
+              "bias": 36.23,
+              "stability": 29.98
+            }
+          ],
+          "score": 56.65,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 72.32,
+          "bias": 72.32,
+          "stability": 40.38,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 70.18,
+              "bias": 70.18,
+              "stability": 43.45
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 73.72,
+              "bias": 73.72,
+              "stability": 42.1
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 71.68,
+              "bias": 71.68,
+              "stability": 34.48
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 76.11,
+              "bias": 76.11,
+              "stability": 36.15
+            }
+          ],
+          "score": 96.46,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 73.7,
+          "bias": 73.7,
+          "stability": 40.54,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 71.67,
+              "bias": 71.67,
+              "stability": 43.7
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 75.03,
+              "bias": 75.03,
+              "stability": 42.19
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 73.1,
+              "bias": 73.1,
+              "stability": 34.69
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 77.3,
+              "bias": 77.3,
+              "stability": 36.18
+            }
+          ],
+          "score": 98.21,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "SES minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813184",
+      "label": "Rosa",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.28,
+        "trend_strength": 0.032,
+        "seasonal_correlation": -0.605
+      },
+      "winner": "Media móvil 3",
+      "wape": 47.82,
+      "bias": -2.21,
+      "stability": 33.26,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 6084.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 8112.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 2832.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 17010.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 14316.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 3480.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 18270.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 11472.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 11526.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 9804.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 15390.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 8628.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 6408.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 6954.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 8394.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 9888.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 3528.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 4608.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 3954.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 5616.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 2604.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 5286.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 4502.0
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 4130.67
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 4639.56
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 4424.07
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 4398.1
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 4487.24
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 4436.47
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 4440.6
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 4454.77
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 4443.95
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 4446.44
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 4448.39
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Media móvil 3",
+          "wape": 47.82,
+          "bias": -2.21,
+          "stability": 33.26,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 46.78,
+              "bias": 4.59,
+              "stability": 36.38
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 48.57,
+              "bias": 6.43,
+              "stability": 33.67
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 45.36,
+              "bias": -16.61,
+              "stability": 27.86
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 53.18,
+              "bias": -23.08,
+              "stability": 31.82
+            }
+          ],
+          "score": 53.36,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 47.49,
+          "bias": 2.01,
+          "stability": 38.08,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 45.17,
+              "bias": 7.03,
+              "stability": 42.31
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 49.46,
+              "bias": 10.15,
+              "stability": 39.64
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 47.18,
+              "bias": -12.58,
+              "stability": 30.65
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 49.58,
+              "bias": -11.55,
+              "stability": 33.42
+            }
+          ],
+          "score": 53.7,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 57.18,
+          "bias": -3.92,
+          "stability": 47.19,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 54.05,
+              "bias": 2.73,
+              "stability": 53.87
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 55.73,
+              "bias": 4.82,
+              "stability": 45.4
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 57.46,
+              "bias": -17.72,
+              "stability": 40.89
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 70.66,
+              "bias": -25.67,
+              "stability": 42.49
+            }
+          ],
+          "score": 65.24,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 55.16,
+          "bias": 34.05,
+          "stability": 48.6,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 55.25,
+              "bias": 32.33,
+              "stability": 51.65
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 58.9,
+              "bias": 38.01,
+              "stability": 51.0
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 50.8,
+              "bias": 27.04,
+              "stability": 42.96
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 51.72,
+              "bias": 40.33,
+              "stability": 42.02
+            }
+          ],
+          "score": 70.96,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 72.78,
+          "bias": 71.6,
+          "stability": 58.72,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 71.13,
+              "bias": 69.28,
+              "stability": 63.78
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 73.88,
+              "bias": 72.77,
+              "stability": 60.43
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 71.08,
+              "bias": 70.3,
+              "stability": 53.11
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 77.74,
+              "bias": 77.72,
+              "stability": 47.82
+            }
+          ],
+          "score": 99.49,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 73.93,
+          "bias": 73.02,
+          "stability": 58.73,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 72.26,
+              "bias": 70.82,
+              "stability": 63.93
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 74.99,
+              "bias": 74.13,
+              "stability": 60.39
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 72.38,
+              "bias": 71.79,
+              "stability": 52.99
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 78.83,
+              "bias": 78.83,
+              "stability": 47.73
+            }
+          ],
+          "score": 100.99,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Media móvil 3 minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897813191",
+      "label": "Rojo",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Intermitente",
+      "diagnostics": {
+        "adi": 1.348,
+        "cv2": 0.195,
+        "trend_strength": 0.062,
+        "seasonal_correlation": 0.077
+      },
+      "winner": "SES",
+      "wape": 38.71,
+      "bias": 18.39,
+      "stability": 36.06,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2024-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-02",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-03",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-04",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-05",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-06",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-07",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-08",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-09",
+          "actual": 9414.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-10",
+          "actual": 5694.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-11",
+          "actual": 8964.0,
+          "forecast": null
+        },
+        {
+          "period": "2024-12",
+          "actual": 3084.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-01",
+          "actual": 7848.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-02",
+          "actual": 4620.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-03",
+          "actual": 6588.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-04",
+          "actual": 11676.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-05",
+          "actual": 14700.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-06",
+          "actual": 9552.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-07",
+          "actual": 7632.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-08",
+          "actual": 11568.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-09",
+          "actual": 8460.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-10",
+          "actual": 9504.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-11",
+          "actual": 11184.0,
+          "forecast": null
+        },
+        {
+          "period": "2025-12",
+          "actual": 14670.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-01",
+          "actual": 25020.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 12432.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 13614.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 7134.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 10188.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 5646.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 9576.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 9417.07
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 9417.07
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "SES",
+          "wape": 38.71,
+          "bias": 18.39,
+          "stability": 36.06,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 36.91,
+              "bias": 11.76,
+              "stability": 34.9
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 41.37,
+              "bias": 17.82,
+              "stability": 38.07
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 36.24,
+              "bias": 21.33,
+              "stability": 34.0
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 41.01,
+              "bias": 35.64,
+              "stability": 37.54
+            }
+          ],
+          "score": 48.72,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 40.87,
+          "bias": 12.54,
+          "stability": 37.29,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 40.16,
+              "bias": 7.32,
+              "stability": 35.83
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 43.94,
+              "bias": 10.75,
+              "stability": 40.36
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 37.89,
+              "bias": 15.46,
+              "stability": 35.64
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 39.47,
+              "bias": 28.88,
+              "stability": 35.94
+            }
+          ],
+          "score": 49.6,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 45.79,
+          "bias": 9.19,
+          "stability": 36.94,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 44.94,
+              "bias": 4.19,
+              "stability": 32.62
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 47.41,
+              "bias": 7.77,
+              "stability": 39.88
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 46.18,
+              "bias": 9.18,
+              "stability": 40.4
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 43.14,
+              "bias": 28.89,
+              "stability": 35.92
+            }
+          ],
+          "score": 53.63,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 50.92,
+          "bias": 46.56,
+          "stability": 40.11,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 46.69,
+              "bias": 40.35,
+              "stability": 41.72
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 52.06,
+              "bias": 46.94,
+              "stability": 40.39
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 51.12,
+              "bias": 49.11,
+              "stability": 36.9
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 60.5,
+              "bias": 60.38,
+              "stability": 39.91
+            }
+          ],
+          "score": 68.58,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 76.33,
+          "bias": 76.33,
+          "stability": 45.62,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 72.09,
+              "bias": 72.09,
+              "stability": 50.0
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 76.16,
+              "bias": 76.16,
+              "stability": 46.87
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 79.1,
+              "bias": 79.1,
+              "stability": 39.19
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 85.18,
+              "bias": 85.18,
+              "stability": 39.59
+            }
+          ],
+          "score": 102.26,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 77.51,
+          "bias": 77.51,
+          "stability": 45.65,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 25,
+              "wape": 73.49,
+              "bias": 73.49,
+              "stability": 50.07
+            },
+            {
+              "horizon": 3,
+              "origins": 23,
+              "wape": 77.35,
+              "bias": 77.35,
+              "stability": 46.91
+            },
+            {
+              "horizon": 6,
+              "origins": 14,
+              "wape": 80.15,
+              "bias": 80.15,
+              "stability": 39.18
+            },
+            {
+              "horizon": 12,
+              "origins": 8,
+              "wape": 85.92,
+              "bias": 85.92,
+              "stability": 39.58
+            }
+          ],
+          "score": 103.73,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "SES minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
+    },
+    {
+      "series_id": "7501897816260",
+      "label": "Toalla Mb Fendi Negro",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Tendencia",
+      "diagnostics": {
+        "adi": 1.167,
+        "cv2": 0.319,
+        "trend_strength": 0.319,
+        "seasonal_correlation": 0.0
+      },
+      "winner": "Holt",
+      "wape": 7.51,
+      "bias": 7.51,
+      "stability": 0.0,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2026-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 3840.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 4686.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 11088.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 18216.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 9036.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 20844.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 23282.84
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 26738.63
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 30194.43
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 33650.23
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 37106.02
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 40561.82
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 44017.61
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 47473.41
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 50929.21
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 54385.0
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 57840.8
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 61296.6
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Holt",
+          "wape": 7.51,
+          "bias": 7.51,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 7.51,
+              "bias": 7.51,
+              "stability": 0.0
+            }
+          ],
+          "score": 9.39,
+          "applicable": true
+        },
+        {
+          "model": "Tendencia lineal",
+          "wape": 17.09,
+          "bias": 17.09,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 17.09,
+              "bias": 17.09,
+              "stability": 0.0
+            }
+          ],
+          "score": 21.36,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 38.69,
+          "bias": 38.69,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 38.69,
+              "bias": 38.69,
+              "stability": 0.0
+            }
+          ],
+          "score": 48.36,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil ponderada",
+          "wape": 41.47,
+          "bias": 41.47,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 41.47,
+              "bias": 41.47,
+              "stability": 0.0
+            }
+          ],
+          "score": 51.84,
+          "applicable": true
+        },
+        {
+          "model": "Tendencia polinómica",
+          "wape": 49.05,
+          "bias": 49.05,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 49.05,
+              "bias": 49.05,
+              "stability": 0.0
+            }
+          ],
+          "score": 61.31,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 53.77,
+          "bias": 53.77,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 53.77,
+              "bias": 53.77,
+              "stability": 0.0
+            }
+          ],
+          "score": 67.21,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 56.65,
+          "bias": 56.65,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 56.65,
+              "bias": 56.65,
+              "stability": 0.0
+            }
+          ],
+          "score": 70.81,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 6",
+          "wape": 62.53,
+          "bias": 62.53,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 62.53,
+              "bias": 62.53,
+              "stability": 0.0
+            }
+          ],
+          "score": 78.16,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 79.68,
+          "bias": 79.68,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 79.68,
+              "bias": 79.68,
+              "stability": 0.0
+            }
+          ],
+          "score": 99.6,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 81.74,
+          "bias": 81.74,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 81.74,
+              "bias": 81.74,
+              "stability": 0.0
+            }
+          ],
+          "score": 102.17,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 82.66,
+          "bias": 82.66,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 82.66,
+              "bias": 82.66,
+              "stability": 0.0
+            }
+          ],
+          "score": 103.32,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Holt minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como tendencia."
+    },
+    {
+      "series_id": "7501897816277",
+      "label": "Toalla Mb Fendi Navidad",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Tendencia",
+      "diagnostics": {
+        "adi": 1.167,
+        "cv2": 0.17,
+        "trend_strength": 0.257,
+        "seasonal_correlation": 0.0
+      },
+      "winner": "Holt",
+      "wape": 14.52,
+      "bias": -14.52,
+      "stability": 0.0,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2026-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 3840.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 5454.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 6870.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 9726.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 5268.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 12672.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 16617.19
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 19366.65
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 22116.11
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 24865.57
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 27615.04
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 30364.5
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 33113.96
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 35863.42
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 38612.88
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 41362.34
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 44111.8
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 46861.27
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Holt",
+          "wape": 14.52,
+          "bias": -14.52,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 14.52,
+              "bias": -14.52,
+              "stability": 0.0
+            }
+          ],
+          "score": 18.15,
+          "applicable": true
+        },
+        {
+          "model": "Tendencia lineal",
+          "wape": 23.18,
+          "bias": 23.18,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 23.18,
+              "bias": 23.18,
+              "stability": 0.0
+            }
+          ],
+          "score": 28.98,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 42.49,
+          "bias": 42.49,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 42.49,
+              "bias": 42.49,
+              "stability": 0.0
+            }
+          ],
+          "score": 53.11,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil ponderada",
+          "wape": 45.35,
+          "bias": 45.35,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 45.35,
+              "bias": 45.35,
+              "stability": 0.0
+            }
+          ],
+          "score": 56.69,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 53.94,
+          "bias": 53.94,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 53.94,
+              "bias": 53.94,
+              "stability": 0.0
+            }
+          ],
+          "score": 67.42,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 58.43,
+          "bias": 58.43,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 58.43,
+              "bias": 58.43,
+              "stability": 0.0
+            }
+          ],
+          "score": 73.04,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 6",
+          "wape": 59.02,
+          "bias": 59.02,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 59.02,
+              "bias": 59.02,
+              "stability": 0.0
+            }
+          ],
+          "score": 73.78,
+          "applicable": true
+        },
+        {
+          "model": "Tendencia polinómica",
+          "wape": 71.22,
+          "bias": 71.22,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 71.22,
+              "bias": 71.22,
+              "stability": 0.0
+            }
+          ],
+          "score": 89.03,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 74.15,
+          "bias": 74.15,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 74.15,
+              "bias": 74.15,
+              "stability": 0.0
+            }
+          ],
+          "score": 92.69,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 76.77,
+          "bias": 76.77,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 76.77,
+              "bias": 76.77,
+              "stability": 0.0
+            }
+          ],
+          "score": 95.96,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 77.93,
+          "bias": 77.93,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 77.93,
+              "bias": 77.93,
+              "stability": 0.0
+            }
+          ],
+          "score": 97.41,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Holt minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como tendencia."
+    },
+    {
+      "series_id": "7501897816314",
+      "label": "Toalla Mb Fendi Oxford",
+      "target": "Pedido",
+      "status": "completed",
+      "classification": "Tendencia",
+      "diagnostics": {
+        "adi": 1.167,
+        "cv2": 0.104,
+        "trend_strength": 0.226,
+        "seasonal_correlation": 0.0
+      },
+      "winner": "Tendencia lineal",
+      "wape": 3.53,
+      "bias": 3.53,
+      "stability": 0.0,
+      "last_closed_period": "2026-07",
+      "history": [
+        {
+          "period": "2026-01",
+          "actual": 0.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-02",
+          "actual": 6852.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-03",
+          "actual": 10608.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-04",
+          "actual": 10296.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-05",
+          "actual": 16806.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-06",
+          "actual": 9900.0,
+          "forecast": null
+        },
+        {
+          "period": "2026-07",
+          "actual": 17604.0,
+          "forecast": null
+        }
+      ],
+      "forecast": [
+        {
+          "period": "2026-08",
+          "actual": null,
+          "forecast": 19596.0
+        },
+        {
+          "period": "2026-09",
+          "actual": null,
+          "forecast": 21921.21
+        },
+        {
+          "period": "2026-10",
+          "actual": null,
+          "forecast": 24246.43
+        },
+        {
+          "period": "2026-11",
+          "actual": null,
+          "forecast": 26571.64
+        },
+        {
+          "period": "2026-12",
+          "actual": null,
+          "forecast": 28896.86
+        },
+        {
+          "period": "2027-01",
+          "actual": null,
+          "forecast": 31222.07
+        },
+        {
+          "period": "2027-02",
+          "actual": null,
+          "forecast": 33547.29
+        },
+        {
+          "period": "2027-03",
+          "actual": null,
+          "forecast": 35872.5
+        },
+        {
+          "period": "2027-04",
+          "actual": null,
+          "forecast": 38197.71
+        },
+        {
+          "period": "2027-05",
+          "actual": null,
+          "forecast": 40522.93
+        },
+        {
+          "period": "2027-06",
+          "actual": null,
+          "forecast": 42848.14
+        },
+        {
+          "period": "2027-07",
+          "actual": null,
+          "forecast": 45173.36
+        }
+      ],
+      "comparisons": [
+        {
+          "model": "Tendencia lineal",
+          "wape": 3.53,
+          "bias": 3.53,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 3.53,
+              "bias": 3.53,
+              "stability": 0.0
+            }
+          ],
+          "score": 4.41,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 3",
+          "wape": 29.94,
+          "bias": 29.94,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 29.94,
+              "bias": 29.94,
+              "stability": 0.0
+            }
+          ],
+          "score": 37.43,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil ponderada",
+          "wape": 31.54,
+          "bias": 31.54,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 31.54,
+              "bias": 31.54,
+              "stability": 0.0
+            }
+          ],
+          "score": 39.42,
+          "applicable": true
+        },
+        {
+          "model": "SES",
+          "wape": 41.73,
+          "bias": 41.73,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 41.73,
+              "bias": 41.73,
+              "stability": 0.0
+            }
+          ],
+          "score": 52.16,
+          "applicable": true
+        },
+        {
+          "model": "Naive",
+          "wape": 43.76,
+          "bias": 43.76,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 43.76,
+              "bias": 43.76,
+              "stability": 0.0
+            }
+          ],
+          "score": 54.7,
+          "applicable": true
+        },
+        {
+          "model": "Holt",
+          "wape": 45.71,
+          "bias": -45.71,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 45.71,
+              "bias": -45.71,
+              "stability": 0.0
+            }
+          ],
+          "score": 57.14,
+          "applicable": true
+        },
+        {
+          "model": "Media móvil 6",
+          "wape": 48.44,
+          "bias": 48.44,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 48.44,
+              "bias": 48.44,
+              "stability": 0.0
+            }
+          ],
+          "score": 60.55,
+          "applicable": true
+        },
+        {
+          "model": "Tendencia polinómica",
+          "wape": 58.23,
+          "bias": 58.23,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 58.23,
+              "bias": 58.23,
+              "stability": 0.0
+            }
+          ],
+          "score": 72.79,
+          "applicable": true
+        },
+        {
+          "model": "TSB",
+          "wape": 67.15,
+          "bias": 67.15,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 67.15,
+              "bias": 67.15,
+              "stability": 0.0
+            }
+          ],
+          "score": 83.94,
+          "applicable": true
+        },
+        {
+          "model": "Croston",
+          "wape": 70.48,
+          "bias": 70.48,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 70.48,
+              "bias": 70.48,
+              "stability": 0.0
+            }
+          ],
+          "score": 88.1,
+          "applicable": true
+        },
+        {
+          "model": "SBA",
+          "wape": 71.96,
+          "bias": 71.96,
+          "stability": 0.0,
+          "windows": [
+            {
+              "horizon": 1,
+              "origins": 1,
+              "wape": 71.96,
+              "bias": 71.96,
+              "stability": 0.0
+            }
+          ],
+          "score": 89.95,
+          "applicable": true
+        }
+      ],
+      "alerts": [],
+      "explanation": "Tendencia lineal minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como tendencia."
     },
     {
       "series_id": "7501897813122",
@@ -4911,13 +10067,6 @@
       ],
       "alerts": [],
       "explanation": "Naive minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como intermitente."
-    },
-    {
-      "series_id": "total-fendi-bd",
-      "label": "Total FENDI BD",
-      "target": "Pedido",
-      "status": "insufficient",
-      "reason": "La base normalizada PRD 01 disponible contiene Venta, no Pedido. No se inventó equivalencia entre objetivos."
     }
   ]
 }

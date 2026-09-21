@@ -1,9 +1,9 @@
 {
-  "target": "Venta",
+  "target": "Pedido",
   "status": "completed_with_alerts",
   "engine_version": "prd04-1.0.0",
   "cutoff": "2026-07",
-  "generated_at": "2026-09-21T18:05:22+00:00",
+  "generated_at": "2026-09-21T18:05:36+00:00",
   "dataset": {
     "series": 11,
     "observations": 269,
@@ -13,122 +13,122 @@
   "champion": {
     "version": "ML-FENDI-20260921-01",
     "status": "Champion",
-    "model": "Random Forest Global",
+    "model": "Gradient Boosting Global",
     "available": true,
-    "score": 41.93,
-    "wape": 35.78,
-    "bias": 17.96,
-    "mae": 3410.56,
-    "rmse": 4254.5,
-    "stability": 26.69,
+    "score": 53.01,
+    "wape": 49.01,
+    "bias": -0.38,
+    "mae": 4488.27,
+    "rmse": 5557.96,
+    "stability": 35.8,
     "by_horizon": [
       {
         "horizon": 1,
         "observations": 22,
-        "wape": 23.19,
-        "bias": 8.87,
-        "mae": 2210.08,
-        "rmse": 3001.43,
-        "stability": 21.31
+        "wape": 42.47,
+        "bias": -1.3,
+        "mae": 3889.38,
+        "rmse": 4784.86,
+        "stability": 30.44
       },
       {
         "horizon": 2,
         "observations": 22,
-        "wape": 29.14,
-        "bias": 9.72,
-        "mae": 2777.24,
-        "rmse": 3467.57,
-        "stability": 21.78
+        "wape": 40.67,
+        "bias": -2.68,
+        "mae": 3724.38,
+        "rmse": 4599.66,
+        "stability": 29.48
       },
       {
         "horizon": 3,
         "observations": 22,
-        "wape": 31.01,
-        "bias": 13.35,
-        "mae": 2955.39,
-        "rmse": 3864.76,
-        "stability": 26.13
+        "wape": 51.79,
+        "bias": 2.95,
+        "mae": 4742.46,
+        "rmse": 5815.49,
+        "stability": 36.76
       },
       {
         "horizon": 4,
         "observations": 22,
-        "wape": 41.34,
-        "bias": 22.24,
-        "mae": 3940.25,
-        "rmse": 4944.83,
-        "stability": 31.35
+        "wape": 52.99,
+        "bias": 6.76,
+        "mae": 4852.43,
+        "rmse": 6022.8,
+        "stability": 38.96
       },
       {
         "horizon": 5,
         "observations": 22,
-        "wape": 39.95,
-        "bias": 20.78,
-        "mae": 3807.41,
-        "rmse": 4821.49,
-        "stability": 31.04
+        "wape": 54.11,
+        "bias": 3.51,
+        "mae": 4955.47,
+        "rmse": 6111.63,
+        "stability": 39.06
       },
       {
         "horizon": 6,
         "observations": 22,
-        "wape": 38.07,
-        "bias": 19.15,
-        "mae": 3628.39,
-        "rmse": 4491.36,
-        "stability": 27.77
+        "wape": 53.14,
+        "bias": 0.43,
+        "mae": 4866.38,
+        "rmse": 5958.73,
+        "stability": 37.55
       },
       {
         "horizon": 7,
         "observations": 22,
-        "wape": 41.68,
-        "bias": 23.95,
-        "mae": 3972.37,
-        "rmse": 4828.96,
-        "stability": 28.81
+        "wape": 48.69,
+        "bias": -1.15,
+        "mae": 4458.58,
+        "rmse": 5537.37,
+        "stability": 35.86
       },
       {
         "horizon": 8,
         "observations": 22,
-        "wape": 40.55,
-        "bias": 20.74,
-        "mae": 3864.36,
-        "rmse": 4512.57,
-        "stability": 24.45
+        "wape": 50.71,
+        "bias": -0.92,
+        "mae": 4643.35,
+        "rmse": 5719.75,
+        "stability": 36.47
       },
       {
         "horizon": 9,
         "observations": 22,
-        "wape": 41.44,
-        "bias": 26.36,
-        "mae": 3950.02,
-        "rmse": 4579.83,
-        "stability": 24.32
+        "wape": 50.77,
+        "bias": -6.2,
+        "mae": 4648.88,
+        "rmse": 5657.03,
+        "stability": 35.2
       },
       {
         "horizon": 10,
         "observations": 22,
-        "wape": 33.46,
-        "bias": 13.53,
-        "mae": 3188.94,
-        "rmse": 3929.05,
-        "stability": 24.08
+        "wape": 48.56,
+        "bias": 0.83,
+        "mae": 4446.88,
+        "rmse": 5549.72,
+        "stability": 36.26
       },
       {
         "horizon": 11,
         "observations": 22,
-        "wape": 35.13,
-        "bias": 20.32,
-        "mae": 3348.33,
-        "rmse": 4112.81,
-        "stability": 25.06
+        "wape": 47.37,
+        "bias": -3.47,
+        "mae": 4338.09,
+        "rmse": 5388.24,
+        "stability": 34.9
       },
       {
         "horizon": 12,
         "observations": 22,
-        "wape": 34.46,
-        "bias": 16.52,
-        "mae": 3283.97,
-        "rmse": 4044.81,
-        "stability": 24.78
+        "wape": 46.88,
+        "bias": -3.33,
+        "mae": 4292.97,
+        "rmse": 5336.12,
+        "stability": 34.61
       }
     ],
     "feature_names": [
@@ -140,11 +140,11 @@
       "posición temporal",
       "horizonte",
       "antigüedad serie",
-      "venta t-1",
-      "venta t-2",
-      "venta t-3",
-      "venta t-6",
-      "venta t-12",
+      "pedido t-1",
+      "pedido t-2",
+      "pedido t-3",
+      "pedido t-6",
+      "pedido t-12",
       "promedio móvil 3",
       "desviación 3",
       "mínimo 3",
@@ -161,7 +161,7 @@
       "crecimiento anual",
       "pendiente reciente",
       "aceleración",
-      "meses desde última venta",
+      "meses desde último pedido",
       "meses con demanda cero",
       "porcentaje con movimiento",
       "intervalo promedio",
@@ -181,122 +181,122 @@
   "challenger": {
     "version": "ML-FENDI-20260921-02",
     "status": "Challenger",
-    "model": "Gradient Boosting Global",
+    "model": "Random Forest Global",
     "available": true,
-    "score": 47.17,
-    "wape": 39.56,
-    "bias": 24.05,
-    "mae": 3770.17,
-    "rmse": 4690.93,
-    "stability": 29.29,
+    "score": 54.48,
+    "wape": 50.22,
+    "bias": -2.23,
+    "mae": 4598.64,
+    "rmse": 5661.86,
+    "stability": 36.07,
     "by_horizon": [
       {
         "horizon": 1,
         "observations": 22,
-        "wape": 30.45,
-        "bias": 21.25,
-        "mae": 2902.08,
-        "rmse": 3878.97,
-        "stability": 27.0
+        "wape": 48.02,
+        "bias": -7.07,
+        "mae": 4397.69,
+        "rmse": 5044.06,
+        "stability": 26.98
       },
       {
         "horizon": 2,
         "observations": 22,
-        "wape": 32.2,
-        "bias": 18.8,
-        "mae": 3069.07,
-        "rmse": 3957.44,
-        "stability": 26.21
+        "wape": 40.42,
+        "bias": -11.57,
+        "mae": 3701.46,
+        "rmse": 4445.43,
+        "stability": 26.88
       },
       {
         "horizon": 3,
         "observations": 22,
-        "wape": 35.32,
-        "bias": 20.42,
-        "mae": 3366.27,
-        "rmse": 4310.14,
-        "stability": 28.24
+        "wape": 52.62,
+        "bias": -5.0,
+        "mae": 4818.82,
+        "rmse": 5839.5,
+        "stability": 36.02
       },
       {
         "horizon": 4,
         "observations": 22,
-        "wape": 45.25,
-        "bias": 29.05,
-        "mae": 4312.4,
-        "rmse": 5179.27,
-        "stability": 30.1
+        "wape": 56.02,
+        "bias": 2.75,
+        "mae": 5129.9,
+        "rmse": 6405.46,
+        "stability": 41.89
       },
       {
         "horizon": 5,
         "observations": 22,
-        "wape": 45.26,
-        "bias": 29.0,
-        "mae": 4313.62,
-        "rmse": 5240.86,
-        "stability": 31.23
+        "wape": 59.43,
+        "bias": 2.84,
+        "mae": 5442.34,
+        "rmse": 6805.1,
+        "stability": 44.61
       },
       {
         "horizon": 6,
         "observations": 22,
-        "wape": 43.77,
-        "bias": 27.21,
-        "mae": 4171.76,
-        "rmse": 5097.88,
-        "stability": 30.74
+        "wape": 51.65,
+        "bias": 3.52,
+        "mae": 4729.97,
+        "rmse": 5829.37,
+        "stability": 37.21
       },
       {
         "horizon": 7,
         "observations": 22,
-        "wape": 43.24,
-        "bias": 26.73,
-        "mae": 4120.95,
-        "rmse": 5003.23,
-        "stability": 29.77
+        "wape": 50.3,
+        "bias": 0.37,
+        "mae": 4606.25,
+        "rmse": 5632.42,
+        "stability": 35.4
       },
       {
         "horizon": 8,
         "observations": 22,
-        "wape": 41.77,
-        "bias": 24.65,
-        "mae": 3980.99,
-        "rmse": 4827.62,
-        "stability": 28.65
+        "wape": 49.28,
+        "bias": 1.02,
+        "mae": 4512.46,
+        "rmse": 5633.03,
+        "stability": 36.82
       },
       {
         "horizon": 9,
         "observations": 22,
-        "wape": 40.67,
-        "bias": 24.64,
-        "mae": 3876.37,
-        "rmse": 4764.77,
-        "stability": 29.07
+        "wape": 51.64,
+        "bias": -2.28,
+        "mae": 4728.67,
+        "rmse": 5806.81,
+        "stability": 36.8
       },
       {
         "horizon": 10,
         "observations": 22,
-        "wape": 38.6,
-        "bias": 21.93,
-        "mae": 3678.88,
-        "rmse": 4570.6,
-        "stability": 28.46
+        "wape": 48.39,
+        "bias": -3.91,
+        "mae": 4431.7,
+        "rmse": 5472.97,
+        "stability": 35.07
       },
       {
         "horizon": 11,
         "observations": 22,
-        "wape": 38.89,
-        "bias": 21.44,
-        "mae": 3706.46,
-        "rmse": 4606.23,
-        "stability": 28.69
+        "wape": 48.0,
+        "bias": -6.99,
+        "mae": 4395.27,
+        "rmse": 5323.16,
+        "stability": 32.79
       },
       {
         "horizon": 12,
         "observations": 22,
-        "wape": 39.27,
-        "bias": 23.54,
-        "mae": 3743.22,
-        "rmse": 4619.99,
-        "stability": 28.41
+        "wape": 46.84,
+        "bias": -0.44,
+        "mae": 4289.09,
+        "rmse": 5347.11,
+        "stability": 34.87
       }
     ],
     "feature_names": [
@@ -308,11 +308,11 @@
       "posición temporal",
       "horizonte",
       "antigüedad serie",
-      "venta t-1",
-      "venta t-2",
-      "venta t-3",
-      "venta t-6",
-      "venta t-12",
+      "pedido t-1",
+      "pedido t-2",
+      "pedido t-3",
+      "pedido t-6",
+      "pedido t-12",
       "promedio móvil 3",
       "desviación 3",
       "mínimo 3",
@@ -329,7 +329,7 @@
       "crecimiento anual",
       "pendiente reciente",
       "aceleración",
-      "meses desde última venta",
+      "meses desde último pedido",
       "meses con demanda cero",
       "porcentaje con movimiento",
       "intervalo promedio",
@@ -350,120 +350,120 @@
     {
       "model": "Regresión Lineal Global",
       "available": true,
-      "score": 67.18,
-      "wape": 51.81,
-      "bias": -20.16,
-      "mae": 4938.09,
-      "rmse": 12232.8,
-      "stability": 117.43,
+      "score": 62.83,
+      "wape": 57.19,
+      "bias": -4.31,
+      "mae": 5236.85,
+      "rmse": 6873.63,
+      "stability": 48.62,
       "by_horizon": [
         {
           "horizon": 1,
           "observations": 22,
-          "wape": 17.03,
-          "bias": -14.28,
-          "mae": 1622.93,
-          "rmse": 2363.74,
-          "stability": 18.03
+          "wape": 51.32,
+          "bias": 14.55,
+          "mae": 4699.36,
+          "rmse": 5570.18,
+          "stability": 32.66
         },
         {
           "horizon": 2,
           "observations": 22,
-          "wape": 19.75,
-          "bias": -10.14,
-          "mae": 1881.9,
-          "rmse": 2962.72,
-          "stability": 24.01
+          "wape": 39.52,
+          "bias": 10.29,
+          "mae": 3619.12,
+          "rmse": 4370.56,
+          "stability": 26.76
         },
         {
           "horizon": 3,
           "observations": 22,
-          "wape": 21.75,
-          "bias": 0.92,
-          "mae": 2073.24,
-          "rmse": 3028.56,
-          "stability": 23.16
+          "wape": 51.31,
+          "bias": 19.34,
+          "mae": 4698.24,
+          "rmse": 5608.17,
+          "stability": 33.44
         },
         {
           "horizon": 4,
           "observations": 22,
-          "wape": 27.75,
-          "bias": 15.35,
-          "mae": 2645.07,
-          "rmse": 3225.84,
-          "stability": 19.37
+          "wape": 39.05,
+          "bias": 16.14,
+          "mae": 3575.93,
+          "rmse": 4952.01,
+          "stability": 37.41
         },
         {
           "horizon": 5,
           "observations": 22,
-          "wape": 35.97,
-          "bias": -9.9,
-          "mae": 3428.49,
-          "rmse": 4304.42,
-          "stability": 27.31
+          "wape": 115.68,
+          "bias": -48.71,
+          "mae": 10593.69,
+          "rmse": 13501.32,
+          "stability": 91.4
         },
         {
           "horizon": 6,
           "observations": 22,
-          "wape": 42.02,
-          "bias": -7.9,
-          "mae": 4005.18,
-          "rmse": 5118.61,
-          "stability": 33.44
+          "wape": 68.31,
+          "bias": -39.33,
+          "mae": 6255.12,
+          "rmse": 7692.38,
+          "stability": 48.89
         },
         {
           "horizon": 7,
           "observations": 22,
-          "wape": 32.67,
-          "bias": -0.71,
-          "mae": 3113.44,
-          "rmse": 3721.28,
-          "stability": 21.39
+          "wape": 48.31,
+          "bias": 3.83,
+          "mae": 4424.26,
+          "rmse": 5876.5,
+          "stability": 42.24
         },
         {
           "horizon": 8,
           "observations": 22,
-          "wape": 28.85,
-          "bias": 3.63,
-          "mae": 2749.44,
-          "rmse": 3411.78,
-          "stability": 21.19
+          "wape": 48.66,
+          "bias": 8.23,
+          "mae": 4456.1,
+          "rmse": 5361.99,
+          "stability": 32.57
         },
         {
           "horizon": 9,
           "observations": 22,
-          "wape": 280.33,
-          "bias": -262.32,
-          "mae": 26717.97,
-          "rmse": 40273.69,
-          "stability": 316.18
+          "wape": 76.18,
+          "bias": -45.13,
+          "mae": 6976.3,
+          "rmse": 8494.78,
+          "stability": 52.93
         },
         {
           "horizon": 10,
           "observations": 22,
-          "wape": 53.74,
-          "bias": 29.96,
-          "mae": 5121.53,
-          "rmse": 6524.26,
-          "stability": 42.41
+          "wape": 56.11,
+          "bias": -7.5,
+          "mae": 5138.21,
+          "rmse": 5838.84,
+          "stability": 30.28
         },
         {
           "horizon": 11,
           "observations": 22,
-          "wape": 33.01,
-          "bias": 4.71,
-          "mae": 3145.79,
-          "rmse": 3868.19,
-          "stability": 23.62
+          "wape": 49.0,
+          "bias": 9.16,
+          "mae": 4487.47,
+          "rmse": 5298.1,
+          "stability": 30.76
         },
         {
           "horizon": 12,
           "observations": 22,
-          "wape": 28.87,
-          "bias": 8.72,
-          "mae": 2752.06,
-          "rmse": 3469.65,
-          "stability": 22.17
+          "wape": 42.79,
+          "bias": 7.34,
+          "mae": 3918.42,
+          "rmse": 4668.33,
+          "stability": 27.71
         }
       ],
       "feature_names": [
@@ -475,11 +475,11 @@
         "posición temporal",
         "horizonte",
         "antigüedad serie",
-        "venta t-1",
-        "venta t-2",
-        "venta t-3",
-        "venta t-6",
-        "venta t-12",
+        "pedido t-1",
+        "pedido t-2",
+        "pedido t-3",
+        "pedido t-6",
+        "pedido t-12",
         "promedio móvil 3",
         "desviación 3",
         "mínimo 3",
@@ -496,7 +496,7 @@
         "crecimiento anual",
         "pendiente reciente",
         "aceleración",
-        "meses desde última venta",
+        "meses desde último pedido",
         "meses con demanda cero",
         "porcentaje con movimiento",
         "intervalo promedio",
@@ -516,120 +516,120 @@
     {
       "model": "Random Forest Global",
       "available": true,
-      "score": 41.93,
-      "wape": 35.78,
-      "bias": 17.96,
-      "mae": 3410.56,
-      "rmse": 4254.5,
-      "stability": 26.69,
+      "score": 54.48,
+      "wape": 50.22,
+      "bias": -2.23,
+      "mae": 4598.64,
+      "rmse": 5661.86,
+      "stability": 36.07,
       "by_horizon": [
         {
           "horizon": 1,
           "observations": 22,
-          "wape": 23.19,
-          "bias": 8.87,
-          "mae": 2210.08,
-          "rmse": 3001.43,
-          "stability": 21.31
+          "wape": 48.02,
+          "bias": -7.07,
+          "mae": 4397.69,
+          "rmse": 5044.06,
+          "stability": 26.98
         },
         {
           "horizon": 2,
           "observations": 22,
-          "wape": 29.14,
-          "bias": 9.72,
-          "mae": 2777.24,
-          "rmse": 3467.57,
-          "stability": 21.78
+          "wape": 40.42,
+          "bias": -11.57,
+          "mae": 3701.46,
+          "rmse": 4445.43,
+          "stability": 26.88
         },
         {
           "horizon": 3,
           "observations": 22,
-          "wape": 31.01,
-          "bias": 13.35,
-          "mae": 2955.39,
-          "rmse": 3864.76,
-          "stability": 26.13
+          "wape": 52.62,
+          "bias": -5.0,
+          "mae": 4818.82,
+          "rmse": 5839.5,
+          "stability": 36.02
         },
         {
           "horizon": 4,
           "observations": 22,
-          "wape": 41.34,
-          "bias": 22.24,
-          "mae": 3940.25,
-          "rmse": 4944.83,
-          "stability": 31.35
+          "wape": 56.02,
+          "bias": 2.75,
+          "mae": 5129.9,
+          "rmse": 6405.46,
+          "stability": 41.89
         },
         {
           "horizon": 5,
           "observations": 22,
-          "wape": 39.95,
-          "bias": 20.78,
-          "mae": 3807.41,
-          "rmse": 4821.49,
-          "stability": 31.04
+          "wape": 59.43,
+          "bias": 2.84,
+          "mae": 5442.34,
+          "rmse": 6805.1,
+          "stability": 44.61
         },
         {
           "horizon": 6,
           "observations": 22,
-          "wape": 38.07,
-          "bias": 19.15,
-          "mae": 3628.39,
-          "rmse": 4491.36,
-          "stability": 27.77
+          "wape": 51.65,
+          "bias": 3.52,
+          "mae": 4729.97,
+          "rmse": 5829.37,
+          "stability": 37.21
         },
         {
           "horizon": 7,
           "observations": 22,
-          "wape": 41.68,
-          "bias": 23.95,
-          "mae": 3972.37,
-          "rmse": 4828.96,
-          "stability": 28.81
+          "wape": 50.3,
+          "bias": 0.37,
+          "mae": 4606.25,
+          "rmse": 5632.42,
+          "stability": 35.4
         },
         {
           "horizon": 8,
           "observations": 22,
-          "wape": 40.55,
-          "bias": 20.74,
-          "mae": 3864.36,
-          "rmse": 4512.57,
-          "stability": 24.45
+          "wape": 49.28,
+          "bias": 1.02,
+          "mae": 4512.46,
+          "rmse": 5633.03,
+          "stability": 36.82
         },
         {
           "horizon": 9,
           "observations": 22,
-          "wape": 41.44,
-          "bias": 26.36,
-          "mae": 3950.02,
-          "rmse": 4579.83,
-          "stability": 24.32
+          "wape": 51.64,
+          "bias": -2.28,
+          "mae": 4728.67,
+          "rmse": 5806.81,
+          "stability": 36.8
         },
         {
           "horizon": 10,
           "observations": 22,
-          "wape": 33.46,
-          "bias": 13.53,
-          "mae": 3188.94,
-          "rmse": 3929.05,
-          "stability": 24.08
+          "wape": 48.39,
+          "bias": -3.91,
+          "mae": 4431.7,
+          "rmse": 5472.97,
+          "stability": 35.07
         },
         {
           "horizon": 11,
           "observations": 22,
-          "wape": 35.13,
-          "bias": 20.32,
-          "mae": 3348.33,
-          "rmse": 4112.81,
-          "stability": 25.06
+          "wape": 48.0,
+          "bias": -6.99,
+          "mae": 4395.27,
+          "rmse": 5323.16,
+          "stability": 32.79
         },
         {
           "horizon": 12,
           "observations": 22,
-          "wape": 34.46,
-          "bias": 16.52,
-          "mae": 3283.97,
-          "rmse": 4044.81,
-          "stability": 24.78
+          "wape": 46.84,
+          "bias": -0.44,
+          "mae": 4289.09,
+          "rmse": 5347.11,
+          "stability": 34.87
         }
       ],
       "feature_names": [
@@ -641,11 +641,11 @@
         "posición temporal",
         "horizonte",
         "antigüedad serie",
-        "venta t-1",
-        "venta t-2",
-        "venta t-3",
-        "venta t-6",
-        "venta t-12",
+        "pedido t-1",
+        "pedido t-2",
+        "pedido t-3",
+        "pedido t-6",
+        "pedido t-12",
         "promedio móvil 3",
         "desviación 3",
         "mínimo 3",
@@ -662,7 +662,7 @@
         "crecimiento anual",
         "pendiente reciente",
         "aceleración",
-        "meses desde última venta",
+        "meses desde último pedido",
         "meses con demanda cero",
         "porcentaje con movimiento",
         "intervalo promedio",
@@ -682,120 +682,120 @@
     {
       "model": "Gradient Boosting Global",
       "available": true,
-      "score": 47.17,
-      "wape": 39.56,
-      "bias": 24.05,
-      "mae": 3770.17,
-      "rmse": 4690.93,
-      "stability": 29.29,
+      "score": 53.01,
+      "wape": 49.01,
+      "bias": -0.38,
+      "mae": 4488.27,
+      "rmse": 5557.96,
+      "stability": 35.8,
       "by_horizon": [
         {
           "horizon": 1,
           "observations": 22,
-          "wape": 30.45,
-          "bias": 21.25,
-          "mae": 2902.08,
-          "rmse": 3878.97,
-          "stability": 27.0
+          "wape": 42.47,
+          "bias": -1.3,
+          "mae": 3889.38,
+          "rmse": 4784.86,
+          "stability": 30.44
         },
         {
           "horizon": 2,
           "observations": 22,
-          "wape": 32.2,
-          "bias": 18.8,
-          "mae": 3069.07,
-          "rmse": 3957.44,
-          "stability": 26.21
+          "wape": 40.67,
+          "bias": -2.68,
+          "mae": 3724.38,
+          "rmse": 4599.66,
+          "stability": 29.48
         },
         {
           "horizon": 3,
           "observations": 22,
-          "wape": 35.32,
-          "bias": 20.42,
-          "mae": 3366.27,
-          "rmse": 4310.14,
-          "stability": 28.24
+          "wape": 51.79,
+          "bias": 2.95,
+          "mae": 4742.46,
+          "rmse": 5815.49,
+          "stability": 36.76
         },
         {
           "horizon": 4,
           "observations": 22,
-          "wape": 45.25,
-          "bias": 29.05,
-          "mae": 4312.4,
-          "rmse": 5179.27,
-          "stability": 30.1
+          "wape": 52.99,
+          "bias": 6.76,
+          "mae": 4852.43,
+          "rmse": 6022.8,
+          "stability": 38.96
         },
         {
           "horizon": 5,
           "observations": 22,
-          "wape": 45.26,
-          "bias": 29.0,
-          "mae": 4313.62,
-          "rmse": 5240.86,
-          "stability": 31.23
+          "wape": 54.11,
+          "bias": 3.51,
+          "mae": 4955.47,
+          "rmse": 6111.63,
+          "stability": 39.06
         },
         {
           "horizon": 6,
           "observations": 22,
-          "wape": 43.77,
-          "bias": 27.21,
-          "mae": 4171.76,
-          "rmse": 5097.88,
-          "stability": 30.74
+          "wape": 53.14,
+          "bias": 0.43,
+          "mae": 4866.38,
+          "rmse": 5958.73,
+          "stability": 37.55
         },
         {
           "horizon": 7,
           "observations": 22,
-          "wape": 43.24,
-          "bias": 26.73,
-          "mae": 4120.95,
-          "rmse": 5003.23,
-          "stability": 29.77
+          "wape": 48.69,
+          "bias": -1.15,
+          "mae": 4458.58,
+          "rmse": 5537.37,
+          "stability": 35.86
         },
         {
           "horizon": 8,
           "observations": 22,
-          "wape": 41.77,
-          "bias": 24.65,
-          "mae": 3980.99,
-          "rmse": 4827.62,
-          "stability": 28.65
+          "wape": 50.71,
+          "bias": -0.92,
+          "mae": 4643.35,
+          "rmse": 5719.75,
+          "stability": 36.47
         },
         {
           "horizon": 9,
           "observations": 22,
-          "wape": 40.67,
-          "bias": 24.64,
-          "mae": 3876.37,
-          "rmse": 4764.77,
-          "stability": 29.07
+          "wape": 50.77,
+          "bias": -6.2,
+          "mae": 4648.88,
+          "rmse": 5657.03,
+          "stability": 35.2
         },
         {
           "horizon": 10,
           "observations": 22,
-          "wape": 38.6,
-          "bias": 21.93,
-          "mae": 3678.88,
-          "rmse": 4570.6,
-          "stability": 28.46
+          "wape": 48.56,
+          "bias": 0.83,
+          "mae": 4446.88,
+          "rmse": 5549.72,
+          "stability": 36.26
         },
         {
           "horizon": 11,
           "observations": 22,
-          "wape": 38.89,
-          "bias": 21.44,
-          "mae": 3706.46,
-          "rmse": 4606.23,
-          "stability": 28.69
+          "wape": 47.37,
+          "bias": -3.47,
+          "mae": 4338.09,
+          "rmse": 5388.24,
+          "stability": 34.9
         },
         {
           "horizon": 12,
           "observations": 22,
-          "wape": 39.27,
-          "bias": 23.54,
-          "mae": 3743.22,
-          "rmse": 4619.99,
-          "stability": 28.41
+          "wape": 46.88,
+          "bias": -3.33,
+          "mae": 4292.97,
+          "rmse": 5336.12,
+          "stability": 34.61
         }
       ],
       "feature_names": [
@@ -807,11 +807,11 @@
         "posición temporal",
         "horizonte",
         "antigüedad serie",
-        "venta t-1",
-        "venta t-2",
-        "venta t-3",
-        "venta t-6",
-        "venta t-12",
+        "pedido t-1",
+        "pedido t-2",
+        "pedido t-3",
+        "pedido t-6",
+        "pedido t-12",
         "promedio móvil 3",
         "desviación 3",
         "mínimo 3",
@@ -828,7 +828,7 @@
         "crecimiento anual",
         "pendiente reciente",
         "aceleración",
-        "meses desde última venta",
+        "meses desde último pedido",
         "meses con demanda cero",
         "porcentaje con movimiento",
         "intervalo promedio",
@@ -865,62 +865,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 98192.64
+          "value": 101092.95
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 108443.02
+          "value": 111283.59
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 103010.88
+          "value": 105559.31
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 100859.45
+          "value": 110063.27
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 114859.84
+          "value": 113098.76
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 101838.24
+          "value": 106537.29
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 99770.11
+          "value": 113249.07
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 112853.46
+          "value": 111758.73
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 108042.84
+          "value": 113383.66
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 108135.12
+          "value": 105426.85
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 106565.64
+          "value": 106391.98
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 99120.05
+          "value": 107588.5
         }
       ]
     },
@@ -932,62 +932,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 12055.25
+          "value": 11435.54
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11951.38
+          "value": 11617.76
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 12944.44
+          "value": 11199.84
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 11279.51
+          "value": 11329.33
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 13122.56
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10460.0
+          "value": 11139.96
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 10296.39
+          "value": 11254.97
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11080.3
+          "value": 11288.61
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 11324.91
+          "value": 11180.6
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10959.59
+          "value": 10701.01
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 12410.13
+          "value": 10790.29
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 10876.23
+          "value": 11469.9
         }
       ]
     },
@@ -999,62 +999,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 12055.25
+          "value": 10556.93
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11951.38
+          "value": 11617.76
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 13681.5
+          "value": 11199.84
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 11347.73
+          "value": 11329.33
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 12040.04
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10668.7
+          "value": 11139.96
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 10133.55
+          "value": 11254.97
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11254.76
+          "value": 10954.86
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 11065.49
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10098.13
+          "value": 9917.4
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 11023.99
+          "value": 10182.46
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9678.58
+          "value": 10185.46
         }
       ]
     },
@@ -1066,62 +1066,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 9670.38
+          "value": 9148.66
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11239.41
+          "value": 10620.78
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 9199.16
+          "value": 7912.58
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 11473.54
+          "value": 9454.58
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 11880.7
+          "value": 9223.47
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10386.25
+          "value": 10035.55
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 10296.39
+          "value": 11391.96
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11438.24
+          "value": 11061.38
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 11002.53
+          "value": 11578.9
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10913.27
+          "value": 11198.79
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 10457.68
+          "value": 11169.57
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9513.94
+          "value": 11066.78
         }
       ]
     },
@@ -1133,62 +1133,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 9670.38
+          "value": 10181.25
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11239.41
+          "value": 11264.78
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 9199.16
+          "value": 10563.06
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 10273.22
+          "value": 10998.02
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 11785.06
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10365.6
+          "value": 9736.67
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 10583.92
+          "value": 11038.87
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11152.83
+          "value": 10691.13
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 11002.53
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 9450.3
+          "value": 9917.4
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 9808.63
+          "value": 10182.46
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9239.31
+          "value": 10185.46
         }
       ]
     },
@@ -1200,62 +1200,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 2677.16
+          "value": 3087.1
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 3998.65
+          "value": 4003.82
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 4587.38
+          "value": 4841.53
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 4324.87
+          "value": 5701.6
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 4449.97
+          "value": 4968.16
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 4370.2
+          "value": 4951.51
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 3135.27
+          "value": 5220.66
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 3769.5
+          "value": 5057.0
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 2442.41
+          "value": 4923.53
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 4869.36
+          "value": 4915.55
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 2999.28
+          "value": 4857.81
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 4551.01
+          "value": 4678.87
         }
       ]
     },
@@ -1267,62 +1267,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 7877.69
+          "value": 8741.94
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 8598.94
+          "value": 11617.76
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 8341.76
+          "value": 10563.06
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 8507.58
+          "value": 11329.33
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 10151.35
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 9801.24
+          "value": 9736.67
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 9569.63
+          "value": 11038.87
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 10891.87
+          "value": 10339.28
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 10385.19
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10751.42
+          "value": 9488.68
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 9135.44
+          "value": 9082.76
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 8868.22
+          "value": 9743.56
         }
       ]
     },
@@ -1334,62 +1334,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 6193.59
+          "value": 5364.86
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 6721.52
+          "value": 7026.35
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 6820.98
+          "value": 7204.57
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 7665.33
+          "value": 7472.44
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 8608.46
+          "value": 7824.33
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 6966.66
+          "value": 8043.71
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 7670.28
+          "value": 8722.99
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 8521.61
+          "value": 9074.49
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 8631.62
+          "value": 10079.63
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 8457.76
+          "value": 9618.42
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 9047.0
+          "value": 9651.89
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9344.61
+          "value": 9516.63
         }
       ]
     },
@@ -1401,62 +1401,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 10240.37
+          "value": 9148.66
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11239.41
+          "value": 10620.78
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 9819.53
+          "value": 9112.09
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 10795.18
+          "value": 9454.58
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 11880.7
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10365.6
+          "value": 9736.67
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 10296.39
+          "value": 9776.97
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11152.83
+          "value": 10691.13
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 11002.53
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10041.15
+          "value": 9917.4
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 10383.25
+          "value": 9927.36
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9239.31
+          "value": 10185.46
         }
       ]
     },
@@ -1468,62 +1468,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 9792.46
+          "value": 11435.54
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11524.46
+          "value": 11264.78
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 9887.53
+          "value": 11199.84
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 8990.69
+          "value": 10998.02
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 11594.94
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10275.12
+          "value": 11139.96
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 9770.14
+          "value": 11254.97
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11640.03
+          "value": 10954.86
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 10895.44
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10965.47
+          "value": 9917.4
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 10484.55
+          "value": 10182.46
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9545.18
+          "value": 10185.46
         }
       ]
     },
@@ -1535,62 +1535,62 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 7323.11
+          "value": 10556.93
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 8027.08
+          "value": 10364.24
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 7741.55
+          "value": 10563.06
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 7211.11
+          "value": 10998.02
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 7751.12
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 7903.75
+          "value": 9736.67
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 8248.01
+          "value": 11038.87
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 10016.0
+          "value": 10691.13
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 9394.75
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10663.2
+          "value": 9917.4
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 10331.14
+          "value": 10182.46
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 8718.48
+          "value": 10185.46
         }
       ]
     },
@@ -1602,102 +1602,102 @@
         {
           "period": "2026-08",
           "horizon": 1,
-          "value": 10637.0
+          "value": 11435.54
         },
         {
           "period": "2026-09",
           "horizon": 2,
-          "value": 11951.38
+          "value": 11264.78
         },
         {
           "period": "2026-10",
           "horizon": 3,
-          "value": 10787.89
+          "value": 11199.84
         },
         {
           "period": "2026-11",
           "horizon": 4,
-          "value": 8990.69
+          "value": 10998.02
         },
         {
           "period": "2026-12",
           "horizon": 5,
-          "value": 11594.94
+          "value": 11385.35
         },
         {
           "period": "2027-01",
           "horizon": 6,
-          "value": 10275.12
+          "value": 11139.96
         },
         {
           "period": "2027-02",
           "horizon": 7,
-          "value": 9770.14
+          "value": 11254.97
         },
         {
           "period": "2027-03",
           "horizon": 8,
-          "value": 11935.49
+          "value": 10954.86
         },
         {
           "period": "2027-04",
           "horizon": 9,
-          "value": 10895.44
+          "value": 10803.0
         },
         {
           "period": "2027-05",
           "horizon": 10,
-          "value": 10965.47
+          "value": 9917.4
         },
         {
           "period": "2027-06",
           "horizon": 11,
-          "value": 10484.55
+          "value": 10182.46
         },
         {
           "period": "2027-07",
           "horizon": 12,
-          "value": 9545.18
+          "value": 10185.46
         }
       ]
     }
   ],
   "feature_importance": [
     {
-      "feature": "máximo 3",
-      "importance": 39.6
-    },
-    {
-      "feature": "venta t-1",
-      "importance": 16.3
-    },
-    {
-      "feature": "promedio móvil 3",
-      "importance": 12.6
-    },
-    {
-      "feature": "venta t-3",
-      "importance": 9.7
-    },
-    {
-      "feature": "mínimo 3",
-      "importance": 8.8
-    },
-    {
-      "feature": "desviación 12",
-      "importance": 7.8
+      "feature": "pedido t-2",
+      "importance": 23.6
     },
     {
       "feature": "máximo 6",
-      "importance": 2.9
+      "importance": 22.8
     },
     {
-      "feature": "meses desde última venta",
-      "importance": 2.3
+      "feature": "meses desde último pedido",
+      "importance": 19.3
+    },
+    {
+      "feature": "máximo 3",
+      "importance": 14.7
+    },
+    {
+      "feature": "promedio móvil 3",
+      "importance": 12.1
+    },
+    {
+      "feature": "máximo 12",
+      "importance": 5.8
+    },
+    {
+      "feature": "porcentaje con movimiento",
+      "importance": 1.6
+    },
+    {
+      "feature": "año objetivo",
+      "importance": 0.0
     }
   ],
   "drift": {
-    "score": 1.99,
+    "score": 1.01,
     "status": "stable"
   },
   "alerts": [
@@ -1721,6 +1721,6 @@
       "pedido futuro no registrado",
       "entrega futura"
     ],
-    "duration_seconds": 14.581
+    "duration_seconds": 13.821
   }
 }

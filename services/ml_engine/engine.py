@@ -205,14 +205,14 @@ def safe_mean(values: list[float]) -> float | None:
     return statistics.fmean(values) if values else None
 
 
-def feature_vector(series: Series, periods: list[str], issue_index: int, target_period: str, horizon: int, series_ids: list[str]) -> tuple[list[float | None], list[str]]:
+def feature_vector(series: Series, periods: list[str], issue_index: int, target_period: str, horizon: int, series_ids: list[str], objective: str = "Venta") -> tuple[list[float | None], list[str]]:
     history = [series.points.get(period) for period in periods[:issue_index + 1]]
     observed = [value for value in history if value is not None]
     target_year, target_month = map(int, target_period.split("-"))
     names = ["año objetivo","mes objetivo","trimestre","seno mes","coseno mes","posición temporal","horizonte","antigüedad serie"]
     values: list[float | None] = [target_year, target_month, (target_month - 1) // 3 + 1, math.sin(2 * math.pi * target_month / 12), math.cos(2 * math.pi * target_month / 12), issue_index, horizon, len(observed)]
     for lag in (1, 2, 3, 6, 12):
-        names.append(f"venta t-{lag}")
+        names.append(f"{objective.lower()} t-{lag}")
         index = len(history) - lag
         values.append(history[index] if index >= 0 else None)
     for window in (3, 6, 12):
@@ -235,14 +235,15 @@ def feature_vector(series: Series, periods: list[str], issue_index: int, target_
     zero_count = sum(value == 0 for value in history if value is not None)
     movement = len(nonzero_indexes) / len(observed) if observed else 0
     intervals = [b - a for a, b in zip(nonzero_indexes, nonzero_indexes[1:])]
-    names.extend(("meses desde última venta","meses con demanda cero","porcentaje con movimiento","intervalo promedio"))
+    last_event = "última venta" if objective.lower() == "venta" else "último pedido"
+    names.extend((f"meses desde {last_event}","meses con demanda cero","porcentaje con movimiento","intervalo promedio"))
     values.extend((months_since, zero_count, movement, safe_mean(intervals)))
     names.extend(f"producto:{series_id}" for series_id in series_ids)
     values.extend(1.0 if series.id == series_id else 0.0 for series_id in series_ids)
     return values, names
 
 
-def build_samples(all_series: list[Series], horizon: int) -> tuple[list[Sample], list[str], list[str]]:
+def build_samples(all_series: list[Series], horizon: int, objective: str = "Venta") -> tuple[list[Sample], list[str], list[str]]:
     periods = sorted({period for series in all_series for period in series.points})
     ids = sorted(series.id for series in all_series)
     samples, feature_names = [], []
@@ -253,7 +254,7 @@ def build_samples(all_series: list[Series], horizon: int) -> tuple[list[Sample],
             target = series.points.get(target_period)
             if target is None:
                 continue
-            features, feature_names = feature_vector(series, periods, issue_index, target_period, horizon, ids)
+            features, feature_names = feature_vector(series, periods, issue_index, target_period, horizon, ids, objective)
             samples.append(Sample(features, target, target_period, periods[issue_index], horizon, series.id))
     return samples, feature_names, periods
 
@@ -271,10 +272,10 @@ def metric(actual: list[float], predicted: list[float]) -> dict[str, float]:
     }
 
 
-def temporal_backtest(all_series: list[Series], factory: Callable[[], object]) -> dict:
+def temporal_backtest(all_series: list[Series], factory: Callable[[], object], objective: str = "Venta") -> dict:
     horizon_results, actual_all, predicted_all = [], [], []
     for horizon in HORIZONS:
-        samples, feature_names, _ = build_samples(all_series, horizon)
+        samples, feature_names, _ = build_samples(all_series, horizon, objective)
         target_periods = sorted({sample.target_period for sample in samples})
         origins = target_periods[-min(2, max(0, len(target_periods) - 4)):]
         actual, predicted = [], []
@@ -297,16 +298,16 @@ def temporal_backtest(all_series: list[Series], factory: Callable[[], object]) -
     return {**metric(actual_all, predicted_all), "by_horizon": horizon_results, "feature_names": feature_names}
 
 
-def fit_forecast(all_series: list[Series], factory: Callable[[], object]) -> tuple[list[dict], list[dict]]:
+def fit_forecast(all_series: list[Series], factory: Callable[[], object], objective: str = "Venta") -> tuple[list[dict], list[dict]]:
     periods = sorted({period for series in all_series for period in series.points})
     ids = sorted(series.id for series in all_series)
     results = {series.id: {"series_id": series.id, "label": series.label, "evidence": "low" if sum(v is not None for v in series.points.values()) < 12 else "standard", "forecast": []} for series in all_series}
     importance_rows = []
     for horizon in HORIZONS:
-        samples, names, _ = build_samples(all_series, horizon)
+        samples, names, _ = build_samples(all_series, horizon, objective)
         prep = Preprocessor().fit([sample.features for sample in samples])
         model = factory().fit(prep.transform([sample.features for sample in samples]), np.array([sample.target for sample in samples]))
-        features = [feature_vector(series, periods, len(periods) - 1, add_month(periods[-1], horizon), horizon, ids)[0] for series in all_series]
+        features = [feature_vector(series, periods, len(periods) - 1, add_month(periods[-1], horizon), horizon, ids, objective)[0] for series in all_series]
         prediction = model.predict(prep.transform(features))
         for series, value in zip(all_series, prediction):
             results[series.id]["forecast"].append({"period": add_month(periods[-1], horizon), "horizon": horizon, "value": round(float(value), 2)})
@@ -338,7 +339,7 @@ def build_payload_from_series(all_series: list[Series], objective: str = "Venta"
         return {"target": objective, "status": "insufficient", "reason": f"No existen observaciones normalizadas para {objective}."}
     candidates = []
     for name, factory in MODEL_FACTORIES.items():
-        evaluation = temporal_backtest(all_series, factory)
+        evaluation = temporal_backtest(all_series, factory, objective)
         complexity = factory().complexity
         score = evaluation["wape"] + abs(evaluation["bias"]) * 0.18 + evaluation["stability"] * 0.1 + complexity
         candidates.append({"model": name, "available": True, "score": round(score, 2), **evaluation})
@@ -348,7 +349,7 @@ def build_payload_from_series(all_series: list[Series], objective: str = "Venta"
     ])
     available = sorted([row for row in candidates if row["available"]], key=lambda row: row["score"])
     winner, challenger = available[0], available[1]
-    forecast, importance = fit_forecast(all_series, MODEL_FACTORIES[winner["model"]])
+    forecast, importance = fit_forecast(all_series, MODEL_FACTORIES[winner["model"]], objective)
     drift_result = drift(all_series)
     alerts = []
     if drift_result["status"] == "alert": alerts.append({"type": "drift", "severity": "warning", "message": "Posible cambio de patrón en los últimos tres periodos."})

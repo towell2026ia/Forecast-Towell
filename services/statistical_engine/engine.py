@@ -308,20 +308,24 @@ def build_payload(path: Path) -> dict:
         target, product = key.split(":", 1)
         periods = sorted(points)
         results.append(run_series(product, label, periods, [points[p] for p in periods], target))
-    # Consolidated total is the sum of component series, never a manually entered value.
-    venta = [row for row in results if row["target"] == "Venta" and row["status"].startswith("completed")]
-    all_periods = sorted({point["period"] for row in venta for point in row["history"]})
-    if all_periods:
-        totals = []
-        for period in all_periods:
-            totals.append(sum(next((point["actual"] for point in row["history"] if point["period"] == period), 0) or 0 for row in venta))
-        results.insert(0, run_series("total-fendi-bd", "Total FENDI BD", all_periods, totals, "Venta"))
-    results.append({"series_id": "total-fendi-bd", "label": "Total FENDI BD", "target": "Pedido", "status": "insufficient", "reason": "La base normalizada PRD 01 disponible contiene Venta, no Pedido. No se inventó equivalencia entre objetivos."})
+    # Consolidated totals are always calculated from the exact FENDI components.
+    totals_by_target = []
+    for target in sorted({row["target"] for row in results}):
+        components = [row for row in results if row["target"] == target and row["status"].startswith("completed")]
+        all_periods = sorted({point["period"] for row in components for point in row["history"]})
+        if not all_periods:
+            continue
+        totals = [
+            sum(next((point["actual"] for point in row["history"] if point["period"] == period), 0) or 0 for row in components)
+            for period in all_periods
+        ]
+        totals_by_target.append(run_series("total-fendi-bd", "Total FENDI BD", all_periods, totals, target))
+    results = totals_by_target + results
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     return {
         "run": {"version": f"FENDI-BD-{date.today().isoformat()}-01", "engine_version": ENGINE_VERSION, "status": "completed_with_alerts", "generated_at": generated_at, "frozen": True, "source": "normalized_platform_records", "cutoff": max((row.get("last_closed_period", "") for row in results), default="")},
         "chain": chain,
-        "data_quality": [{"code": "D10", "severity": "blocking", "message": "2023 no se incorporó: falta una equivalencia FENDI reproducible aprobada."}, {"code": "D09", "severity": "review", "message": "Las diferencias 2025 permanecen trazables; el motor no sobrescribe observaciones."}],
+        "data_quality": [{"code": "D10", "severity": "blocking", "message": "2023 no se incorporó: falta una equivalencia FENDI reproducible aprobada."}, {"code": "SCOPE", "severity": "info", "message": "Universo auditado: Walmart y familia FENDI únicamente; Venta y Pedido permanecen separados."}],
         "series": results,
     }
 
