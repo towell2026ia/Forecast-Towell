@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import csv
+import hashlib
 import json
 import logging
 import os
@@ -44,17 +45,49 @@ def _atomic_json(path: Path, payload: dict[str, Any]) -> None:
 
 class ResearchProvider(ABC):
     @abstractmethod
-    def run(self, cutoff_date: str, chain: str, category: str | None = None, product: str | None = None) -> dict[str, Any]: ...
+    def run(self, cutoff_date: str, chain: str, category: str | None = None, product: str | None = None,
+            historical_context: dict[str, Any] | None = None) -> dict[str, Any]: ...
 
 
 class LocalResearchProvider(ResearchProvider):
-    def run(self, cutoff_date: str, chain: str, category: str | None = None, product: str | None = None) -> dict[str, Any]:
-        return {
+    def __init__(self, source_dir: Path | None = None):
+        self.source_dir = Path(source_dir) if source_dir else None
+
+    def run(self, cutoff_date: str, chain: str, category: str | None = None, product: str | None = None,
+            historical_context: dict[str, Any] | None = None) -> dict[str, Any]:
+        period = cutoff_date[:7]
+        candidate = self.source_dir / f"{period}.json" if self.source_dir else None
+        source = json.loads(candidate.read_text(encoding="utf-8")) if candidate and candidate.exists() else {}
+        if not isinstance(source, dict):
+            raise ValueError("invalid_research_source")
+        excluded = 0
+        selected: dict[str, list[dict[str, Any]]] = {}
+        for key in ("signals", "sources"):
+            items = source.get(key, [])
+            if not isinstance(items, list):
+                raise ValueError("invalid_research_source")
+            selected[key] = []
+            for item in items:
+                if not isinstance(item, dict):
+                    raise ValueError("invalid_research_source")
+                published = item.get("published_at")
+                if not published or str(published)[:10] > cutoff_date:
+                    excluded += 1
+                    continue
+                selected[key].append(item)
+        payload = {
             "snapshot_id": f"RS-FENDI-{cutoff_date[:7]}",
             "cutoff_date": cutoff_date, "chain": chain, "category": category, "product": product,
-            "signals": [], "sources": [], "provider": "local", "generated_at": _utc(),
+            "signals": selected["signals"], "sources": selected["sources"], "provider": "local",
+            "status": "completed", "created_at": _utc(), "frozen": True,
+            "excluded_after_cutoff": excluded,
+            "historical_context": historical_context or {},
             "historical_replay": cutoff_date < date.today().isoformat(),
         }
+        payload["content_hash"] = hashlib.sha256(json.dumps(
+            {key: value for key, value in payload.items() if key != "created_at"},
+            sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
+        return payload
 
 
 class EnginePipeline(ABC):
@@ -78,6 +111,14 @@ class ExistingEnginePipeline(EnginePipeline):
         return engine.build_payload(normalized_csv, "Venta")
 
     def ensemble(self, normalized_csv: Path, statistical: dict[str, Any], ml: dict[str, Any] | None) -> dict[str, Any]:
+        return self._ensemble(normalized_csv, statistical, ml, historical=False)
+
+    def ensemble_historical(self, normalized_csv: Path, statistical: dict[str, Any], ml: dict[str, Any] | None) -> dict[str, Any]:
+        """Offline counterfactual promotion; never changes the published Champion."""
+        return self._ensemble(normalized_csv, statistical, ml, historical=True)
+
+    def _ensemble(self, normalized_csv: Path, statistical: dict[str, Any], ml: dict[str, Any] | None,
+                  historical: bool) -> dict[str, Any]:
         from services.ensemble_engine import engine as ensemble
         from services.ml_engine import engine as ml_engine
         with tempfile.TemporaryDirectory(prefix="fendi-ensemble-") as directory:
@@ -94,7 +135,7 @@ class ExistingEnginePipeline(EnginePipeline):
         future = [row for row in future if row.series_id == "total-fendi-bd"]
         config = ensemble.EnsembleConfig(reference_champion_wape=stat_wape)
         return ensemble.run_ensemble(records, future, cutoff, stat_version, ml_version, config,
-                                     "Venta", stat_wape, ml_wape, promote_challenger=False)
+                                     "Venta", stat_wape, ml_wape, promote_challenger=historical)
 
 
 class MonthlyForecastRunner:

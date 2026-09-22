@@ -20,6 +20,8 @@ Las consultas son de sólo lectura. `MonthlyForecastRunner` no tiene endpoint ni
 
 La corrida de julio de 2026 puede reproducirse con los datos normalizados actuales. Para meses anteriores, el runner exige `available_at` por registro antes de ejecutar: el archivo normalizado actual no conserva cuándo estuvo disponible cada dato histórico, así que no sería válido reconstruir un backtest retrospectivo con cifras revisadas sin esa prueba temporal. Si falla ML se usa el estadístico; si falla el ensamble se conserva el Champion publicado solamente cuando coincide el mismo corte.
 
+La reconstrucción mes a mes de PRD 08C se documenta en [HISTORICAL.md](HISTORICAL.md). Es independiente del runner mensual operativo y nunca promueve el Champion publicado.
+
 ## Ejemplos
 
 - `¿Cuál es el Champion?`
