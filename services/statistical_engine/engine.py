@@ -252,12 +252,32 @@ def allowed_models(classification: str) -> list[str]:
     return list(MODELS)
 
 
+def active_lifecycle(periods: list[str], values: list[float]) -> tuple[list[str], list[float], int]:
+    """Exclude structural pre-launch zeroes but preserve zero demand after launch."""
+    first_active = next((index for index, value in enumerate(values) if value > 0), 0)
+    return periods[first_active:], values[first_active:], first_active
+
+
+def one_step_backtest(periods: list[str], values: list[float], model: Callable[[list[float], int], list[float]]) -> dict[str, float]:
+    """Return leak-free one-step-ahead predictions for historical comparisons."""
+    predictions: dict[str, float] = {}
+    for origin in range(6, len(values)):
+        try:
+            predictions[periods[origin]] = clamp(model(values[:origin], 1))[0]
+        except ValueError:
+            continue
+    return predictions
+
+
 def run_series(series_id: str, label: str, periods: list[str], values: list[float], target: str) -> dict:
-    classification, diagnostics = classify(values)
+    model_periods, model_values, lifecycle_offset = active_lifecycle(periods, values)
+    classification, diagnostics = classify(model_values)
+    diagnostics["model_start_period"] = model_periods[0] if model_periods else periods[0]
+    diagnostics["prelaunch_periods_excluded"] = lifecycle_offset
     comparisons = []
     for name in allowed_models(classification):
         try:
-            result = backtest(values, MODELS[name])
+            result = backtest(model_values, MODELS[name])
             score = result["wape"] + abs(result["bias"]) * 0.25 + result["stability"] * 0.15
             comparisons.append({"model": name, **result, "score": round(score, 2), "applicable": True})
         except ValueError as error:
@@ -266,17 +286,19 @@ def run_series(series_id: str, label: str, periods: list[str], values: list[floa
     if not applicable:
         return {"series_id": series_id, "label": label, "target": target, "status": "insufficient", "reason": "No hay muestra suficiente para una ventana de evaluación sin fuga."}
     winner = min(applicable, key=lambda row: row["score"])
-    future = clamp(MODELS[winner["model"]](values, 12))
-    history = [{"period": period, "actual": round(value, 2), "forecast": None} for period, value in zip(periods, values)]
+    future = clamp(MODELS[winner["model"]](model_values, 12))
+    historical_predictions = one_step_backtest(model_periods, model_values, MODELS[winner["model"]])
+    history = [{"period": period, "actual": round(value, 2), "forecast": historical_predictions.get(period)} for period, value in zip(periods, values)]
     forecast = [{"period": add_month(periods[-1], step), "actual": None, "forecast": value} for step, value in enumerate(future, 1)]
     alerts = []
     if winner["wape"] >= 50:
         alerts.append({"type": "Deterioro de precisión", "severity": "alta", "message": f"WAPE de validación {winner['wape']:.1f}%; revisar antes de usar."})
     if abs(winner["bias"]) >= 25:
         alerts.append({"type": "Sesgo excesivo", "severity": "media", "message": f"Sesgo {winner['bias']:.1f}%; el modelo se conserva visible, no se corrige automáticamente."})
-    if values[-3:] == [0, 0, 0]:
+    if model_values[-3:] == [0, 0, 0]:
         alerts.append({"type": "Pérdida de movimiento", "severity": "media", "message": "Tres periodos cerrados consecutivos en cero."})
-    explanation = f"{winner['model']} minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como {classification.lower()}."
+    lifecycle_note = f" La evaluación inicia en {model_periods[0]} para no tratar los meses estructurales previos al arranque como demanda intermitente." if lifecycle_offset else ""
+    explanation = f"{winner['model']} minimizó el score controlado (WAPE, sesgo y estabilidad) en backtesting de origen rodante. La serie se clasificó como {classification.lower()}.{lifecycle_note}"
     return {
         "series_id": series_id, "label": label, "target": target, "status": "completed_with_alerts" if alerts else "completed",
         "classification": classification, "diagnostics": diagnostics, "winner": winner["model"], "wape": winner["wape"],
@@ -308,17 +330,16 @@ def build_payload(path: Path) -> dict:
         target, product = key.split(":", 1)
         periods = sorted(points)
         results.append(run_series(product, label, periods, [points[p] for p in periods], target))
-    # Consolidated totals are always calculated from the exact FENDI components.
+    # Consolidated totals always include every observed FENDI component, even when
+    # a recently launched product does not yet have enough history for its own model.
     totals_by_target = []
-    for target in sorted({row["target"] for row in results}):
-        components = [row for row in results if row["target"] == target and row["status"].startswith("completed")]
-        all_periods = sorted({point["period"] for row in components for point in row["history"]})
+    targets = sorted({key.split(":", 1)[0] for key in series})
+    for target in targets:
+        components = [points for key, (_, points) in series.items() if key.startswith(f"{target}:")]
+        all_periods = sorted({period for points in components for period in points})
         if not all_periods:
             continue
-        totals = [
-            sum(next((point["actual"] for point in row["history"] if point["period"] == period), 0) or 0 for row in components)
-            for period in all_periods
-        ]
+        totals = [sum(points.get(period, 0) or 0 for points in components) for period in all_periods]
         totals_by_target.append(run_series("total-fendi-bd", "Total FENDI BD", all_periods, totals, target))
     results = totals_by_target + results
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()

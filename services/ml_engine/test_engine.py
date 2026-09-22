@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent))
-from engine import GradientBoostingGlobal, LinearGlobal, RandomForestGlobal, Series, build_payload, feature_vector, metric
+from engine import GradientBoostingGlobal, LinearGlobal, RandomForestGlobal, Series, build_payload, feature_vector, metric, rolling_backtest_history
 
 
 class MLEngineAcceptanceTests(unittest.TestCase):
@@ -36,6 +36,9 @@ class MLEngineAcceptanceTests(unittest.TestCase):
     def test_cp09_wape(self): self.assertEqual(metric([100,100],[90,110])["wape"],10.0)
     def test_cp10_statistical_fallback_independent(self):
         self.assertTrue(callable(GradientBoostingGlobal)); self.assertTrue(Path(__file__).parents[1].joinpath("statistical_engine","engine.py").exists())
+    def test_cp11_backtest_history_is_out_of_sample(self):
+        rows=rolling_backtest_history([self.series],LinearGlobal,"Venta",3)
+        self.assertTrue(rows); self.assertTrue(all(row["period"] in self.periods for row in rows))
 
 
 if __name__ == "__main__": unittest.main()

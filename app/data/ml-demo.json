@@ -3,7 +3,7 @@
   "status": "completed_with_alerts",
   "engine_version": "prd04-1.0.0",
   "cutoff": "2026-07",
-  "generated_at": "2026-09-21T18:05:22+00:00",
+  "generated_at": "2026-09-22T02:22:58+00:00",
   "dataset": {
     "series": 11,
     "observations": 269,
@@ -1662,6 +1662,782 @@
       ]
     }
   ],
+  "backtest": [
+    {
+      "series_id": "7501897813122",
+      "period": "2025-08",
+      "actual": 8229.0,
+      "forecast": 10124.03
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2025-08",
+      "actual": 7115.0,
+      "forecast": 9177.27
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2025-08",
+      "actual": 11047.0,
+      "forecast": 11018.58
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2025-08",
+      "actual": 6305.0,
+      "forecast": 9149.53
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2025-08",
+      "actual": 3696.0,
+      "forecast": 4866.73
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2025-08",
+      "actual": 3624.0,
+      "forecast": 4714.54
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2025-08",
+      "actual": 9173.0,
+      "forecast": 10708.97
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2025-08",
+      "actual": 7226.0,
+      "forecast": 9399.98
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2025-08",
+      "actual": 56415.0,
+      "forecast": 69159.64
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2025-09",
+      "actual": 9408.0,
+      "forecast": 8947.22
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2025-09",
+      "actual": 7964.0,
+      "forecast": 8650.38
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2025-09",
+      "actual": 12483.0,
+      "forecast": 10747.22
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2025-09",
+      "actual": 7267.0,
+      "forecast": 8671.27
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2025-09",
+      "actual": 4303.0,
+      "forecast": 4787.36
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2025-09",
+      "actual": 4497.0,
+      "forecast": 4787.36
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2025-09",
+      "actual": 9739.0,
+      "forecast": 8947.22
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2025-09",
+      "actual": 8272.0,
+      "forecast": 8864.73
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2025-09",
+      "actual": 63933.0,
+      "forecast": 64402.77
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2025-10",
+      "actual": 7358.0,
+      "forecast": 9342.16
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2025-10",
+      "actual": 5961.0,
+      "forecast": 8789.92
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2025-10",
+      "actual": 9595.0,
+      "forecast": 10969.16
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2025-10",
+      "actual": 5140.0,
+      "forecast": 8365.18
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2025-10",
+      "actual": 3174.0,
+      "forecast": 4650.34
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2025-10",
+      "actual": 3327.0,
+      "forecast": 4650.34
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2025-10",
+      "actual": 7384.0,
+      "forecast": 9879.37
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2025-10",
+      "actual": 6641.0,
+      "forecast": 8789.92
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2025-10",
+      "actual": 48580.0,
+      "forecast": 65436.4
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2025-11",
+      "actual": 7415.0,
+      "forecast": 7606.25
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2025-11",
+      "actual": 6363.0,
+      "forecast": 7297.4
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2025-11",
+      "actual": 9471.0,
+      "forecast": 10766.4
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2025-11",
+      "actual": 5393.0,
+      "forecast": 6917.75
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2025-11",
+      "actual": 3046.0,
+      "forecast": 4622.93
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2025-11",
+      "actual": 3741.0,
+      "forecast": 4622.93
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2025-11",
+      "actual": 7070.0,
+      "forecast": 7606.25
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2025-11",
+      "actual": 7019.0,
+      "forecast": 7336.44
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2025-11",
+      "actual": 49518.0,
+      "forecast": 56776.35
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2025-12",
+      "actual": 14242.0,
+      "forecast": 7583.02
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2025-12",
+      "actual": 11347.0,
+      "forecast": 7583.02
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2025-12",
+      "actual": 18882.0,
+      "forecast": 10478.49
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2025-12",
+      "actual": 9811.0,
+      "forecast": 7107.74
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2025-12",
+      "actual": 4633.0,
+      "forecast": 4490.38
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2025-12",
+      "actual": 7371.0,
+      "forecast": 4490.38
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2025-12",
+      "actual": 12933.0,
+      "forecast": 8337.27
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2025-12",
+      "actual": 12857.0,
+      "forecast": 7455.78
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2025-12",
+      "actual": 92076.0,
+      "forecast": 57526.08
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-01",
+      "actual": 10613.0,
+      "forecast": 9573.32
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-01",
+      "actual": 8559.0,
+      "forecast": 8839.61
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-01",
+      "actual": 12136.0,
+      "forecast": 11771.35
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-01",
+      "actual": 7172.0,
+      "forecast": 8193.4
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-01",
+      "actual": 2810.0,
+      "forecast": 4824.7
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-01",
+      "actual": 5289.0,
+      "forecast": 6687.31
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-01",
+      "actual": 8014.0,
+      "forecast": 9573.32
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-01",
+      "actual": 9122.0,
+      "forecast": 8839.61
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-01",
+      "actual": 0.0,
+      "forecast": 3557.73
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-01",
+      "actual": 0.0,
+      "forecast": 3557.73
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-01",
+      "actual": 0.0,
+      "forecast": 3557.73
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-01",
+      "actual": 63715.0,
+      "forecast": 78975.8
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-02",
+      "actual": 10974.0,
+      "forecast": 9798.07
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-02",
+      "actual": 9172.0,
+      "forecast": 8892.43
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-02",
+      "actual": 9549.0,
+      "forecast": 11286.72
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-02",
+      "actual": 7448.0,
+      "forecast": 8892.43
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-02",
+      "actual": 2634.0,
+      "forecast": 4452.02
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-02",
+      "actual": 4430.0,
+      "forecast": 6468.79
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-02",
+      "actual": 6434.0,
+      "forecast": 9798.07
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-02",
+      "actual": 9299.0,
+      "forecast": 9798.07
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-02",
+      "actual": 0.0,
+      "forecast": 0.8
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-02",
+      "actual": 0.0,
+      "forecast": 0.8
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-02",
+      "actual": 0.0,
+      "forecast": 0.8
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-02",
+      "actual": 59940.0,
+      "forecast": 69389.01
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-03",
+      "actual": 15152.0,
+      "forecast": 10061.01
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-03",
+      "actual": 13872.0,
+      "forecast": 9426.2
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-03",
+      "actual": 12594.0,
+      "forecast": 10994.0
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-03",
+      "actual": 10876.0,
+      "forecast": 9085.89
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-03",
+      "actual": 1701.0,
+      "forecast": 4670.56
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-03",
+      "actual": 6775.0,
+      "forecast": 7694.43
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-03",
+      "actual": 7073.0,
+      "forecast": 9201.59
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-03",
+      "actual": 12350.0,
+      "forecast": 9783.4
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-03",
+      "actual": 2015.0,
+      "forecast": 0.93
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-03",
+      "actual": 1511.0,
+      "forecast": 0.93
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-03",
+      "actual": 2573.0,
+      "forecast": 0.93
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-03",
+      "actual": 86492.0,
+      "forecast": 70919.85
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-04",
+      "actual": 13293.0,
+      "forecast": 11724.66
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-04",
+      "actual": 12948.0,
+      "forecast": 11046.48
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-04",
+      "actual": 9678.0,
+      "forecast": 11724.66
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-04",
+      "actual": 8710.0,
+      "forecast": 9349.94
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-04",
+      "actual": 1039.0,
+      "forecast": 4225.12
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-04",
+      "actual": 7326.0,
+      "forecast": 6635.12
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-04",
+      "actual": 5495.0,
+      "forecast": 9274.06
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-04",
+      "actual": 9533.0,
+      "forecast": 11046.48
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-04",
+      "actual": 6539.0,
+      "forecast": 2777.33
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-04",
+      "actual": 3855.0,
+      "forecast": 2711.41
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-04",
+      "actual": 5185.0,
+      "forecast": 2929.22
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-04",
+      "actual": 83601.0,
+      "forecast": 83444.46
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-05",
+      "actual": 12670.0,
+      "forecast": 11721.94
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-05",
+      "actual": 12558.0,
+      "forecast": 11382.81
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-05",
+      "actual": 8153.0,
+      "forecast": 11721.94
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-05",
+      "actual": 8537.0,
+      "forecast": 9226.71
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-05",
+      "actual": 554.0,
+      "forecast": 4294.79
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-05",
+      "actual": 7003.0,
+      "forecast": 7190.69
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-05",
+      "actual": 5028.0,
+      "forecast": 8016.08
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-05",
+      "actual": 8775.0,
+      "forecast": 11230.75
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-05",
+      "actual": 7557.0,
+      "forecast": 4873.14
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-05",
+      "actual": 4430.0,
+      "forecast": 4103.15
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-05",
+      "actual": 7682.0,
+      "forecast": 4485.25
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-05",
+      "actual": 82947.0,
+      "forecast": 88247.25
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-06",
+      "actual": 17087.0,
+      "forecast": 11627.45
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-06",
+      "actual": 16577.0,
+      "forecast": 11197.31
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-06",
+      "actual": 10826.0,
+      "forecast": 10979.69
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-06",
+      "actual": 10743.0,
+      "forecast": 10597.76
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-06",
+      "actual": 407.0,
+      "forecast": 4636.8
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-06",
+      "actual": 8776.0,
+      "forecast": 8079.2
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-06",
+      "actual": 6173.0,
+      "forecast": 6966.86
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-06",
+      "actual": 11067.0,
+      "forecast": 11137.55
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-06",
+      "actual": 11887.0,
+      "forecast": 6365.17
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-06",
+      "actual": 7373.0,
+      "forecast": 5464.4
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-06",
+      "actual": 12973.0,
+      "forecast": 6365.17
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-06",
+      "actual": 113889.0,
+      "forecast": 93417.37
+    },
+    {
+      "series_id": "7501897813122",
+      "period": "2026-07",
+      "actual": 13600.0,
+      "forecast": 11330.94
+    },
+    {
+      "series_id": "7501897813139",
+      "period": "2026-07",
+      "actual": 14428.0,
+      "forecast": 11330.94
+    },
+    {
+      "series_id": "7501897813146",
+      "period": "2026-07",
+      "actual": 8858.0,
+      "forecast": 10189.53
+    },
+    {
+      "series_id": "7501897813153",
+      "period": "2026-07",
+      "actual": 9421.0,
+      "forecast": 9517.42
+    },
+    {
+      "series_id": "7501897813160",
+      "period": "2026-07",
+      "actual": 116.0,
+      "forecast": 4085.47
+    },
+    {
+      "series_id": "7501897813177",
+      "period": "2026-07",
+      "actual": 7795.0,
+      "forecast": 7907.03
+    },
+    {
+      "series_id": "7501897813184",
+      "period": "2026-07",
+      "actual": 4988.0,
+      "forecast": 7061.29
+    },
+    {
+      "series_id": "7501897813191",
+      "period": "2026-07",
+      "actual": 8962.0,
+      "forecast": 10226.85
+    },
+    {
+      "series_id": "7501897816260",
+      "period": "2026-07",
+      "actual": 10218.0,
+      "forecast": 9383.35
+    },
+    {
+      "series_id": "7501897816277",
+      "period": "2026-07",
+      "actual": 6330.0,
+      "forecast": 7242.23
+    },
+    {
+      "series_id": "7501897816314",
+      "period": "2026-07",
+      "actual": 11077.0,
+      "forecast": 9383.35
+    },
+    {
+      "series_id": "total-fendi-bd",
+      "period": "2026-07",
+      "actual": 95793.0,
+      "forecast": 97658.41
+    }
+  ],
   "feature_importance": [
     {
       "feature": "máximo 3",
@@ -1721,6 +2497,6 @@
       "pedido futuro no registrado",
       "entrega futura"
     ],
-    "duration_seconds": 14.581
+    "duration_seconds": 43.822
   }
 }

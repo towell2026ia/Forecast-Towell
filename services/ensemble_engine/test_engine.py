@@ -97,5 +97,11 @@ class EnsembleAcceptanceTests(unittest.TestCase):
         baseline=Path(__file__).with_name("visual-baseline.json")
         self.assertTrue(baseline.exists())
 
+    def test_cp21_authorized_user_can_promote_eligible_challenger(self):
+        result=run_ensemble(records(70,95),future(70,95),"2026-07","S1","M1",promote_challenger=True)
+        self.assertTrue(result["publication"]["authorized_promotion"])
+        self.assertEqual(result["selection"]["official"]["strategy"],"ml")
+        self.assertNotEqual(result["forecast_towell"][0]["value"],70)
+
 
 if __name__ == "__main__": unittest.main()

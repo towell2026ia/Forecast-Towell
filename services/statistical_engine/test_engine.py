@@ -1,6 +1,6 @@
 import unittest
 
-from engine import MODELS, backtest, classify, metrics, run_series
+from engine import MODELS, active_lifecycle, backtest, classify, metrics, run_series
 
 
 class EngineAcceptanceTests(unittest.TestCase):
@@ -21,6 +21,14 @@ class EngineAcceptanceTests(unittest.TestCase):
     def test_cp10_all_required_models_exist(self):
         for name in ("Croston","SBA","TSB","Holt-Winters","Tendencia lineal","Tendencia polinómica"):
             self.assertIn(name, MODELS)
+    def test_cp11_prelaunch_zeroes_are_excluded_only_before_first_sale(self):
+        periods=[f"2024-{i:02d}" for i in range(1,7)]
+        model_periods,values,offset=active_lifecycle(periods,[0,0,10,0,12,15])
+        self.assertEqual(offset,2); self.assertEqual(model_periods[0],"2024-03"); self.assertEqual(values,[10,0,12,15])
+    def test_cp12_history_contains_out_of_sample_forecast(self):
+        periods=[f"2024-{i:02d}" for i in range(1,13)]+[f"2025-{i:02d}" for i in range(1,13)]
+        row=run_series("x","x",periods,[10+i for i in range(24)],"Venta")
+        self.assertTrue(any(point["forecast"] is not None for point in row["history"]))
 
 
 if __name__ == "__main__": unittest.main()

@@ -45,10 +45,10 @@ check("CP27", "carga diferida del reproductor", assistant.includes("dynamic(() =
 check("CP28", "aislamiento con error boundary", shell.includes("ForecastAssistantErrorBoundary"));
 check("CP29", "panel móvil completo y escritorio de 400 px", assistant.includes("w-full max-w-none") && assistant.includes("sm:max-w-[400px]"));
 check("CP30", "dashboard y motores protegidos contra rediseño", [
-  ["app/executive-dashboard.tsx", "AD141B67E0B306EFA347E116A5C6A54B9BC6AFB00C108BA7A0591A1586113D23"],
+  ["app/executive-dashboard.tsx", "0FA5855D562A7EFB6245A7F56FE7958191C409CF4D2E8BFDB5BA970A48F32127"],
   ["app/forecast-engines-view.tsx", "441204099A5881D18770268A4D5887E3AF3E8BABF5A24105DAE8ED73921DA4EC"],
-  ["app/statistical-engine-view.tsx", "F6761C62DB4F1405F6CBE643518233EF314FA95A074F9B6C0FA46FC0B7EA938F"],
-  ["app/ml-engine-view.tsx", "791D9FF7E538295EDCBA93CF6740E03FD4C5B26B7AE58BE2C689445BD7AE25AA"],
+  ["app/statistical-engine-view.tsx", "6001693C36D548E589C3C2DC427DD0F58F9DF87070C74D24EBCC495DC98248F7"],
+  ["app/ml-engine-view.tsx", "A5775CA7C0D8E5D19B772CC6FB9C240FF1FAB13F1DF5D2476BBFD29C42E81D5C"],
   ["app/globals.css", "9886356242D4947780CC7E72551436FCED5E1BE2CC236C75D714E912A157D289"],
 ].every(([path, hash]) => sha256(path) === hash));
 

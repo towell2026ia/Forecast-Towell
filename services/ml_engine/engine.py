@@ -298,6 +298,34 @@ def temporal_backtest(all_series: list[Series], factory: Callable[[], object], o
     return {**metric(actual_all, predicted_all), "by_horizon": horizon_results, "feature_names": feature_names}
 
 
+def rolling_backtest_history(all_series: list[Series], factory: Callable[[], object], objective: str = "Venta", max_origins: int = 12) -> list[dict]:
+    """Build leak-free one-month-ahead predictions for Real vs Forecast views."""
+    samples, _, _ = build_samples(all_series, 1, objective)
+    target_periods = sorted({sample.target_period for sample in samples})
+    valid_origins = []
+    for origin in target_periods:
+        train = [sample for sample in samples if sample.target_period < origin]
+        test = [sample for sample in samples if sample.target_period == origin]
+        if len(train) >= 18 and test:
+            valid_origins.append(origin)
+    rows: list[dict] = []
+    for origin in valid_origins[-max_origins:]:
+        train = [sample for sample in samples if sample.target_period < origin]
+        test = [sample for sample in samples if sample.target_period == origin]
+        prep = Preprocessor().fit([sample.features for sample in train])
+        model = factory().fit(prep.transform([sample.features for sample in train]), np.array([sample.target for sample in train]))
+        predicted = model.predict(prep.transform([sample.features for sample in test]))
+        for sample, value in zip(test, predicted):
+            rows.append({"series_id": sample.series_id, "period": origin, "actual": round(float(sample.target), 2), "forecast": round(float(value), 2)})
+        rows.append({
+            "series_id": "total-fendi-bd",
+            "period": origin,
+            "actual": round(sum(float(sample.target) for sample in test), 2),
+            "forecast": round(sum(float(value) for value in predicted), 2),
+        })
+    return rows
+
+
 def fit_forecast(all_series: list[Series], factory: Callable[[], object], objective: str = "Venta") -> tuple[list[dict], list[dict]]:
     periods = sorted({period for series in all_series for period in series.points})
     ids = sorted(series.id for series in all_series)
@@ -350,6 +378,7 @@ def build_payload_from_series(all_series: list[Series], objective: str = "Venta"
     available = sorted([row for row in candidates if row["available"]], key=lambda row: row["score"])
     winner, challenger = available[0], available[1]
     forecast, importance = fit_forecast(all_series, MODEL_FACTORIES[winner["model"]], objective)
+    backtest_history = rolling_backtest_history(all_series, MODEL_FACTORIES[winner["model"]], objective)
     drift_result = drift(all_series)
     alerts = []
     if drift_result["status"] == "alert": alerts.append({"type": "drift", "severity": "warning", "message": "Posible cambio de patrón en los últimos tres periodos."})
@@ -361,7 +390,7 @@ def build_payload_from_series(all_series: list[Series], objective: str = "Venta"
         "dataset": {"series": len(all_series), "observations": sum(value is not None for series in all_series for value in series.points.values()), "source": "platform_normalized_records", "excel_required": False},
         "champion": {"version": f"ML-FENDI-{date.today().strftime('%Y%m%d')}-01", "status": "Champion", **winner},
         "challenger": {"version": f"ML-FENDI-{date.today().strftime('%Y%m%d')}-02", "status": "Challenger", **challenger},
-        "candidates": candidates, "forecast": forecast, "feature_importance": importance, "drift": drift_result, "alerts": alerts,
+        "candidates": candidates, "forecast": forecast, "backtest": backtest_history, "feature_importance": importance, "drift": drift_result, "alerts": alerts,
         "training": {"strategy": "directa por horizonte", "known_features": ["calendario","histórico hasta el corte","producto","color","categoría"], "unknown_features_excluded": ["venta futura","pedido futuro no registrado","entrega futura"], "duration_seconds": 0.0},
     }
 

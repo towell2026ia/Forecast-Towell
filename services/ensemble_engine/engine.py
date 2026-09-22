@@ -275,11 +275,24 @@ def build_forecast(records: list[BacktestRecord], future: list[FutureRecord], of
     return forecasts, alerts
 
 
-def run_ensemble(records: list[BacktestRecord], future: list[FutureRecord], cutoff: str, statistical_version: str, ml_version: str | None, config: EnsembleConfig | None = None, target: str = "Venta", published_statistical_wape: float | None = None, published_ml_wape: float | None = None) -> dict:
+def run_ensemble(records: list[BacktestRecord], future: list[FutureRecord], cutoff: str, statistical_version: str, ml_version: str | None, config: EnsembleConfig | None = None, target: str = "Venta", published_statistical_wape: float | None = None, published_ml_wape: float | None = None, promote_challenger: bool = False) -> dict:
     config = config or EnsembleConfig()
     selection = select_strategy(records, config)
     if selection["status"] == "insufficient":
         return {**selection, "engine_version": ENGINE_VERSION, "fallback": "last_valid_forecast"}
+    authorized_promotion = bool(promote_challenger and selection.get("challenger"))
+    if authorized_promotion:
+        previous = selection["official"]
+        promoted = selection["challenger"]
+        selection["official"] = promoted
+        selection["status"] = "champion"
+        selection["decision"] = "challenger_promoted_by_authorized_user"
+        selection["promoted_from"] = previous["strategy"]
+        for candidate in selection["candidates"]:
+            if candidate is promoted:
+                candidate["state"] = "champion"
+            elif candidate is previous:
+                candidate["state"] = "retired_champion"
     forecasts, alerts = build_forecast(records, future, selection["official"], config)
     version = f"FT-FENDI-{cutoff.replace('-', '')}-V01"
     return {
@@ -298,7 +311,7 @@ def run_ensemble(records: list[BacktestRecord], future: list[FutureRecord], cuto
         "forecast_towell": forecasts,
         "alerts": alerts,
         "fallback_order": ["champion_forecast_towell", "champion_statistical", "last_valid_published_forecast"],
-        "publication": {"automatic_promotion": False, "official_state": "champion", "challenger_state": "pending_validation" if selection["challenger"] else None},
+        "publication": {"automatic_promotion": False, "authorized_promotion": authorized_promotion, "official_state": "champion", "challenger_state": None if authorized_promotion else "pending_validation" if selection["challenger"] else None},
         "configuration": asdict(config),
     }
 
@@ -398,13 +411,18 @@ def main() -> None:
     parser.add_argument("--statistical", type=Path, required=True)
     parser.add_argument("--ml", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--promote-challenger", action="store_true", help="Publish an eligible Challenger after explicit user authorization.")
+    parser.add_argument("--series-id", help="Evaluate and publish one grain-aligned series, for example total-fendi-bd.")
     args = parser.parse_args()
     future, models, statistical_version, ml_version, cutoff, statistical_wape, ml_wape = load_future(args.statistical, args.ml)
     series = load_normalized_series(args.input)
     factory = ml_engine.RandomForestGlobal if args.ml else None
     records = build_common_backtest_records(series, models, factory)
+    if args.series_id:
+        records = [row for row in records if row.series_id == args.series_id]
+        future = [row for row in future if row.series_id == args.series_id]
     config = EnsembleConfig(reference_champion_wape=float(statistical_wape) if statistical_wape is not None else 24.0)
-    payload = run_ensemble(records, future, cutoff, statistical_version, ml_version, config, "Venta", statistical_wape, ml_wape)
+    payload = run_ensemble(records, future, cutoff, statistical_version, ml_version, config, "Venta", statistical_wape, ml_wape, args.promote_challenger)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
