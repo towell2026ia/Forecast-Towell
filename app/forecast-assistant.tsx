@@ -56,10 +56,12 @@ function ForecastAssistantContent({ apiEnabled, voiceEnabled, mode, context }: O
   const [lottieFailed, setLottieFailed] = useState(false);
   const sequence = useRef(1);
   const [messages, setMessages] = useState<ConversationMessage[]>([
-    { id: "welcome", role: "assistant", text: "Asistente en preparación para la siguiente fase. Puedes probar la interfaz; no se enviarán datos ni se generará un análisis." },
+    { id: "welcome", role: "assistant", text: apiEnabled
+      ? "Puedes preguntarme por Forecast, WAPE, Bias, Fill Rate, Champion, Challenger y desempeño de productos."
+      : "El asistente local estará disponible cuando se conecte la API Python." },
   ]);
 
-  const logEvent = useCallback((event: "open" | "close" | "mock_response" | "lottie_error" | "ui_error") => {
+  const logEvent = useCallback((event: "open" | "close" | "response" | "lottie_error" | "ui_error") => {
     console.info("[ForecastAssistant]", { event, screen: context.screen });
   }, [context.screen]);
 
@@ -82,7 +84,7 @@ function ForecastAssistantContent({ apiEnabled, voiceEnabled, mode, context }: O
     try {
       const response = await sendAssistantMessage(message, context, { mode, apiEnabled });
       setMessages((current) => [...current, { id: `assistant-${sequence.current++}`, role: "assistant", text: response.message }]);
-      logEvent("mock_response");
+      logEvent("response");
     } catch {
       setMessages((current) => [...current, { id: `assistant-${sequence.current++}`, role: "assistant", text: "La interfaz del asistente no está disponible en este momento." }]);
       logEvent("ui_error");
@@ -123,7 +125,7 @@ function ForecastAssistantContent({ apiEnabled, voiceEnabled, mode, context }: O
             <div className="grid size-10 place-items-center rounded-2xl bg-blue-700 text-white"><Sparkles className="size-5" /></div>
             <div>
               <SheetTitle className="text-base text-slate-950">Asistente FORECAST Towell</SheetTitle>
-              <SheetDescription className="mt-0.5 text-xs">Piloto FENDI BD · modo preparación</SheetDescription>
+              <SheetDescription className="mt-0.5 text-xs">Piloto FENDI BD · consulta local</SheetDescription>
             </div>
           </div>
         </SheetHeader>
@@ -131,7 +133,7 @@ function ForecastAssistantContent({ apiEnabled, voiceEnabled, mode, context }: O
         <ScrollArea className="min-h-0 flex-1">
           <div className="space-y-4 p-5" aria-live="polite" aria-label="Conversación del asistente">
             <div className="rounded-xl border border-blue-100 bg-blue-50 px-3 py-2 text-xs leading-5 text-blue-800">
-              Modo mock activo. Ningún contenido sale de esta sesión.
+              {apiEnabled ? "Consultas sobre resultados existentes del piloto FENDI BD." : "API Python local pendiente de conexión."}
             </div>
             {messages.map((message) => <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
               <div className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-6 ${message.role === "user" ? "rounded-br-md bg-blue-700 text-white" : "rounded-bl-md border border-slate-200 bg-white text-slate-700 shadow-sm"}`}>

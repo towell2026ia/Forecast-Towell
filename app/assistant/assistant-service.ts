@@ -23,12 +23,14 @@ export type AssistantAction = {
 export type AssistantResponse = {
   message: string;
   status: AssistantStatus;
-  source: "mock" | "future-ai";
+  source: "mock" | "local" | "future-ai";
   actions: AssistantAction[];
   metadata: Record<string, string | number | boolean | null>;
+  intent?: string | null;
+  data?: Record<string, unknown>;
 };
 
-export type AssistantMode = "mock" | "future-ai";
+export type AssistantMode = "mock" | "local" | "future-ai";
 
 export interface AssistantProvider {
   send(message: string, context: AssistantContext): Promise<AssistantResponse>;
@@ -53,6 +55,34 @@ export class FutureAIProvider implements AssistantProvider {
   }
 }
 
+export class LocalAssistantProvider implements AssistantProvider {
+  async send(message: string, context: AssistantContext): Promise<AssistantResponse> {
+    const response = await fetch("/api/assistant/message", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ message, context }),
+    });
+    if (!response.ok) {
+      return {
+        message: response.status === 403
+          ? "No tienes permiso para consultar el asistente."
+          : "El servicio local del asistente no está disponible en este momento.",
+        status: "error", source: "local", actions: [], metadata: { apiEnabled: true },
+      };
+    }
+    const result = await response.json() as {
+      message: string; status: string; intent: string | null;
+      data: Record<string, unknown>; metadata: Record<string, string | number | boolean | null>;
+    };
+    return {
+      message: result.message,
+      status: result.status === "success" || result.status === "unrecognized" ? "ready" : "error",
+      source: "local", actions: [], metadata: result.metadata ?? {},
+      intent: result.intent, data: result.data,
+    };
+  }
+}
+
 export async function sendAssistantMessage(
   message: string,
   context: AssistantContext,
@@ -62,9 +92,15 @@ export async function sendAssistantMessage(
     return { message: "Escribe una pregunta para continuar.", status: "ready", source: "mock", actions: [], metadata: {} };
   }
 
-  const provider: AssistantProvider = options.mode === "future-ai" && options.apiEnabled
-    ? new FutureAIProvider()
-    : new MockProvider();
+  if (options.mode === "local" && !options.apiEnabled) {
+    return { message: "El servicio local del asistente está deshabilitado.", status: "disabled",
+      source: "local", actions: [], metadata: { apiEnabled: false } };
+  }
+  const provider: AssistantProvider = options.mode === "local"
+    ? new LocalAssistantProvider()
+    : options.mode === "future-ai" && options.apiEnabled
+      ? new FutureAIProvider()
+      : new MockProvider();
 
   return provider.send(message, context);
 }

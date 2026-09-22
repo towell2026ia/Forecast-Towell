@@ -10,9 +10,9 @@ export default function Home() {
   const assistantConfig = {
     authorized: currentRole === "manager",
     uiEnabled: process.env.AI_ASSISTANT_UI_ENABLED !== "false",
-    apiEnabled: false,
+    apiEnabled: process.env.AI_ASSISTANT_API_ENABLED !== "false" && process.env.NODE_ENV === "development",
     voiceEnabled: false,
-    mode: "mock" as const,
+    mode: "local" as const,
   };
   return <ForecastTowellApp supabaseConfigured={supabaseConfigured} assistantConfig={assistantConfig} />;
 }

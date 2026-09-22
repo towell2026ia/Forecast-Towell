@@ -47,3 +47,5 @@ next-env.d.ts
 # Python caches
 __pycache__/
 *.py[cod]
+/.venv/
+/services/assistant_api/state/
