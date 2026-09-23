@@ -19,6 +19,7 @@ from typing import Any
 from services.ensemble_engine.engine import EnsembleConfig
 
 from .data_provider import DataProvider
+from .availability import GATE_VERSION, TemporalAvailabilityAuditor, _identity
 from .runner import EnginePipeline, ExistingEnginePipeline, LocalResearchProvider, ResearchProvider, _atomic_json, _next_period, _utc, LOGGER
 
 
@@ -115,6 +116,7 @@ class HistoricalForecastRunner:
         self.research = research or LocalResearchProvider()
         self.pipeline = pipeline or ExistingEnginePipeline()
         self.state_dir = Path(state_dir) if state_dir else Path(__file__).resolve().parent / "state" / "historical"
+        self.availability = TemporalAvailabilityAuditor(provider, self.state_dir)
         self._cancel = threading.Event()
 
     def _log(self, run_id: str, period: str | None, step: str, status: str,
@@ -145,7 +147,11 @@ class HistoricalForecastRunner:
             path = self.research.source_dir / f"{period}.json" if self.research.source_dir else None
             if path and path.exists():
                 research_files.append({"period": period, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
-        return _digest({"rows": self._scope_rows(config), "research_files": research_files,
+        return _digest({"rows": self._scope_rows(config),
+                        "availability_assignments": self.availability._assignments(),
+                        "availability_catalog_sha256": self.availability.registry.catalog_sha256,
+                        "availability_gate_version": GATE_VERSION,
+                        "research_files": research_files,
                         "engine_versions": self._engine_versions()})
 
     def _research_snapshot(self, cutoff: str, config: HistoricalRunConfig) -> dict[str, Any]:
@@ -196,41 +202,28 @@ class HistoricalForecastRunner:
         return filtered
 
     def _data_snapshot(self, period: str, cutoff: str, config: HistoricalRunConfig) -> dict[str, Any]:
-        selected = []
-        known_future = []
-        excluded = {"missing_available_at": 0, "after_cutoff": 0,
-                    "future_unknown": 0, "invalid_period": 0, "not_closed": 0}
-        for row in self._scope_rows(config):
-            available = _valid_date(row.get("available_at"))
-            if available is None:
-                excluded["missing_available_at"] += 1
-                continue
-            if available > cutoff:
-                excluded["after_cutoff"] += 1
-                continue
-            observed_period = row.get("period", "")
-            try:
-                _month_end(observed_period)
-            except (ValueError, TypeError):
-                excluded["invalid_period"] += 1
-                continue
-            if observed_period > period:
-                if row.get("objective", "").casefold() in {"fcst cliente", "forecast cliente"}:
-                    known_future.append(row)
-                else:
-                    excluded["future_unknown"] += 1
-                continue
-            if row.get("objective", "").casefold() in {"venta", "pedido", "entrega"}:
-                status = row.get("close_status", "").casefold()
-                if not any(word in status for word in ("closed", "cerrado", "validado")):
-                    excluded["not_closed"] += 1
-                    continue
-            selected.append(row)
-        selected.sort(key=lambda row: (row.get("period", ""), row.get("objective", ""),
-                                       row.get("canonical_product_id", "")))
-        known_future.sort(key=lambda row: (row.get("period", ""), row.get("canonical_product_id", "")))
-        content = {"period": period, "cutoff_date": cutoff, "rows": selected,
-                   "known_future": known_future, "excluded": excluded}
+        gated = self.availability.gate(period, cutoff, chain=config.chain,
+                                       pilot_scope=config.pilot_scope)
+        manifest = {"period": period, "cutoff": cutoff,
+                    "availability_gate_version": GATE_VERSION,
+                    "availability_catalog_sha256": self.availability.registry.catalog_sha256,
+                    "included_records": len(gated["rows"]) + len(gated["known_future"]),
+                    "excluded_records": len(gated["excluded_records"]),
+                    "included_record_ids": [_identity(row) for row in gated["rows"]],
+                    "known_future_record_ids": [_identity(row) for row in gated["known_future"]],
+                    "excluded": gated["excluded_records"],
+                    "exclusion_reasons": gated["exclusion_reasons"]}
+        manifest["hash"] = _digest(manifest)
+        manifest["manifest_id"] = f"IM-FENDI-{period}-{manifest['hash'][:12]}"
+        _immutable_json(self.state_dir / "manifests" / f"{manifest['manifest_id']}.json", manifest)
+        content = {"period": period, "cutoff_date": cutoff,
+                   "availability_gate_version": GATE_VERSION,
+                   "availability_catalog_sha256": self.availability.registry.catalog_sha256,
+                   "rows": gated["rows"],
+                   "known_future": gated["known_future"],
+                   "excluded": gated["exclusion_reasons"],
+                   "input_manifest_id": manifest["manifest_id"],
+                   "input_manifest_hash": manifest["hash"]}
         digest = _digest(content)
         snapshot = {**content, "snapshot_id": f"DS-FENDI-{period}-{digest[:12]}",
                     "hash": digest, "frozen": True}
@@ -253,9 +246,12 @@ class HistoricalForecastRunner:
         while current and current <= period and current in months:
             active.append(current)
             current = _next_period(current)
-        eligible = len(active) >= self.MODEL_REQUIREMENTS["statistical"]["minimum_history_required"] and active[-1] == period if active else False
+        latest = active[-1] if active else None
+        eligible = bool(active and len(active) >= self.MODEL_REQUIREMENTS["statistical"]["minimum_history_required"]
+                        and (latest == period or _next_period(latest) == period))
         return {"earliest_available_period": observed[0] if observed else None,
                 "first_active_period": first_active,
+                "latest_observed_period": latest,
                 "consecutive_active_periods": len(active), "eligible": eligible,
                 "minimum_history_required": self.MODEL_REQUIREMENTS["statistical"]["minimum_history_required"]}
 
@@ -308,12 +304,15 @@ class HistoricalForecastRunner:
         """Evaluate after freezing the vintage; never feed these actuals into models."""
         today = date.today().isoformat()
         by_month: dict[str, list[dict[str, str]]] = {}
-        for row in self._scope_rows(config):
+        for raw in self._scope_rows(config):
+            row = self.availability.resolve(raw)
             if row.get("objective", "").casefold() != "venta" or row.get("is_missing", "").casefold() == "true":
                 continue
             available = _valid_date(row.get("available_at"))
             status = row.get("close_status", "").casefold()
-            if available is None or available > today or not any(word in status for word in ("closed", "cerrado", "validado")):
+            verified = row.get("availability_confidence") in {"verified", "documented"}
+            closed = row.get("closure_status") == "CLOSED" or any(word in status for word in ("closed", "cerrado", "validado"))
+            if available is None or available > today or not verified or not closed:
                 continue
             by_month.setdefault(row.get("period", ""), []).append(row)
         evaluations = []
@@ -350,11 +349,16 @@ class HistoricalForecastRunner:
 
     def run_month(self, period: str, *, parent_run_id: str | None = None,
                   force_rerun: bool = False, actor: str = "local-process",
-                  config: HistoricalRunConfig | None = None) -> dict[str, Any]:
+                  config: HistoricalRunConfig | None = None,
+                  cutoff_date: str | None = None) -> dict[str, Any]:
         config = config or HistoricalRunConfig(period, period)
         if period < config.start or period > config.end:
             raise ValueError("period_outside_config")
-        cutoff = _month_end(period)
+        cutoff = cutoff_date or _month_end(period)
+        if _valid_date(cutoff) != cutoff or not f"{period}-01" <= cutoff <= _month_end(period):
+            raise ValueError("invalid_historical_cutoff")
+        if cutoff > date.today().isoformat():
+            raise ValueError("future_historical_cutoff")
         self._check_cancel(parent_run_id)
         research_start = time.monotonic()
         try:
@@ -372,7 +376,7 @@ class HistoricalForecastRunner:
                         "allow_future_data": config.allow_future_data,
                         "random_seed": config.random_seed,
                         "missing_availability": config.missing_availability}
-        fingerprint = _digest({"period": period, "data_hash": snapshot["hash"],
+        fingerprint = _digest({"period": period, "cutoff": cutoff, "data_hash": snapshot["hash"],
                                "research_hash": research["hash"], "config": month_config,
                                "pipeline": type(self.pipeline).__name__,
                                "research_provider": type(self.research).__name__,
@@ -383,7 +387,8 @@ class HistoricalForecastRunner:
                               run.get("status") in {"COMPLETED", "SKIPPED_INSUFFICIENT_HISTORY"}), None)
             if completed:
                 return completed
-            if existing:
+            if existing and not all(run.get("status") == "SKIPPED_INSUFFICIENT_HISTORY"
+                                    for run in existing):
                 raise ValueError("existing_run_requires_force_rerun")
         run_id = self._next_child_id(period)
         path = self.state_dir / "runs" / f"{run_id}.json"
@@ -393,10 +398,14 @@ class HistoricalForecastRunner:
                                "fingerprint": fingerprint, "research_snapshot_id": research["snapshot_id"],
                                "research_hash": research["hash"], "data_snapshot_id": snapshot["snapshot_id"],
                                "data_hash": snapshot["hash"], "data_provider": self.provider.name,
+                               "input_manifest_id": snapshot["input_manifest_id"],
+                               "input_manifest_hash": snapshot["input_manifest_hash"],
                                "research_provider": research["provider"], "warnings": [], "errors": [],
                                "durations": {"research": research_duration, "data_prep": data_duration},
                                "model_requirements": self.MODEL_REQUIREMENTS,
-                               "training": {"random_seed": config.random_seed, "trained_until": cutoff},
+                               "availability_gate_version": GATE_VERSION,
+                                "training": {"random_seed": config.random_seed,
+                                             "trained_until": None},
                                "versions": {}, "started_at": _utc()}
         started = time.monotonic()
 
@@ -412,6 +421,7 @@ class HistoricalForecastRunner:
         stage("DATA_PREP")
         history = self._history(snapshot, period)
         run["history"] = history
+        run["training"]["trained_until"] = history["latest_observed_period"]
         if not history["eligible"]:
             run["status"] = "SKIPPED_INSUFFICIENT_HISTORY"
             run["step"] = "SKIPPED_INSUFFICIENT_HISTORY"
@@ -468,11 +478,15 @@ class HistoricalForecastRunner:
             final["historical_only"] = True
             final["research_snapshot_id"] = research["snapshot_id"]
             final["data_snapshot_id"] = snapshot["snapshot_id"]
-            final["trained_until"] = cutoff
+            final["input_manifest_id"] = snapshot["input_manifest_id"]
+            final["trained_until"] = history["latest_observed_period"]
             vintage = {"vintage_id": f"V-{run_id}", "issue_period": period,
                        "parent_run_id": parent_run_id, "forecast_version": final["version"],
                        "research_snapshot_id": research["snapshot_id"],
                        "data_snapshot_id": snapshot["snapshot_id"],
+                       "input_manifest_id": snapshot["input_manifest_id"],
+                       "input_manifest_hash": snapshot["input_manifest_hash"],
+                       "cutoff_date": cutoff, "trained_until": history["latest_observed_period"],
                        "forecasts": final["forecast_towell"], "frozen": True}
             vintage["hash"] = _digest(vintage)
             _immutable_json(self.state_dir / "vintages" / f"{vintage['vintage_id']}.json", vintage)
@@ -538,6 +552,51 @@ class HistoricalForecastRunner:
                                     HistoricalRunConfig(run["period"], run["period"]))
         _atomic_json(self.state_dir / "evaluations" / f"{run['vintage_id']}.json", evaluation)
         return evaluation
+
+    def first_vintage(self, *, start: str = "2023-01", end: str = "2026-08",
+                      actor: str = "local-process", force_rerun: bool = False) -> dict[str, Any]:
+        """Run exactly one historically eligible vintage, not a full replay."""
+        candidate = self.availability.find_first_temporally_valid_period(start, end)
+        if candidate is None:
+            report = {"first_real_vintage_validated": False, "status": "BLOCKED_AVAILABILITY",
+                      "reason": "no_temporally_valid_period"}
+            _atomic_json(self.state_dir / "first_vintage.json", report)
+            return report
+        self._log("FIRST-VINTAGE", candidate["period"], "first_valid_period_found", "READY",
+                  cutoff=candidate["cutoff"])
+        self._log("FIRST-VINTAGE", candidate["period"], "first_vintage_started", "RUNNING")
+        run = self.run_month(candidate["period"], cutoff_date=candidate["cutoff"],
+                             actor=actor, force_rerun=force_rerun)
+        if run.get("status") != "COMPLETED":
+            report = {"first_real_vintage_validated": False, "status": run.get("status"),
+                      "run_id": run.get("run_id"), "errors": run.get("errors", [])}
+            _atomic_json(self.state_dir / "first_vintage.json", report)
+            return report
+        data = json.loads((self.state_dir / "data" / f"{run['data_snapshot_id']}.json").read_text(encoding="utf-8"))
+        research = json.loads((self.state_dir / "research" / f"{run['research_snapshot_id']}.json").read_text(encoding="utf-8"))
+        vintage = json.loads((self.state_dir / "vintages" / f"{run['vintage_id']}.json").read_text(encoding="utf-8"))
+        cutoff = candidate["cutoff"]
+        data_leakage = sum((_valid_date(row.get("available_at")) or "9999-12-31") > cutoff
+                           for row in data["rows"] + data["known_future"])
+        research_leakage = sum((_valid_date(row.get("published_at")) or "9999-12-31") > cutoff
+                               for row in research["sources"] + research["signals"])
+        forecasts = vintage.get("forecasts", [])
+        bands_ready = len(forecasts) == 12 and all(
+            all(key in (forecast.get("probability") or {}) for key in ("p10", "p50", "p90", "p95"))
+            for forecast in forecasts)
+        valid = (data_leakage == research_leakage == 0 and bands_ready and vintage.get("frozen") is True
+                 and bool(vintage.get("input_manifest_id")))
+        report = {"first_real_vintage_validated": valid, "status": "PASS" if valid else "FAIL",
+                  "period": candidate["period"], "cutoff": cutoff, "run_id": run["run_id"],
+                  "vintage_id": run["vintage_id"], "vintage_hash": run["vintage_hash"],
+                  "input_manifest_id": run["input_manifest_id"],
+                  "research_snapshot_id": run["research_snapshot_id"],
+                  "data_snapshot_id": run["data_snapshot_id"],
+                  "data_leakage": data_leakage, "research_leakage": research_leakage,
+                  "forecast_horizons": len(forecasts), "probability_bands_ready": bands_ready}
+        _atomic_json(self.state_dir / "first_vintage.json", report)
+        self._log("FIRST-VINTAGE", candidate["period"], "first_vintage_completed", report["status"])
+        return report
 
     def _next_parent_id(self) -> str:
         jobs = (self.state_dir / "jobs").glob("HRUN-FENDI-*.json")

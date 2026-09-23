@@ -17,6 +17,23 @@ def main() -> None:
     parser.add_argument("--data-dir", type=Path, help="Directory with normalized fendi-engine-series.csv")
     parser.add_argument("--research-dir", type=Path, help="Optional local YYYY-MM.json evidence snapshots")
     commands = parser.add_subparsers(dest="command", required=True)
+    audit = commands.add_parser("availability-audit")
+    audit.add_argument("--start", default="2023-01")
+    audit.add_argument("--end", default="2026-08")
+    audit.add_argument("--chain", default="Walmart")
+    audit.add_argument("--dry-run", action="store_true")
+    backfill = commands.add_parser("availability-backfill")
+    backfill.add_argument("--source-dir", type=Path, required=True)
+    backfill.add_argument("--apply", action="store_true")
+    backfill.add_argument("--dry-run", action="store_true")
+    first_valid = commands.add_parser("availability-first-valid")
+    first_valid.add_argument("--start", default="2023-01")
+    first_valid.add_argument("--end", default="2026-08")
+    first_valid.add_argument("--chain", default="Walmart")
+    first_vintage = commands.add_parser("availability-first-vintage")
+    first_vintage.add_argument("--start", default="2023-01")
+    first_vintage.add_argument("--end", default="2026-08")
+    first_vintage.add_argument("--force-rerun", action="store_true")
     historical = commands.add_parser("historical")
     historical.add_argument("--start", required=True)
     historical.add_argument("--end", required=True)
@@ -35,7 +52,18 @@ def main() -> None:
     runner = HistoricalForecastRunner(NormalizedDataProvider(data_dir=args.data_dir or DATA),
                                       research=LocalResearchProvider(args.research_dir),
                                       state_dir=args.state_dir)
-    if args.command == "historical":
+    if args.command == "availability-audit":
+        result = runner.availability.audit_availability(args.start, args.end, chain=args.chain)
+    elif args.command == "availability-backfill":
+        result = runner.availability.backfill_availability(args.source_dir,
+                                                           dry_run=not args.apply)
+    elif args.command == "availability-first-valid":
+        result = runner.availability.find_first_temporally_valid_period(args.start, args.end,
+                                                                        chain=args.chain)
+    elif args.command == "availability-first-vintage":
+        result = runner.first_vintage(start=args.start, end=args.end,
+                                      force_rerun=args.force_rerun)
+    elif args.command == "historical":
         result = runner.run_range(args.start, args.end, stop_on_error=not args.continue_on_error,
                                   force_rerun=args.force_rerun)
     elif args.command == "month":

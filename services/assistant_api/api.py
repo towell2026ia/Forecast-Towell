@@ -4,15 +4,17 @@ from __future__ import annotations
 
 import hmac
 import os
+from pathlib import Path
 from typing import Any
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from .data_provider import DataProvider, NormalizedDataProvider
+from .historical_runner import HistoricalForecastRunner
 from .orchestrator import ForecastOrchestrator
 
-API_VERSION = "prd08b-1.0.0"
+API_VERSION = "prd08c1-1.0.0"
 
 
 class AssistantMessage(BaseModel):
@@ -44,11 +46,49 @@ def _authorized_actor(request: Request, x_assistant_token: str | None = Header(d
     return x_actor_id
 
 
-def create_app(provider: DataProvider | None = None) -> FastAPI:
+def create_app(provider: DataProvider | None = None, historical_state_dir: Path | None = None) -> FastAPI:
     data = provider or NormalizedDataProvider()
     app = FastAPI(title="FORECAST Towell Assistant API", version=API_VERSION)
     orchestrator = ForecastOrchestrator(data)
     app.state.orchestrator = orchestrator
+    state_dir = historical_state_dir or (getattr(data, "state_dir", None) / "historical"
+                                         if getattr(data, "state_dir", None) else None)
+    historical = HistoricalForecastRunner(data, state_dir=state_dir)
+    app.state.historical = historical
+
+    @app.get("/api/historical/availability/audit")
+    def historical_availability_audit(chain: str = "Walmart", start_period: str = "2023-01",
+                                      end_period: str = "2026-08",
+                                      actor: str = Depends(_authorized_actor)) -> dict[str, Any]:
+        _ = actor
+        try:
+            return historical.availability.audit_availability(start_period, end_period, chain=chain)
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from None
+
+    @app.get("/api/historical/readiness/{period}")
+    def historical_readiness(period: str, chain: str = "Walmart", cutoff: str | None = None,
+                             actor: str = Depends(_authorized_actor)) -> dict[str, Any]:
+        _ = actor
+        try:
+            return historical.availability.validate_temporal_readiness(period, chain=chain, cutoff=cutoff)
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from None
+
+    @app.get("/api/historical/first-valid-period")
+    def historical_first_valid(chain: str = "Walmart", start_period: str = "2023-01",
+                               end_period: str = "2026-08",
+                               actor: str = Depends(_authorized_actor)) -> dict[str, Any]:
+        _ = actor
+        try:
+            return {"first_valid_period": historical.availability.find_first_temporally_valid_period(
+                start_period, end_period, chain=chain)}
+        except ValueError as exc:
+            raise HTTPException(status_code=400, detail=str(exc)) from None
+
+    @app.post("/api/historical/first-vintage")
+    def historical_first_vintage(actor: str = Depends(_authorized_actor)) -> dict[str, Any]:
+        return historical.first_vintage(actor=actor)
 
     @app.get("/api/health")
     def health() -> dict[str, Any]:

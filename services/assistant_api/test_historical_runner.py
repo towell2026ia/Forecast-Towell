@@ -33,6 +33,10 @@ def source_rows() -> list[dict[str, str]]:
     rows.append({"chain": "Walmart", "pilot_scope": "FENDI BD", "objective": "Venta",
                  "canonical_product_id": "sku-1", "period": "2024-09", "value": "99999",
                  "available_at": "2024-09-30", "is_missing": "False", "close_status": "open"})
+    for row in rows:
+        row.update({"availability_source": "system_timestamp",
+                    "availability_confidence": "verified",
+                    "availability_rule_id": "DIRECT_TIMESTAMP_V1"})
     return rows
 
 
@@ -145,7 +149,7 @@ class HistoricalRunnerTests(unittest.TestCase):
             data = json.loads((runner.state_dir / "data" / f"{result['data_snapshot_id']}.json").read_text())
             self.assertTrue(all(row["period"] <= "2024-07" for row in data["rows"]))
             self.assertTrue(all(row["available_at"] <= "2024-07-31" for row in data["rows"]))
-            self.assertEqual(data["excluded"]["after_cutoff"], 3)
+            self.assertEqual(data["excluded"]["available_after_cutoff"], 3)
             vintage = json.loads((runner.state_dir / "vintages" / f"{result['vintage_id']}.json").read_text())
             self.assertEqual(len(vintage["forecasts"]), 12)
             self.assertEqual(vintage["forecasts"][0]["probability"]["p95"], 120.0)
@@ -265,9 +269,30 @@ class HistoricalRunnerTests(unittest.TestCase):
             runner.provider.rows.append({"chain": "Walmart", "pilot_scope": "FENDI BD",
                                          "objective": "Venta", "canonical_product_id": "sku-2",
                                          "period": "2024-07", "value": "5", "available_at": "2024-07-31",
+                                         "availability_source": "system_timestamp",
+                                         "availability_confidence": "verified",
                                          "is_missing": "False", "close_status": "closed"})
             with self.assertRaisesRegex(ValueError, "historical_inputs_changed_requires_force_rerun"):
                 runner.run_range("2024-07", "2024-07")
+
+    def test_first_vintage_is_frozen_with_manifest_and_no_future_inputs(self):
+        with tempfile.TemporaryDirectory() as directory:
+            runner, pipeline = self.make_runner(directory)
+            report = runner.first_vintage(start="2024-01", end="2024-08")
+            self.assertTrue(report["first_real_vintage_validated"])
+            self.assertEqual(report["period"], "2024-07")
+            self.assertEqual(report["data_leakage"], 0)
+            self.assertEqual(report["research_leakage"], 0)
+            self.assertEqual(pipeline.events, ["statistical", "ml", "ensemble"])
+            manifest = json.loads((runner.state_dir / "manifests" /
+                                   f"{report['input_manifest_id']}.json").read_text())
+            self.assertGreater(manifest["included_records"], 0)
+            self.assertGreater(manifest["excluded_records"], 0)
+            self.assertEqual(manifest["exclusion_reasons"]["available_after_cutoff"], 3)
+            vintage = json.loads((runner.state_dir / "vintages" /
+                                  f"{report['vintage_id']}.json").read_text())
+            self.assertTrue(vintage["frozen"])
+            self.assertEqual(vintage["input_manifest_hash"], manifest["hash"])
 
 
 if __name__ == "__main__":

@@ -34,6 +34,21 @@ class AssistantApiTests(unittest.TestCase):
         self.assertEqual(result["data"]["wape"], 12.3678)
         self.assertEqual(result["metadata"]["executed_command"], False)
 
+    def test_historical_read_endpoints_are_protected_and_available(self):
+        self.assertEqual(self.client.get("/api/historical/availability/audit").status_code, 403)
+        audit = self.client.get("/api/historical/availability/audit",
+                                params={"start_period": "2023-01", "end_period": "2026-08"},
+                                headers=self.headers)
+        self.assertEqual(audit.status_code, 200, audit.text)
+        self.assertEqual(audit.json()["periods_audited"], 44)
+        readiness = self.client.get("/api/historical/readiness/2026-08", headers=self.headers)
+        self.assertEqual(readiness.status_code, 200)
+        self.assertIn("blocking_fields", readiness.json())
+        first = self.client.get("/api/historical/first-valid-period", headers=self.headers)
+        self.assertEqual(first.status_code, 200)
+        self.assertIn("first_valid_period", first.json())
+        self.assertEqual(self.client.post("/api/historical/first-vintage").status_code, 403)
+
     def test_forecast_wape_fill_rate_and_bands(self):
         forecast = self.ask("Dame el forecast de 12 meses.")
         self.assertEqual(len(forecast["data"]["horizons"]), 12)
